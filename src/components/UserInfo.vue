@@ -1,14 +1,3 @@
-<script>
-
-export default {
-  data() {
-    return {
-      name: 'Spelare'
-    }
-  }
-}
-</script>
-
 <template>
   <div class="user-wrapper">
     <div class="user-img-wrapper">
@@ -19,6 +8,17 @@ export default {
     </div>
   </div>
 </template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      name: 'Spelare'
+    }
+  }
+}
+</script>
 
 <style scoped>
   img {
