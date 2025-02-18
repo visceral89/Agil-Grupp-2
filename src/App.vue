@@ -1,13 +1,15 @@
 <script>
-import NavbarTop from "./components/NavbarTop.vue";
+import { RouterView } from 'vue-router';
 
 export default {
-	components: { NavbarTop },
-};
+  components: {
+    RouterView
+  }
+}
 </script>
 
 <template>
-	<NavbarTop />
+
 </template>
 
 <style scoped>
