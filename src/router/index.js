@@ -1,5 +1,6 @@
 // Router går här
 import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
 
 export default createRouter({
 	history: createWebHistory("/"),
@@ -7,12 +8,7 @@ export default createRouter({
 		{
 			path: "/",
 			name: "Login",
-			component: Hej,
-		},
-		{
-			path: "",
-			name: "Profil",
-			component: Hej,
+			component: Home,
 		},
 	],
 });
