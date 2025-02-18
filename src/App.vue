@@ -1,17 +1,11 @@
 <script>
-import { RouterView } from 'vue-router';
-
 export default {
-  components: {
-    RouterView
-  }
-}
+	name: "App",
+};
 </script>
 
 <template>
-  <RouterView />
+	<RouterView />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
