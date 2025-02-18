@@ -1,7 +1,6 @@
 <script>
 import { RouterLink } from 'vue-router';
 import UserInfo from '../components/UserInfo.vue';
-import UserInfo from '../components/UserInfo.vue';
 
 export default {
   components: {
@@ -12,7 +11,7 @@ export default {
 
 <template>
   <UserInfo />
-  
+
   <RouterLink> <!-- btn to 1p game -->
 
   </RouterLink>
