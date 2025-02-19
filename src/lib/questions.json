@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "category": "Historia",
+    "question": "Vem var Sveriges första kung?",
+    "answers": [
+      "Gustav Vasa",
+      "Karl XII",
+      "Birger Jarl"
+    ],
+    "points": 100,
+    "answer": "Gustav Vasa"
+  },
+  {
+    "id": 2,
+    "category": "Geografi",
+    "question": "Vad heter världens största ö?",
+    "answers": [
+      "Australien",
+      "Grönland",
+      "Madagaskar"
+    ],
+    "points": 100,
+    "answer": "Grönland"
+  },
+  {
+    "id": 3,
+    "category": "Musik",
+    "question": "Vilket svenskt band sjöng 'Dancing Queen'?",
+    "answers": [
+      "ABBA",
+      "Europe",
+      "Roxette"
+    ],
+    "points": 100,
+    "answer": "ABBA"
+  }
+]
