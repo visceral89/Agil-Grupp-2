@@ -24,6 +24,7 @@ export default {
   img {
     width: 130px;
     border-radius: 50%;
+    margin: auto;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   }
 </style>
