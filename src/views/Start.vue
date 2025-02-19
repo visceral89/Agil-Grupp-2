@@ -1,9 +1,11 @@
 <script>
 import UserInfo from "../components/UserInfo.vue";
+import Button from "../components/Button.vue"
 
 export default {
 	components: {
 		UserInfo,
+		Button
 	},
 };
 </script>
@@ -11,9 +13,9 @@ export default {
 <template>
 	<UserInfo />
 
-	<RouterLink to="/"> <!-- btn to 1p game --> </RouterLink>
+	<RouterLink to="/game"> <Button>Starta spel 1p</Button> </RouterLink>
 
-	<RouterLink to="/"> <!-- btn to 2p game --> </RouterLink>
+	<RouterLink to="/game"> <Button>Starta spel 2p</Button> </RouterLink>
 </template>
 
 <style scoped></style>
