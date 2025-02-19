@@ -1,26 +1,20 @@
 <script>
-import { RouterLink } from 'vue-router';
-import UserInfo from '../components/UserInfo.vue';
+import UserInfo from "../components/UserInfo.vue";
 
 export default {
-  components: {
-    UserInfo
-  }
-}
+	components: {
+		UserInfo,
+	},
+};
 </script>
 
 <template>
-  <UserInfo /> <!-- userinfo displayed here -->
-  
-  <RouterLink> <!-- btn to 1p game -->
+	<UserInfo />
+	<!-- userinfo displayed here -->
 
-  </RouterLink>
+	<router-link to="/"> <!-- btn to 1p game --> </router-link>
 
-  <RouterLink> <!-- btn to 2p game -->
-
-  </RouterLink>
+	<router-link to="/"> <!-- btn to 2p game --> </router-link>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

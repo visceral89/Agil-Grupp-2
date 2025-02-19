@@ -2,22 +2,24 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import Start from "../views/Start.vue";
+import Game from "../views/Game.vue";
+import Login from "../views/Login.vue";
 
 export default createRouter({
 	history: createWebHistory("/"),
 	routes: [
 		{
-			path: "/",
+			path: "/login",
 			name: "Login",
-			component: Hej,
+			component: Login,
 		},
 		{
-			path: "",
-			name: "Profil",
-			component: Hej,
+			path: "/game",
+			name: "Game",
+			component: Game,
 		},
 		{
-			path: "/start",
+			path: "/",
 			name: "Start",
 			component: Start,
 		},
