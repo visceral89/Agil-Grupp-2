@@ -16,10 +16,17 @@
 </script>
 
 <style scoped>
-  #gameboard {
-    width: 200px;
-    height: 200px;
+  #game-board {
+    width: 279px;
+    height: 386px;
     border-radius: 6px;
     background-color: rgba(246, 246, 246, 0.3);
+  }
+  .game-card {
+    width: 82px;
+    height: 44px;
+    border-radius: 6px;
+    background-color: #E4CFF1;
+    box-shadow: -2px 4px 0 0 rgba(0, 0, 0, 0.2) ;
   }
 </style>
