@@ -1,7 +1,7 @@
 <script>
 export default {
 	data() {
-		return { isSubMenuOpen };
+		return { isSubMenuOpen: false };
 	},
 };
 </script>
