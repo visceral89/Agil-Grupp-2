@@ -10,13 +10,13 @@ export default {
 		<div class="navbar-padding">
 			<div class="navbar-content-mobile">
 				<router-link to="/" style="display: contents">
-					<span class="material-icons md-36">leaderboard</span></router-link
+					<span class="material-symbols-outlined md-36">leaderboard</span></router-link
 				>
 				<router-link to="/" style="display: contents"
 					><span id="crown" class="material-symbols-outlined md-36">crown</span></router-link
 				>
 				<router-link to="/" style="display: contents"
-					><span class="material-icons md-36">settings</span></router-link
+					><span class="material-symbols-outlined md-36">settings</span></router-link
 				>
 			</div>
 		</div>

@@ -8,9 +8,11 @@ export default {
 <template>
 	<nav class="navbar">
 		<div class="navbar-content-mobile">
-			<router-link to="/"> <span class="material-icons md-36">account_circle</span></router-link>
+			<router-link to="/">
+				<span class="material-symbols-outlined md-36">account_circle</span></router-link
+			>
 			<img src="../assets/FF-simple-logo.webp" alt="frage fejden logo" />
-			<router-link to="/"><span class="material-icons md-36">help</span></router-link>
+			<router-link to="/"><span class="material-symbols-outlined md-36">help</span></router-link>
 		</div>
 		<div class="navbar-content-desktop">
 			<div class="logo-container">
