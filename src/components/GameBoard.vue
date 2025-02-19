@@ -1,6 +1,6 @@
 <template>
   <div id="game-wrapper">
-    <div id="question-wrapper">
+    <div class="question-wrapper">
       <h2>Välj fråga</h2>
     </div>
     
@@ -44,9 +44,6 @@
 </script>
 
 <style scoped>
-  #question-wrapper {
-    text-align: center;
-  }
   h2, .category-card, .game-card {
     font-family: Poppins;
     line-height: normal;

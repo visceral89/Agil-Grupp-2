@@ -1,18 +1,18 @@
 <script>
   import GameBoard from '../components/GameBoard.vue';
-  import ChosenQuestion from '../components/ChosenQuestion.vue';
+  import GameCard from '../components/GameCard.vue';
 
   export default {
     components: {
       GameBoard,
-      ChosenQuestion
+      GameCard
     }
   }
 </script>
 
 <template>
   <GameBoard />
-  <ChosenQuestion />
+  <GameCard />
 </template>
 
 <style scoped>
