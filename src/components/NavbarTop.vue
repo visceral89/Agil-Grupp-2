@@ -11,12 +11,12 @@ export default {
 			<router-link to="/">
 				<span class="material-symbols-outlined md-36">account_circle</span></router-link
 			>
-			<img src="../assets/FF-simple-logo.webp" alt="frage fejden logo" />
+			<img src="../assets/logo/FF-simple-logo.webp" alt="frage fejden logo" />
 			<router-link to="/"><span class="material-symbols-outlined md-36">help</span></router-link>
 		</div>
 		<div class="navbar-content-desktop">
 			<div class="logo-container">
-				<img src="../assets/FF-simple-logo.webp" alt="frage fejden logo" />
+				<img src="../assets/logo/FF-simple-logo.webp" alt="frage fejden logo" />
 			</div>
 			<div class="links-container">
 				<router-link to="/">spela</router-link>
@@ -30,6 +30,7 @@ export default {
 <style scoped>
 span {
 	font-size: 40px;
+	color: #e8e8e8;
 }
 img {
 	width: 154px;
