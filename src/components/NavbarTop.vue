@@ -8,13 +8,15 @@ export default {
 <template>
 	<nav class="navbar">
 		<div class="navbar-content-mobile">
-			<router-link to="/"> <span class="material-icons md-36">account_circle</span></router-link>
-			<img src="../assets/FF-simple-logo.webp" alt="frage fejden logo" />
-			<router-link to="/"><span class="material-icons md-36">help</span></router-link>
+			<router-link to="/">
+				<span class="material-symbols-outlined md-36">account_circle</span></router-link
+			>
+			<img src="../assets/logo/FF-simple-logo.webp" alt="frage fejden logo" />
+			<router-link to="/"><span class="material-symbols-outlined md-36">help</span></router-link>
 		</div>
 		<div class="navbar-content-desktop">
 			<div class="logo-container">
-				<img src="../assets/FF-simple-logo.webp" alt="frage fejden logo" />
+				<img src="../assets/logo/FF-simple-logo.webp" alt="frage fejden logo" />
 			</div>
 			<div class="links-container">
 				<router-link to="/">spela</router-link>
@@ -27,8 +29,8 @@ export default {
 </template>
 <style scoped>
 span {
-	height: 40px;
-	width: 40px;
+	font-size: 40px;
+	color: #e8e8e8;
 }
 img {
 	width: 154px;

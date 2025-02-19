@@ -3,80 +3,72 @@ export default {
 	data() {
 		return { isSubMenuOpen: false };
 	},
+	methods: {
+		toggleSubMenu() {
+			this.isSubMenuOpen = !this.isSubMenuOpen;
+		},
+	},
 };
 </script>
 <template>
 	<nav class="navbar">
-		<div class="navbar-content-mobile">
-			<router-link to="/"> <span class="material-icons md-36">account_circle</span></router-link>
-			<img src="../assets/FF-simple-logo.webp" alt="frage fejden logo" />
-			<router-link to="/"><span class="material-icons md-36">help</span></router-link>
-		</div>
-		<!-- Behövs ingen desktop navbar. Gömmer Ta bort denna när alla länkarna är inne.
-		<div class="navbar-content-desktop">
-			<div class="logo-container">
-				<img src="../assets/FF-simple-logo.webp" alt="frage fejden logo" />
+		<div class="navbar-padding">
+			<div class="navbar-content-mobile">
+				<router-link to="/" style="display: contents">
+					<span class="material-symbols-outlined md-36">leaderboard</span></router-link
+				>
+				<router-link to="/" style="display: contents"
+					><span id="crown" class="material-symbols-outlined md-36" @click="toggleSubMenu"
+						>crown</span
+					></router-link
+				>
+				<router-link to="/" style="display: contents"
+					><span class="material-symbols-outlined md-36">settings</span></router-link
+				>
 			</div>
-			<div class="links-container">
-				<router-link to="/">spela</router-link>
-				<router-link to="/">ranking</router-link>
-				<router-link to="/">profil</router-link>
-				<router-link to="/">inställningar</router-link>
+			<!--
+			<div class="navbar-submenu" v-if="isSubMenuOpen">
+				<router-link to="/" style="display: contents"></router-link>
+				<router-link to="/" style="display: contents"></router-link>
+				<router-link to="/" style="display: contents"></router-link>
 			</div>
+			-->
 		</div>
-		--></nav>
+	</nav>
 </template>
 <style scoped>
 span {
-	height: 40px;
-	width: 40px;
-}
-img {
-	width: 154px;
-	height: 77px;
+	font-size: 34px;
+	color: #e8e8e8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .navbar {
 	width: 100%;
-	background: transparent;
-	/* Ersätt med snyggare lösning i global SCSS! */
-	text-transform: uppercase;
-	font-weight: bold;
+}
+.navbar-padding {
+	padding-left: 6px;
+	padding-right: 6px;
 }
 .navbar-content-mobile {
-	padding: 16px 20px;
+	padding: 16px 70px;
+	border-radius: 6px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	background: rgba(246, 246, 246, 0.3);
+	position: relative;
 }
-
-.navbar-content-desktop {
-	display: none;
-}
-
-.logo-container {
-	display: flex;
-	flex-grow: 1;
-}
-.links-container {
-	display: flex;
-	gap: 2rem;
+#crown {
+	font-size: 50px;
 }
 
 @media (min-width: 890px) {
 	.navbar-content-mobile {
 		display: none;
-	}
-	.navbar-content-desktop {
-		padding: 16px 50px;
-		display: flex;
-		align-items: center;
-	}
-}
-@media (min-width: 1200px) {
-	.links-container {
-		gap: 100px;
 	}
 }
 </style>
