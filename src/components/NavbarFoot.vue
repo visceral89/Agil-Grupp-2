@@ -53,6 +53,7 @@ span {
 	padding-right: 6px;
 }
 .navbar-content-mobile {
+	background: var(--color-primary-menu-background);
 	padding: 16px 70px;
 	border-radius: 6px;
 	display: flex;
