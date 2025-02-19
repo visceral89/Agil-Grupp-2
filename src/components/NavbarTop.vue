@@ -29,8 +29,7 @@ export default {
 </template>
 <style scoped>
 span {
-	height: 40px;
-	width: 40px;
+	font-size: 40px;
 }
 img {
 	width: 154px;

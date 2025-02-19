@@ -3,6 +3,11 @@ export default {
 	data() {
 		return { isSubMenuOpen: false };
 	},
+	methods: {
+		toggleSubMenu() {
+			this.isSubMenuOpen = !this.isSubMenuOpen;
+		},
+	},
 };
 </script>
 <template>
@@ -13,19 +18,27 @@ export default {
 					<span class="material-symbols-outlined md-36">leaderboard</span></router-link
 				>
 				<router-link to="/" style="display: contents"
-					><span id="crown" class="material-symbols-outlined md-36">crown</span></router-link
+					><span id="crown" class="material-symbols-outlined md-36" @click="toggleSubMenu"
+						>crown</span
+					></router-link
 				>
 				<router-link to="/" style="display: contents"
 					><span class="material-symbols-outlined md-36">settings</span></router-link
 				>
 			</div>
+			<!--
+			<div class="navbar-submenu" v-if="isSubMenuOpen">
+				<router-link to="/" style="display: contents"></router-link>
+				<router-link to="/" style="display: contents"></router-link>
+				<router-link to="/" style="display: contents"></router-link>
+			</div>
+			-->
 		</div>
 	</nav>
 </template>
 <style scoped>
 span {
-	height: 37px;
-	width: 37px;
+	font-size: 34px;
 	color: #e8e8e8;
 	display: flex;
 	justify-content: center;
@@ -47,21 +60,15 @@ span {
 	justify-content: space-between;
 	align-items: center;
 	background: rgba(246, 246, 246, 0.3);
+	position: relative;
+}
+#crown {
+	font-size: 50px;
 }
 
 @media (min-width: 890px) {
 	.navbar-content-mobile {
 		display: none;
-	}
-	.navbar-content-desktop {
-		padding: 16px 50px;
-		display: flex;
-		align-items: center;
-	}
-}
-@media (min-width: 1200px) {
-	.links-container {
-		gap: 100px;
 	}
 }
 </style>
