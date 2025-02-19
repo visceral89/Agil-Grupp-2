@@ -7,16 +7,18 @@ export default {
 </script>
 <template>
 	<nav class="navbar">
-		<div class="navbar-content-mobile">
-			<router-link to="/" style="display: contents">
-				<span class="material-icons md-36">leaderboard</span></router-link
-			>
-			<router-link to="/" style="display: contents"
-				><span id="crown" class="material-icons md-36">crown</span></router-link
-			>
-			<router-link to="/" style="display: contents"
-				><span class="material-icons md-36">settings</span></router-link
-			>
+		<div class="navbar-padding">
+			<div class="navbar-content-mobile">
+				<router-link to="/" style="display: contents">
+					<span class="material-icons md-36">leaderboard</span></router-link
+				>
+				<router-link to="/" style="display: contents"
+					><span id="crown" class="material-symbols-outlined md-36">crown</span></router-link
+				>
+				<router-link to="/" style="display: contents"
+					><span class="material-icons md-36">settings</span></router-link
+				>
+			</div>
 		</div>
 	</nav>
 </template>
@@ -33,8 +35,13 @@ span {
 .navbar {
 	width: 100%;
 }
+.navbar-padding {
+	padding-left: 6px;
+	padding-right: 6px;
+}
 .navbar-content-mobile {
 	padding: 16px 70px;
+	border-radius: 6px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
