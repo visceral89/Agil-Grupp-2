@@ -1,4 +1,4 @@
-<template></template>
+<template>// Template</template>
 <script>
 export default {
 	data() {
