@@ -17,6 +17,8 @@
 
 <style scoped>
   #gameboard {
+    width: 200px;
+    height: 200px;
     border-radius: 6px;
     background-color: rgba(246, 246, 246, 0.3);
   }
