@@ -1,19 +1,24 @@
 <template>
-  <div id="game-board">
-    <!-- Categories -->
-    <div v-for="(category, index) in categories" :key="index" class="category-card"> 
-      <p>{{ category }}</p>
+  <div id="game-wrapper">
+    <div id="question-wrapper">
+      <h2>Välj fråga</h2>
     </div>
-
-    <!-- Game-cards -->
-    <div v-for="(questionCard, index) in questionCards" :key="index" class="game-card">
-      <p>{{ questionCard.points }}</p>
+    
+    <div id="game-board">
+      <!-- Categories -->
+      <div v-for="(category, index) in categories" :key="index" class="category-card"> 
+        <p>{{ category }}</p>
+      </div>
+  
+      <!-- Game-cards -->
+      <div v-for="(questionCard, index) in questionCards" :key="index" class="game-card">
+        <p>{{ questionCard.points }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
   export default {
     data() {
       return {
@@ -39,6 +44,20 @@
 </script>
 
 <style scoped>
+  #question-wrapper {
+    text-align: center;
+  }
+  h2, .category-card, .game-card {
+    font-family: Poppins;
+    line-height: normal;
+  }
+  h2 {
+    color: #FFF;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+  }
   #game-board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -55,10 +74,8 @@
     width: 82px;
     height: 44px;
     border-radius: 6px;
-    font-family: Poppins;
     font-size: 14px;
     font-weight: 400;
-    line-height: normal;
   }
   .category-card {
     background-color: #6D4192;
