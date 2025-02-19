@@ -1,5 +1,17 @@
 @use "./styles/variables";
 
+:root {
+    --color-primary-light: #f0f0f0;
+    --color-primary-dark: #1F1F1F;
+    --color-primary-background: #E4CFF1;
+    --color-primary-accent: #677DD2;
+    --color-primary-menu-background: rgba(246, 246, 246, .3);
+    
+    --color-category-background: #6D4192;
+
+    --gradient-primary-background: linear-gradient(0deg, rgba(132,61,173,1) 0%, rgba(77,27,138,1) 100%);
+}
+
 body {
 	margin: 0;
 	min-width: 320px;
