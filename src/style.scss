@@ -1,36 +1,56 @@
 @use "./styles/variables";
 
 :root {
-    --color-primary-light: #f0f0f0;
-    --color-primary-dark: #1F1F1F;
+    --color-neutral-light: #f0f0f0;
+    --color-neutral-dark: #1F1F1F;
     
     --color-card-background: #E4CFF1; /* Används som bakgrund för answers, poäng-kort & cards i highscore */
+    --color-card-hover: #6A4C7C;
     --color-category-background: #6D4192;
-    --color-accent: #677DD2;
-    --color-menu-background: rgba(246, 246, 246, .3);
-
+    --color-secondary: #677DD2;
+    --color-accent: #e6ac30;
+    --color-disabled: #9398AA;
+    
+    --color-navbar-foot-background: rgba(246, 246, 246, .3);
     --gradient-primary-background: linear-gradient(0deg, rgba(132,61,173,1) 0%, rgba(77,27,138,1) 100%);
+
+    --border-radius: 0.625em;
+    --box-shadow: -2px 4px rgba(0, 0, 0, .3);
+    --padding-card: 0.875em 1.375em ;
+    --transition: all 200ms ease-in-out;
 }
 
 body {
     background: var(--gradient-primary-background);
+    color: var(--color-neutral-light);
+    font-family: 'Poppins';
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
 }
 
+a {
+    color: var(--color-neutral-light);
+    text-decoration: none;
+    transition: var(--transition);
+    &:hover {
+        color: var(--color-accent);
+    }
+}
+
 button {
-    background-color: white; /* Ändra till variabel? */
+    background-color: var(--color-card-background);
     border: none;
-    border-radius: .5em;
-    color: black; /* Ändra till variabel? */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--color-neutral-dark);
     cursor: pointer;
     font-size: 1em;
-    padding: .6em 1em;
-    transition: all 200ms ease-in-out;
+    padding: var(--padding-card);
+    transition: var(--transition);
     &:hover {
-        background-color: black;
-        color: white;
+        background-color: var(--color-card-hover);
+        color: var(--color-neutral-light);
     }
 }
 
