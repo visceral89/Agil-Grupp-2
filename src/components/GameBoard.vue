@@ -4,7 +4,9 @@
 			<h2>Välj fråga</h2>
 		</div>
 
-		<div id="game-board"></div>
+		<div id="game-board">
+			<div class="category-column" v-for="category in categoryList">{{ category }}</div>
+		</div>
 	</div>
 </template>
 
@@ -14,16 +16,28 @@ export default {
 	data() {
 		return {
 			questions: questions,
+			categoryList: [],
+			questionsList: [],
 		};
 	},
 	methods: {
 		createBoard() {
-			// Här skapar vi spelbrädet.
+			//Hantera Kategorier
+			// Skapa ett set av en array, alla unika.
+			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+			this.categoryList = [...new Set(this.questions.map((question) => question.category))];
+			//console.log(this.questions[0].category);
+
+			for (let i = 0; i > this.categoryList.length; i++) {
+				this.questionsList[i] = questions.filter(
+					(question) => this.questionsList[i] === question.category
+				);
+			}
+			console.log(this.questionsList);
 		},
 	},
-	computed() {
-    // Här gör vi justeringar på allt som finns.
-  },
+
 	created() {
 		this.createBoard();
 	},
