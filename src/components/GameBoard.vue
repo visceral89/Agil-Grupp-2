@@ -27,14 +27,13 @@ export default {
 			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 
 			this.categoryList = [...new Set(this.questions.map((question) => question.category))];
-			//console.log(this.questions[0].category);
 
 			for (let i = 0; i > this.categoryList.length; i++) {
-				this.questionsList[i] = questions.filter(
-					(question) => this.questionsList[i] === question.category
+				this.questionsList[i] = this.questions.filter(
+					(question) => question.category === this.categoryList[i]
 				);
 			}
-			console.log(this.questionsList);
+			console.log(this.questions.filter((question) => question.category === this.categoryList[1]));
 		},
 	},
 
