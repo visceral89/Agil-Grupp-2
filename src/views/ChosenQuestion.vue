@@ -4,12 +4,12 @@
       <h2>Fråga</h2>
     </div>
     
-    <div id="game-card">
+    <div id="question-card">
       <!-- Vald fråga från game-board -->
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
+      <div class="answer-choice">1</div>
+      <div class="answer-choice">2</div>
+      <div class="answer-choice">3</div>
+      <div class="answer-choice">4</div>
     </div>
   </div>
 </template>
@@ -19,38 +19,53 @@
 export default {
   data() {
     return {
-      
+      id: this.$route.params.id //gets id from route param sent from gameboard
+    }
+  },
+  created() {
+    this.fetchQuestion()
+  },
+  methods: {
+    //fetches the corresponding question based on the id recieved from route-params
+    fetchQuestion(id) {
+      console.log(this.id, 'question id')
     }
   }
 }
 </script>
 
 <style scoped>
-  #game-card-wrapper {
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    right: 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90vw;
-    height: 400px;
-    background-color: blueviolet;
+  .question-wrapper {
+    width: 270px;
+    height: fit-content;
+    margin: auto;
   }
   h2 {
+    margin-top: 72px;
     color: #FFF;
     text-align: center;
+    font-family: Poppins;
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
-    font-family: Poppins;
     line-height: normal;
   }
-  #game-card {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  #question-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px 53px;
+    width: 303px;
+    padding: 18px 23px;
+    margin: auto;
+  }
+  .answer-choice {
+    display: flex;
+    padding: 13px 36px 12px 24px;
+    align-items: center;
+    border-radius: 9px;
+    background-color: var(--color-card-background);
+    box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.30);
   }
 </style>
