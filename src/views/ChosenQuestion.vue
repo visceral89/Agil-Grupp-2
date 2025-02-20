@@ -23,11 +23,13 @@
 </template>
 
 <script>
+import questions from '../lib/questions.json'
 
 export default {
   data() {
     return {
-      id: this.$route.params.id //gets id from route param sent from gameboard
+      id: this.$route.params.id, //gets id from route param sent from gameboard
+      questions: questions
     }
   },
   created() {
@@ -37,6 +39,7 @@ export default {
     //fetches the corresponding question based on the id recieved from route-params
     fetchQuestion(id) {
       console.log(this.id, 'question id')
+
     }
   }
 }
