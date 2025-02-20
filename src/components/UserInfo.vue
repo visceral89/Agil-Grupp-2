@@ -14,17 +14,36 @@
 export default {
   data() {
     return {
-      name: 'Spelare'
+      name: 'Spelare 1'
     }
   }
 }
 </script>
 
 <style scoped>
+  .user-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 36px;
+  }
   img {
-    width: 130px;
-    border-radius: 50%;
-    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    margin-top: 19px;
+  }
+  #welcome-text {
+    width: 270px;
+  }
+  p {
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 </style>
