@@ -23,7 +23,7 @@ export default {
 			</div>
 			<div class="links-container">
 				<router-link to="/">spela</router-link>
-				<router-link to="/">ranking</router-link>
+				<router-link to="/highscore">highscore</router-link>
 				<router-link to="/profile">profil</router-link>
 				<router-link to="/">inställningar</router-link>
 			</div>

@@ -14,7 +14,7 @@ export default {
 	<nav class="navbar">
 		<div class="navbar-padding">
 			<div class="navbar-content-mobile">
-				<router-link to="/" style="display: contents">
+				<router-link to="/highscore" style="display: contents">
 					<span class="material-symbols-outlined md-36">leaderboard</span></router-link
 				>
 				<router-link to="/" style="display: contents"
