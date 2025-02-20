@@ -5,14 +5,17 @@ export default {
 	},
 };
 </script>
+
 <template>
 	<nav class="navbar">
 		<div class="navbar-content-mobile">
-			<router-link to="/">
-				<span class="material-symbols-outlined md-36">account_circle</span></router-link
-			>
+			<router-link to="/profile">
+				<span class="material-symbols-outlined md-36">account_circle</span>
+			</router-link>
 			<img src="../assets/logo/FF-simple-logo.webp" alt="frage fejden logo" />
-			<router-link to="/"><span class="material-symbols-outlined md-36">help</span></router-link>
+			<router-link to="/">
+				<span class="material-symbols-outlined md-36">help</span>
+			</router-link>
 		</div>
 		<div class="navbar-content-desktop">
 			<div class="logo-container">
@@ -21,12 +24,13 @@ export default {
 			<div class="links-container">
 				<router-link to="/">spela</router-link>
 				<router-link to="/">ranking</router-link>
-				<router-link to="/">profil</router-link>
+				<router-link to="/profile">profil</router-link>
 				<router-link to="/">inställningar</router-link>
 			</div>
 		</div>
 	</nav>
 </template>
+
 <style scoped>
 span {
 	font-size: 40px;
@@ -40,7 +44,6 @@ img {
 .navbar {
 	width: 100%;
 	background: transparent;
-	/* Ersätt med snyggare lösning i global SCSS! */
 	text-transform: uppercase;
 	font-weight: bold;
 }
