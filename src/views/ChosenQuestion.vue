@@ -6,10 +6,18 @@
     
     <div id="question-card">
       <!-- Vald fråga från game-board -->
-      <div class="answer-choice">1</div>
-      <div class="answer-choice">2</div>
-      <div class="answer-choice">3</div>
-      <div class="answer-choice">4</div>
+      <div class="answer-choice">
+        <span>1</span>
+      </div>
+      <div class="answer-choice">
+        <span>2</span>
+      </div>
+      <div class="answer-choice">
+        <span>3</span>
+      </div>
+      <div class="answer-choice">
+        <span>4</span>
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +61,6 @@ export default {
   #question-card {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
     gap: 30px 53px;
     width: 303px;
@@ -61,11 +68,22 @@ export default {
     margin: auto;
   }
   .answer-choice {
-    display: flex;
-    padding: 13px 36px 12px 24px;
-    align-items: center;
+    padding: 13px 36px;
     border-radius: 9px;
     background-color: var(--color-card-background);
     box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.30);
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-category-background);
+      color: var(--color-primary-light);
+    }
+  }
+  span {
+    color: #484848;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 </style>
