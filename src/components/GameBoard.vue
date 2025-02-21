@@ -52,6 +52,11 @@ export default {
 </script>
 
 <style scoped>
+#game-wrapper {
+	min-height: 100%;
+	width: 100%;
+}
+
 h2,
 .category-card,
 .question-card {
@@ -69,18 +74,28 @@ h2 {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: auto;
-	gap: 10px;
-	width: 279px;
-	height: 386px;
+	height: 100%;
 	border-radius: 6px;
 	margin: auto;
 	text-align: center;
 	background-color: rgba(246, 246, 246, 0.3);
 }
+
+.category-column {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	gap: 1rem;
+}
+
 .category-card,
 .question-card {
-	width: 82px;
-	height: 44px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 100px;
+	min-height: 44px;
 	border-radius: 6px;
 	font-size: 14px;
 	font-weight: 400;
@@ -95,5 +110,8 @@ h2 {
 	background-color: #e4cff1;
 	color: #181818;
 	box-shadow: -2px 4px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 580px) {
 }
 </style>
