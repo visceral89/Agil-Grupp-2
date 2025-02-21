@@ -125,4 +125,4 @@ export default {
     grid-template-columns: 1fr 1fr;
   }
   }
-</style><!--  -->
+</style>

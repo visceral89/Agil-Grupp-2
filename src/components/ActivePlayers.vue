@@ -32,13 +32,12 @@ export default {
 
 <style scoped>
   #players-wrapper {
-    width: 350px;
-    height: 620px;
+    width: 300px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
   }
   #player-1-wrapper {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     padding: 9px 22px 9px 23px;
     border-radius: 9px;
     background: #677DD2;
