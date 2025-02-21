@@ -106,8 +106,7 @@ export default {
     box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.30);
     &:hover {
       cursor: pointer;
-      background-color: var(--color-category-background);
-      color: var(--color-primary-light);
+      background-color: var(--color-card-hover);
     }
   }
   span {
@@ -118,6 +117,9 @@ export default {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    &:hover {
+      color: var(--color-neutral-light);
+    }
   }
 
   @media (min-width: 890px) {
