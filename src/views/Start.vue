@@ -35,7 +35,7 @@ export default {
 		margin-bottom: 39px;
 	}
 	Button {
-		background: #677DD2;
+		background: var(--color-secondary);
 		padding: 9px 26px 9px 25px;
 		color: #ECECEC;
 		font-family: Poppins;
