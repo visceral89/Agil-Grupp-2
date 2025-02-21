@@ -3,7 +3,7 @@
 		"id": 1,
 		"category": "Geografi",
 		"question": "Vilket land har flest invånare?",
-		"answers": ["Indien", "Kina", "USA"],
+		"answers": ["Indien", "Kina", "USA", "Kenya"],
 		"points": 100,
 		"answer": "Indien"
 	},
@@ -11,7 +11,7 @@
 		"id": 2,
 		"category": "Geografi",
 		"question": "Vad är Europas längsta flod?",
-		"answers": ["Donau", "Volga", "Rhen"],
+		"answers": ["Donau", "Volga", "Rhen", "Dnepr"],
 		"points": 200,
 		"answer": "Volga"
 	},
@@ -19,7 +19,7 @@
 		"id": 3,
 		"category": "Geografi",
 		"question": "Vilken stad kallas för 'Den eviga staden'?",
-		"answers": ["Aten", "Rom", "Paris"],
+		"answers": ["Aten", "Rom", "Paris", "Istanbul"],
 		"points": 300,
 		"answer": "Rom"
 	},
@@ -27,7 +27,7 @@
 		"id": 4,
 		"category": "Geografi",
 		"question": "Vilket hav ligger mellan Europa och Afrika?",
-		"answers": ["Atlanten", "Medelhavet", "Indiska oceanen"],
+		"answers": ["Atlanten", "Medelhavet", "Indiska oceanen", "Röda havet"],
 		"points": 400,
 		"answer": "Medelhavet"
 	},
@@ -35,7 +35,7 @@
 		"id": 5,
 		"category": "Geografi",
 		"question": "I vilket land ligger Machu Picchu?",
-		"answers": ["Mexiko", "Peru", "Brasilien"],
+		"answers": ["Mexiko", "Peru", "Brasilien", "Ecuador"],
 		"points": 500,
 		"answer": "Peru"
 	},
@@ -43,7 +43,7 @@
 		"id": 6,
 		"category": "Geografi",
 		"question": "Vilket är världens minsta land?",
-		"answers": ["Monaco", "San Marino", "Vatikanstaten"],
+		"answers": ["Monaco", "San Marino", "Vatikanstaten", "Liechtenstein"],
 		"points": 600,
 		"answer": "Vatikanstaten"
 	},
@@ -51,7 +51,7 @@
 		"id": 7,
 		"category": "Historia",
 		"question": "Vilket år började andra världskriget?",
-		"answers": ["1914", "1939", "1945"],
+		"answers": ["1914", "1929", "1939", "1945"],
 		"points": 100,
 		"answer": "1939"
 	},
@@ -59,7 +59,7 @@
 		"id": 8,
 		"category": "Historia",
 		"question": "Vem var Sveriges kung under stormaktstiden?",
-		"answers": ["Karl XII", "Gustav Vasa", "Karl X Gustav"],
+		"answers": ["Karl XII", "Gustav Vasa", "Karl X Gustav", "Gustav II Adolf"],
 		"points": 200,
 		"answer": "Karl XII"
 	},
@@ -67,7 +67,7 @@
 		"id": 9,
 		"category": "Historia",
 		"question": "Vad kallades muren som delade Berlin?",
-		"answers": ["Järnridån", "Berlinmuren", "Kalla krigets mur"],
+		"answers": ["Järnridån", "Berlinmuren", "Kalla krigets mur", "Östblocket"],
 		"points": 300,
 		"answer": "Berlinmuren"
 	},
@@ -75,7 +75,7 @@
 		"id": 10,
 		"category": "Historia",
 		"question": "Vilket land blev först med att skicka en människa till månen?",
-		"answers": ["USA", "Sovjetunionen", "Kina"],
+		"answers": ["USA", "Sovjetunionen", "Kina", "Tyskland"],
 		"points": 400,
 		"answer": "USA"
 	},
@@ -83,7 +83,7 @@
 		"id": 11,
 		"category": "Historia",
 		"question": "Vem var farao i Egypten när pyramiderna i Giza byggdes?",
-		"answers": ["Tutankhamon", "Ramses II", "Keops"],
+		"answers": ["Tutankhamon", "Ramses II", "Keops", "Thutmosis III"],
 		"points": 500,
 		"answer": "Keops"
 	},
@@ -91,7 +91,7 @@
 		"id": 12,
 		"category": "Historia",
 		"question": "Vad hette det rike som styrdes av Alexander den store?",
-		"answers": ["Persiska riket", "Makedonien", "Romerska riket"],
+		"answers": ["Persiska riket", "Makedonien", "Romerska riket", "Hellenistiska riket"],
 		"points": 600,
 		"answer": "Makedonien"
 	},
@@ -99,7 +99,7 @@
 		"id": 13,
 		"category": "Vetenskap",
 		"question": "Vilket grundämne har kemiska beteckningen O?",
-		"answers": ["Osmium", "Oxygen", "Oganesson"],
+		"answers": ["Osmium", "Oxygen", "Oganesson", "Ozium"],
 		"points": 100,
 		"answer": "Oxygen"
 	},
@@ -107,7 +107,7 @@
 		"id": 14,
 		"category": "Vetenskap",
 		"question": "Vad heter den största planeten i solsystemet?",
-		"answers": ["Saturnus", "Jupiter", "Neptunus"],
+		"answers": ["Saturnus", "Jupiter", "Neptunus", "Uranus"],
 		"points": 200,
 		"answer": "Jupiter"
 	},
@@ -115,7 +115,7 @@
 		"id": 15,
 		"category": "Vetenskap",
 		"question": "Vilken vetenskapsman formulerade gravitationslagen?",
-		"answers": ["Isaac Newton", "Albert Einstein", "Nikola Tesla"],
+		"answers": ["Isaac Newton", "Albert Einstein", "Nikola Tesla", "Galileo Galilei"],
 		"points": 300,
 		"answer": "Isaac Newton"
 	},
@@ -123,7 +123,7 @@
 		"id": 16,
 		"category": "Vetenskap",
 		"question": "Vilket organ i människokroppen renar blodet?",
-		"answers": ["Hjärtat", "Levern", "Njuren"],
+		"answers": ["Hjärtat", "Levern", "Njuren", "Lungan"],
 		"points": 400,
 		"answer": "Njuren"
 	},
@@ -131,7 +131,7 @@
 		"id": 17,
 		"category": "Vetenskap",
 		"question": "Vad kallas en substans som sänker aktiveringsenergin i en kemisk reaktion?",
-		"answers": ["Enzym", "Katalysator", "Isotop"],
+		"answers": ["Enzym", "Katalysator", "Isotop", "Reagens"],
 		"points": 500,
 		"answer": "Katalysator"
 	},
@@ -139,7 +139,7 @@
 		"id": 18,
 		"category": "Vetenskap",
 		"question": "Vilken typ av vågor används i mikrovågsugnar?",
-		"answers": ["Radiovågor", "Infrarött ljus", "Mikrovågor"],
+		"answers": ["Radiovågor", "Infrarött ljus", "Mikrovågor", "Ultravioletta vågor"],
 		"points": 600,
 		"answer": "Mikrovågor"
 	}
