@@ -5,40 +5,27 @@
       <h1 class="highscore-top-title">Highscore</h1>
     </section>
     <section class="highscore-table">
-      <div class="highscore-cell">
-        <img src="../assets/images/user-avatars/image 19.png" alt="">
-        <span>1. Anna</span>
-        <span class="highscore-cell-points">102 p</span>
-      </div>
-      <div class="highscore-cell">
-        <img src="../assets/images/user-avatars/image 14.png" alt="">
-        <span>2. Anton</span>
-        <span class="highscore-cell-points">93 p</span>
-      </div>
-      <div class="highscore-cell">
-        <img src="../assets/images/user-avatars/image 16.png" alt="">
-        <span>3. Angelica</span>
-        <span class="highscore-cell-points">83 p</span>
-      </div>
-      <div class="highscore-cell">
-        <img src="../assets/images/user-avatars/image 22.png" alt="">
-        <span>4. Danny</span>
-        <span class="highscore-cell-points">78 p</span>
-      </div>
-      <div class="highscore-cell">
-        <img src="../assets/images/user-avatars/image 23.png" alt="">
-        <span>5. Gustav</span>
-        <span class="highscore-cell-points">67 p</span>
+      <div v-for="(player, index) in highscoreList" class="highscore-cell">
+        <div class="highscore-avatar-container">
+          <img :src="base_url + player.avatar" class="highscore-avatar" alt="avatar">
+        </div>
+        <span>{{ index + 1 }}. {{ player.username }}</span>
+        <span class="highscore-cell-points">{{ player.points }} p</span>
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import users from "../lib/users.json"
+
 export default {
   data() {
     return {
-      highscoreList: []
+      base_url: "src/",
+      highscoreList: users.sort((a, b) => {
+        return b.points - a.points
+      })
     }
   }
 }
@@ -78,6 +65,18 @@ export default {
   .highscore-cell-points {
     font-weight: bold;
     margin-left: auto;
+  }
+  .highscore-avatar {
+    display: block;
+  }
+  &:first-of-type div::after {
+    background: url("../../public/crown-logo.webp") no-repeat;
+    content: "";
+    display: inline-block;
+    height: 64px;
+    position: absolute;
+    translate: 9px -128px;
+    width: 64px;
   }
 }
 @media (min-width: 890px) {
