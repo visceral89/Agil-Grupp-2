@@ -10,7 +10,9 @@
         <span>{{ answer }}</span>
       </div>
     </div>
+    <ActivePlayers />
 
+    
     <!-- prepare for when props/import is done -->
 <!--     <div v-if="selectedQuestion" id="question-card">
       <div class="question-wrapper">
@@ -26,6 +28,7 @@
 <script>
 //import the whole json-file
 import questions from '../lib/questions.json'
+import ActivePlayers from '../components/ActivePlayers.vue';
 
 export default {
   data() {
@@ -58,6 +61,9 @@ export default {
       this.selectedQuestion = this.questions.find(question => question.id === questionId)
       console.log(this.selectedQuestion, 'selectedQuestion')
     }
+  },
+  components: {
+    ActivePlayers
   }
 }
 </script>
