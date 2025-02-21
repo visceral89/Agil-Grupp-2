@@ -17,7 +17,7 @@ export default {
 		return {
 			questions: questions,
 			categoryList: [],
-			questionsList: [],
+			questionsList1: [],
 		};
 	},
 	methods: {
@@ -28,12 +28,13 @@ export default {
 
 			this.categoryList = [...new Set(this.questions.map((question) => question.category))];
 
-			for (let i = 0; i > this.categoryList.length; i++) {
-				this.questionsList[i] = this.questions.filter(
-					(question) => question.category === this.categoryList[i]
+			for (let i = 0; i < this.categoryList.length; i++) {
+				this.questionsList1.push(
+					this.questions.filter((question) => question.category === this.categoryList[i])
 				);
 			}
-			console.log(this.questions.filter((question) => question.category === this.categoryList[1]));
+			console.log(this.questionsList1.length);
+			console.log(this.questions.filter((question) => question.category === this.categoryList[0]));
 		},
 	},
 
