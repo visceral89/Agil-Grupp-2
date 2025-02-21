@@ -12,7 +12,7 @@
     </div>
     <ActivePlayers />
 
-    
+
     <!-- prepare for when props/import is done -->
 <!--     <div v-if="selectedQuestion" id="question-card">
       <div class="question-wrapper">
@@ -86,22 +86,20 @@ export default {
     line-height: normal;
   }
   #question-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 30px 53px;
-    width: 100%;
+    width: fit-content;
     padding: 18px 0;
     margin-top: 28px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .answer-choice {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 130px;
-    height: 66px;
-    word-wrap: break-word;
     white-space: normal;
     border-radius: 9px;
     background-color: var(--color-card-background);
@@ -113,7 +111,6 @@ export default {
     }
   }
   span {
-    width: 110px;
     padding: 10px;
     color: #484848;
     font-family: Poppins;
@@ -122,4 +119,10 @@ export default {
     font-weight: 500;
     line-height: normal;
   }
-</style>
+
+  @media (min-width: 890px) {
+    #question-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  }
+</style><!--  -->
