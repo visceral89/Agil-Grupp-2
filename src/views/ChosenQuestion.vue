@@ -5,7 +5,7 @@
     </div>
     
     <div id="question-card">
-      <!-- Vald fråga från game-board -->
+      <!-- chosen question from game board -->
       <div class="answer-choice">
         <span>1</span>
       </div>
@@ -19,27 +19,48 @@
         <span>4</span>
       </div>
     </div>
+
+    <!-- prepare for when props/import is done -->
+    <div v-if="selectedQuestion" id="question-card">
+      <div class="question-wrapper">
+        <h2>{{ selectedQuestion.question }}</h2>
+      </div>
+      <div  v-for="answer in selectedQuestion.answers" :key="selectedQuestion.id" class="answer-choice">
+        <span>{{ answer }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+//import the whole json-file
 import questions from '../lib/questions.json'
 
 export default {
   data() {
     return {
       id: this.$route.params.id, //gets id from route param sent from gameboard
-      questions: questions
+      //if import of json-file
+      questions: questions,
+      //if use of props
+      selectedQuestion: this.question
+    }
+  },
+  props: {
+    question: {
+      type: Object,
+      required: true
     }
   },
   created() {
-    this.fetchQuestion()
+    this.getQuestion()
   },
   methods: {
     //fetches the corresponding question based on the id recieved from route-params
-    fetchQuestion(id) {
+    getQuestion(id) {
       console.log(this.id, 'question id')
-
+      //om vi väljer att använda import av json och filter för att få fram frågorna.
+      /* this.selectedQuestion = this.questions.filter((question) => question.category === this.categoryList[1]) */
     }
   }
 }
