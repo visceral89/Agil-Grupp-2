@@ -60,7 +60,6 @@ export default {
 h2,
 .category-card,
 .question-card {
-	font-family: Poppins;
 	line-height: normal;
 }
 h2 {
@@ -74,7 +73,10 @@ h2 {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: auto;
+	align-items: center;
+	justify-items: center;
 	height: 100%;
+	width: 100%;
 	border-radius: 6px;
 	margin: auto;
 	text-align: center;
@@ -85,20 +87,24 @@ h2 {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	padding: 1rem;
+	padding: 0 4rem;
+
 	gap: 1rem;
 }
 
 .category-card,
 .question-card {
+	margin: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-width: 100px;
+	width: fit-content;
 	min-height: 44px;
 	border-radius: 6px;
 	font-size: 14px;
 	font-weight: 400;
+	width: 100%;
+	padding: 1rem 2rem;
 }
 .category-card {
 	background-color: #6d4192;
