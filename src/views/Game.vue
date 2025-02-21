@@ -12,7 +12,6 @@
 
 <template>
   <GameBoard />
-  <GameCard />
 </template>
 
 <style scoped>

@@ -5,7 +5,10 @@
 		</div>
 
 		<div id="game-board">
-			<div class="category-column" v-for="category in categoryList">{{ category }}</div>
+			<div class="category-column" v-for="(category, key) in categoryList">
+				<div class="category-card">{{ category }}</div>
+				<div class="question-card" v-for="question in questionList">{{ question.points }}</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -17,7 +20,7 @@ export default {
 		return {
 			questions: questions,
 			categoryList: [],
-			questionsList1: [],
+			questionsList: [],
 		};
 	},
 	methods: {
@@ -29,11 +32,11 @@ export default {
 			this.categoryList = [...new Set(this.questions.map((question) => question.category))];
 
 			for (let i = 0; i < this.categoryList.length; i++) {
-				this.questionsList1.push(
+				this.questionsList.push(
 					this.questions.filter((question) => question.category === this.categoryList[i])
 				);
 			}
-			console.log(this.questionsList1);
+			console.log(this.questionsList);
 			//console.log(this.questions.filter((question) => question.category === this.categoryList[0]));
 		},
 	},
@@ -47,7 +50,7 @@ export default {
 <style scoped>
 h2,
 .category-card,
-.game-card {
+.question-card {
 	font-family: Poppins;
 	line-height: normal;
 }
@@ -71,7 +74,7 @@ h2 {
 	background-color: rgba(246, 246, 246, 0.3);
 }
 .category-card,
-.game-card {
+.question-card {
 	width: 82px;
 	height: 44px;
 	border-radius: 6px;
@@ -84,7 +87,7 @@ h2 {
 	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 	box-shadow: -2px 4px 0 0 rgba(0, 0, 0, 0.5);
 }
-.game-card {
+.question-card {
 	background-color: #e4cff1;
 	color: #181818;
 	box-shadow: -2px 4px 0 0 rgba(0, 0, 0, 0.2);
