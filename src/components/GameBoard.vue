@@ -33,8 +33,8 @@ export default {
 					this.questions.filter((question) => question.category === this.categoryList[i])
 				);
 			}
-			console.log(this.questionsList1.length);
-			console.log(this.questions.filter((question) => question.category === this.categoryList[0]));
+			console.log(this.questionsList1);
+			//console.log(this.questions.filter((question) => question.category === this.categoryList[0]));
 		},
 	},
 
