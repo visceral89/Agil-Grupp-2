@@ -64,15 +64,17 @@ export default {
 
 <style scoped>
   .question-wrapper {
-    width: 270px;
+    width: fit-content;
+    max-width: 80vw;
     margin: auto;
   }
   h2 {
     margin-top: 72px;
+    margin-bottom: 20px;
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 32px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -84,11 +86,17 @@ export default {
     gap: 30px 53px;
     width: 100%;
     padding: 18px 0;
-    margin: auto;
+    margin-top: 28px;
   }
   .answer-choice {
-    max-width: fit-content;
-    padding: 13px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 130px;
+    height: 66px;
+    word-wrap: break-word;
+    white-space: normal;
     border-radius: 9px;
     background-color: var(--color-card-background);
     box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.30);
@@ -99,6 +107,8 @@ export default {
     }
   }
   span {
+    width: 110px;
+    padding: 10px;
     color: #484848;
     font-family: Poppins;
     font-size: 20px;
