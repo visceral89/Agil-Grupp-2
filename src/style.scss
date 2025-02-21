@@ -3,14 +3,14 @@
 :root {
     --color-neutral-light: #f0f0f0;
     --color-neutral-dark: #1F1F1F;
-    
+
     --color-card-background: #E4CFF1; /* Används som bakgrund för answers, poäng-kort & cards i highscore */
     --color-card-hover: #6A4C7C;
     --color-category-background: #6D4192;
     --color-secondary: #677DD2;
     --color-accent: #e6ac30;
     --color-disabled: #9398AA;
-    
+
     --color-navbar-foot-background: rgba(246, 246, 246, .3);
     --gradient-primary-background: linear-gradient(0deg, rgba(132,61,173,1) 0%, rgba(77,27,138,1) 100%);
 
@@ -60,4 +60,5 @@ button {
 
 #app {
 	font-size: 1rem;
+	height: 100svh;
 }
