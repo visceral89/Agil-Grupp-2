@@ -65,7 +65,6 @@ export default {
 <style scoped>
   .question-wrapper {
     width: 270px;
-    /* height: fit-content; */
     margin: auto;
   }
   h2 {
@@ -83,11 +82,12 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px 53px;
-    width: 303px;
-    padding: 18px 23px;
+    width: 100%;
+    padding: 18px 0;
     margin: auto;
   }
   .answer-choice {
+    max-width: fit-content;
     padding: 13px 36px;
     border-radius: 9px;
     background-color: var(--color-card-background);

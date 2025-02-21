@@ -15,7 +15,7 @@ import users from '../lib/users.json'
 export default {
   data() {
     return {
-      name: 'Spelare 1',
+      name: '',
       activePlayer: null,
       users: users
     }
