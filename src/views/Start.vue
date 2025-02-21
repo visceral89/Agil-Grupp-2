@@ -12,10 +12,36 @@ export default {
 
 <template>
 	<UserInfo />
-
-	<RouterLink to="/game"> <Button>Starta spel 1p</Button> </RouterLink>
-
-	<RouterLink to="/game"> <Button>Starta spel 2p</Button> </RouterLink>
+	
+	<div id="start-game-wrapper">
+		<div id="start-btn-wrapper">
+			<RouterLink to="/game"> <Button>Spela (1p)</Button> </RouterLink>
+		</div>
+		<div>
+			<RouterLink to="/game"> <Button>Spela (2p)</Button> </RouterLink>
+		</div>
+	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+	#start-game-wrapper{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	#start-btn-wrapper {
+		margin-top: 61px;
+		margin-bottom: 39px;
+	}
+	Button {
+		background: #677DD2;
+		padding: 9px 26px 9px 25px;
+		color: #ECECEC;
+		font-family: Poppins;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+	}
+</style>

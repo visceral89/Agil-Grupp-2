@@ -4,17 +4,20 @@
       <img src="../assets/images/avtar-image.jpg" alt="Profilavtar">
     </div>
     <div id="welcome-text">
-      <p>Välkommen, {{ name }}</p>
+      <p>Välkommen, {{ users[1].username }}</p>
     </div>
   </div>
 </template>
 
 <script>
+import users from '../lib/users.json'
 
 export default {
   data() {
     return {
-      name: 'Spelare 1'
+      name: 'Spelare 1',
+      activePlayer: null,
+      users: users
     }
   }
 }
