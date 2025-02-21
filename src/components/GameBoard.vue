@@ -5,9 +5,14 @@
 		</div>
 
 		<div id="game-board">
-			<div class="category-column" v-for="(category, key) in categoryList">
+			<div class="category-column" v-for="(category, index) in categoryList" :key="index">
 				<div class="category-card">{{ category }}</div>
-				<div class="question-card" v-for="question in questionList">{{ question.points }}</div>
+				<div
+					class="question-card"
+					v-for="(question, questionIndex) in questionsList[index]"
+					:key="questionIndex">
+					{{ question.points }}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -37,7 +42,6 @@ export default {
 				);
 			}
 			console.log(this.questionsList);
-			//console.log(this.questions.filter((question) => question.category === this.categoryList[0]));
 		},
 	},
 
