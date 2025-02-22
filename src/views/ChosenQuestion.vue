@@ -6,7 +6,7 @@
     
     <div id="question-card">
       <!-- chosen question from game board -->
-      <div v-for="(answer, index) in selectedQuestion.answers" :key="index" @click="onSelectAnswer" class="answer-choice">
+      <div v-for="(answer, index) in selectedQuestion.answers" :key="index" @click="onSelectAnswer(answer)" :style="{backgroundColor: selectedAnswer === answer ? 'green' : ''}" class="answer-choice">
         <span id="selected-answer">{{ answer }}</span>
       </div>
     </div>
@@ -35,7 +35,8 @@ export default {
     return {
       id: this.$route.params.id, //gets id from route param sent from gameboard
       questions: questions, //gets questions array from imported questions.json
-      selectedQuestion: null
+      selectedQuestion: null,
+      selectedAnswer: null
       //if use of props
 /*       selectedQuestion: this.question */
     }
@@ -52,8 +53,6 @@ export default {
   methods: {
     //fetches the corresponding question based on the id recieved from route-params
     getQuestion(id) {
-      console.log(this.id, 'question id')
-      
       //convert id to number
       const questionId = parseInt(this.id)
 
@@ -61,9 +60,14 @@ export default {
       this.selectedQuestion = this.questions.find(question => question.id === questionId)
       console.log(this.selectedQuestion, 'selectedQuestion')
     },
-    onSelectAnswer(event) {
-      if (event.target.value === this.questions.answer) {
-        console.log(this.questions.answer, 'answer picked')
+    onSelectAnswer(answer) {
+      //gets index from clicked answer
+      if (answer === this.selectedQuestion.answer) {
+        this.selectedAnswer = answer
+        console.log(answer, 'rätt svar')
+      }
+      else {
+        console.log(answer, 'fel svar')
       }
     }
   },
