@@ -6,8 +6,8 @@
     
     <div id="question-card">
       <!-- chosen question from game board -->
-      <div v-for="(answer, index) in selectedQuestion.answers" :key="index" class="answer-choice">
-        <span>{{ answer }}</span>
+      <div v-for="(answer, index) in selectedQuestion.answers" :key="index" @click="onSelectAnswer" class="answer-choice">
+        <span id="selected-answer">{{ answer }}</span>
       </div>
     </div>
     <ActivePlayers />
@@ -60,6 +60,11 @@ export default {
       //find the first correct element of the array questions
       this.selectedQuestion = this.questions.find(question => question.id === questionId)
       console.log(this.selectedQuestion, 'selectedQuestion')
+    },
+    onSelectAnswer(event) {
+      if (event.target.value === this.questions.answer) {
+        console.log(this.questions.answer, 'answer picked')
+      }
     }
   },
   components: {
@@ -88,7 +93,7 @@ export default {
   #question-card {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px 53px;
+    gap: 30px;
     width: fit-content;
     padding: 18px 0;
     margin-top: 28px;
@@ -99,6 +104,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 100px;
+    min-height: 50px;
     text-align: center;
     white-space: normal;
     border-radius: 9px;
@@ -125,6 +132,7 @@ export default {
   @media (min-width: 890px) {
     #question-card {
     grid-template-columns: 1fr 1fr;
+    gap: 30px 53px;
   }
   }
 </style>
