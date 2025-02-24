@@ -19,7 +19,7 @@
     <ActivePlayers />
 
 		<div id="next-btn-wrapper">
-			<RouterLink to="/game"> <Button>Nästa spelare</Button> </RouterLink>
+			<RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
 		</div>
 
 
@@ -131,7 +131,9 @@ export default {
     background-color: var(--color-card-background);
     color: #484848;
     box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.30);
+    transition: var(--transition);
     &:hover {
+      color: var(--color-neutral-light);
       cursor: pointer;
       background-color: var(--color-card-hover);
     }
@@ -143,22 +145,18 @@ export default {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    &:hover {
-      color: var(--color-neutral-light);
-    }
   }
-  .correct {
-    background-color: green;
+  .correct, .correct:hover {
+    background-color: var(--color-right-answer);
     color: var(--color-neutral-light);
   }
-  .wrong {
-    background-color: red;
+  .wrong, .wrong:hover {
+    background-color: var(--color-wrong-answer);
     color: var(--color-neutral-light);
   }
   #next-btn-wrapper {
 		display: flex;
     justify-content: center;
-    margin-top: -50px;
 	}
 	Button {
 		background: var(--color-secondary);
@@ -169,6 +167,9 @@ export default {
 		font-style: normal;
 		font-weight: 500;
 		line-height: normal;
+    &:hover {
+			background-color: var(--color-card-hover);
+		}
 	}
 
   @media (min-width: 890px) {
