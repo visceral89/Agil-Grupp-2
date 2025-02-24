@@ -12,6 +12,10 @@
     </div>
     <ActivePlayers />
 
+		<div id="next-btn-wrapper">
+			<RouterLink to="/game"> <Button>Nästa spelare</Button> </RouterLink>
+		</div>
+
 
     <!-- prepare for when props/import is done -->
 <!--     <div v-if="selectedQuestion" id="question-card">
@@ -29,6 +33,7 @@
 //import the whole json-file
 import questions from '../lib/questions.json'
 import ActivePlayers from '../components/ActivePlayers.vue';
+import Button from '../components/Button.vue'
 
 export default {
   data() {
@@ -72,7 +77,8 @@ export default {
     }
   },
   components: {
-    ActivePlayers
+    ActivePlayers,
+    Button
   }
 }
 </script>
@@ -84,7 +90,7 @@ export default {
     margin: auto;
   }
   h2 {
-    margin-top: 72px;
+    margin-top: 65px;
     margin-bottom: 20px;
     color: #FFF;
     text-align: center;
@@ -132,6 +138,21 @@ export default {
       color: var(--color-neutral-light);
     }
   }
+  #next-btn-wrapper {
+		display: flex;
+    justify-content: center;
+    margin-top: -50px;
+	}
+	Button {
+		background: var(--color-secondary);
+		padding: 9px 26px 9px 25px;
+		color: #ECECEC;
+		font-family: Poppins;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+	}
 
   @media (min-width: 890px) {
     #question-card {
