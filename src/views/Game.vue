@@ -1,3 +1,7 @@
+<template>
+  <GameBoard />
+</template>
+
 <script>
   import GameBoard from '../components/GameBoard.vue';
 
@@ -7,10 +11,6 @@
     }
   }
 </script>
-
-<template>
-  <GameBoard />
-</template>
 
 <style scoped>
 
