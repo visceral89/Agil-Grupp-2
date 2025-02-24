@@ -1,11 +1,3 @@
-<script>
-export default {
-	data() {
-		return {};
-	},
-};
-</script>
-
 <template>
 	<nav class="navbar">
 		<div class="navbar-content-mobile">
@@ -30,6 +22,13 @@ export default {
 		</div>
 	</nav>
 </template>
+<script>
+export default {
+	data() {
+		return {};
+	},
+};
+</script>
 
 <style scoped>
 span {

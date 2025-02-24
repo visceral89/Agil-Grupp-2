@@ -1,15 +1,3 @@
-<script>
-export default {
-	data() {
-		return { isSubMenuOpen: false };
-	},
-	methods: {
-		toggleSubMenu() {
-			this.isSubMenuOpen = !this.isSubMenuOpen;
-		},
-	},
-};
-</script>
 <template>
 	<nav class="navbar">
 		<div class="navbar-padding">
@@ -27,15 +15,27 @@ export default {
 				>
 			</div>
 			<!--
-			<div class="navbar-submenu" v-if="isSubMenuOpen">
-				<router-link to="/" style="display: contents"></router-link>
-				<router-link to="/" style="display: contents"></router-link>
-				<router-link to="/" style="display: contents"></router-link>
-			</div>
-			-->
+					<div class="navbar-submenu" v-if="isSubMenuOpen">
+						<router-link to="/" style="display: contents"></router-link>
+						<router-link to="/" style="display: contents"></router-link>
+						<router-link to="/" style="display: contents"></router-link>
+					</div>
+					-->
 		</div>
 	</nav>
 </template>
+<script>
+export default {
+	data() {
+		return { isSubMenuOpen: false };
+	},
+	methods: {
+		toggleSubMenu() {
+			this.isSubMenuOpen = !this.isSubMenuOpen;
+		},
+	},
+};
+</script>
 <style scoped>
 span {
 	font-size: 34px;
