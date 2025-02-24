@@ -23,7 +23,7 @@ export default {
     return {
       name: '',
       activePlayer: null,
-      secondPlayer: true,
+      secondPlayer: null,
       users: users
     }
   }
