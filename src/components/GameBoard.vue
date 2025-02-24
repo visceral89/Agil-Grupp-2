@@ -12,7 +12,7 @@
 					:key="questionIndex"
 					:to="`/game/${question.id}`"
 					style="display: contents">
-					<QuestionCard :question="question" />
+					<QuestionCard :question="question"/>
 				</router-link>
 			</div>
 		</div>
