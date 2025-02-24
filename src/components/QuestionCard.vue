@@ -1,5 +1,5 @@
 <template>
-	<div class="question-card">{{ question.points }}</div>
+	<div class="question-card" :class="{ disabeled: isDisabeled }">{{ question.points }}</div>
 </template>
 <script>
 export default {

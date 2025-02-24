@@ -7,10 +7,13 @@
 		<div id="game-board">
 			<div class="category-column" v-for="(category, index) in categoryList" :key="index">
 				<div class="category-card">{{ category }}</div>
-				<QuestionCard
+				<router-link
 					v-for="(question, questionIndex) in questionsList[index]"
 					:key="questionIndex"
-					:question="question" />
+					:to="`/game/${question.id}`"
+					style="display: contents">
+					<QuestionCard :question="question" />
+				</router-link>
 			</div>
 		</div>
 	</div>
