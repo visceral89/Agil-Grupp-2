@@ -75,8 +75,7 @@ h2 {
 	grid-template-rows: auto;
 	align-items: center;
 	justify-items: center;
-	height: 100%;
-	width: 100%;
+
 	border-radius: 6px;
 	margin: auto;
 	text-align: center;
@@ -84,12 +83,9 @@ h2 {
 }
 
 .category-column {
-	width: 100%;
 	display: flex;
 	flex-direction: column;
-	padding: 0 4rem;
-
-	gap: 1rem;
+	gap: 0.5rem;
 }
 
 .category-card,
@@ -104,7 +100,7 @@ h2 {
 	font-size: 14px;
 	font-weight: 400;
 	width: 100%;
-	padding: 1rem 2rem;
+	padding: 1rem;
 }
 .category-card {
 	background-color: #6d4192;
@@ -112,7 +108,6 @@ h2 {
 	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 	box-shadow: -2px 4px 0 0 rgba(0, 0, 0, 0.5);
 }
-
 
 @media (min-width: 580px) {
 }
