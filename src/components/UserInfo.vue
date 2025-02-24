@@ -49,4 +49,18 @@ export default {
     font-weight: 700;
     line-height: normal;
   }
+
+  @media (min-width: 890px) {
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    #welcome-text {
+      width: fit-content;
+    }
+    p {
+      font-size: 40px;
+    }
+
+  }
 </style>
