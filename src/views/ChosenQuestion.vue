@@ -6,11 +6,21 @@
     
     <div id="question-card">
       <!-- chosen question from game board -->
-      <div v-for="(answer, index) in selectedQuestion.answers" :key="index" @click="onSelectAnswer(answer)" :style="{backgroundColor: selectedAnswer === answer ? 'green' : ''}" class="answer-choice">
+      <div v-for="(answer, index) in selectedQuestion.answers" 
+      :key="index" @click="onSelectAnswer(answer, index)" 
+      :class="{
+        correct: selectedAnswer === index && isCorrect,
+        wrong: selectedAnswer === index && !isCorrect
+      }"
+      class="answer-choice">
         <span id="selected-answer">{{ answer }}</span>
       </div>
     </div>
     <ActivePlayers />
+
+		<div id="next-btn-wrapper">
+			<RouterLink to="/game"> <Button>Nästa spelare</Button> </RouterLink>
+		</div>
 
 
     <!-- prepare for when props/import is done -->
@@ -29,6 +39,7 @@
 //import the whole json-file
 import questions from '../lib/questions.json'
 import ActivePlayers from '../components/ActivePlayers.vue';
+import Button from '../components/Button.vue'
 
 export default {
   data() {
@@ -36,7 +47,8 @@ export default {
       id: this.$route.params.id, //gets id from route param sent from gameboard
       questions: questions, //gets questions array from imported questions.json
       selectedQuestion: null,
-      selectedAnswer: null
+      selectedAnswer: null,
+      isCorrect: false
       //if use of props
 /*       selectedQuestion: this.question */
     }
@@ -60,19 +72,22 @@ export default {
       this.selectedQuestion = this.questions.find(question => question.id === questionId)
       console.log(this.selectedQuestion, 'selectedQuestion')
     },
-    onSelectAnswer(answer) {
+    onSelectAnswer(answer, index) {
       //gets index from clicked answer
       if (answer === this.selectedQuestion.answer) {
-        this.selectedAnswer = answer
+        this.selectedAnswer = index
+        this.isCorrect = answer === this.selectedQuestion.answer 
         console.log(answer, 'rätt svar')
       }
       else {
+        this.selectedAnswer = index
         console.log(answer, 'fel svar')
       }
     }
   },
   components: {
-    ActivePlayers
+    ActivePlayers,
+    Button
   }
 }
 </script>
@@ -84,7 +99,7 @@ export default {
     margin: auto;
   }
   h2 {
-    margin-top: 72px;
+    margin-top: 65px;
     margin-bottom: 20px;
     color: #FFF;
     text-align: center;
@@ -114,6 +129,7 @@ export default {
     white-space: normal;
     border-radius: 9px;
     background-color: var(--color-card-background);
+    color: #484848;
     box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.30);
     &:hover {
       cursor: pointer;
@@ -122,7 +138,6 @@ export default {
   }
   span {
     padding: 10px;
-    color: #484848;
     font-family: Poppins;
     font-size: 20px;
     font-style: normal;
@@ -132,6 +147,29 @@ export default {
       color: var(--color-neutral-light);
     }
   }
+  .correct {
+    background-color: green;
+    color: var(--color-neutral-light);
+  }
+  .wrong {
+    background-color: red;
+    color: var(--color-neutral-light);
+  }
+  #next-btn-wrapper {
+		display: flex;
+    justify-content: center;
+    margin-top: -50px;
+	}
+	Button {
+		background: var(--color-secondary);
+		padding: 9px 26px 9px 25px;
+		color: #ECECEC;
+		font-family: Poppins;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+	}
 
   @media (min-width: 890px) {
     #question-card {
