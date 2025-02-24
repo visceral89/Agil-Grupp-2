@@ -48,7 +48,7 @@ span {
 .navbar {
 	width: 100%;
 	position: fixed;
-	bottom: 6;
+	bottom: 6px;
 }
 .navbar-padding {
 	padding-left: 6px;
