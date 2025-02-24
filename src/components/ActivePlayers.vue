@@ -6,7 +6,7 @@
         <p class="player">{{ users[1].username }}</p>
       </div>
     </div>
-    <div v-if="secondPlayer">
+    <div v-if="secondPlayer" id="next-player">
       <p class="player-header">På tur:</p>
       <div id="player-2-wrapper">
         <p class="player">Player 2</p>
@@ -23,7 +23,7 @@ export default {
     return {
       name: '',
       activePlayer: null,
-      secondPlayer: null,
+      secondPlayer: true,
       users: users
     }
   }
@@ -32,40 +32,43 @@ export default {
 
 <style scoped>
   #players-wrapper {
-    width: 300px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #active-player, #next-player {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  #active-player {
+    margin-bottom: 2em;
   }
   #player-1-wrapper {
-    padding: 9px 22px 9px 23px;
-    border-radius: 9px;
-    background: #677DD2;
-    box-shadow: -2px 4px 0px 0px #5A50B6;
+    background: var(--color-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1em 2em;
+    width: fit-content;
   }
   #player-2-wrapper {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     padding: 3px 18px;
-    border-radius: 9px;
-    background: #9398AA;
+    background: var(--color-disabled);
+    border-radius: var(--border-radius);
     box-shadow: -2px 4px 0px 0px #6D698F;
+    padding: .5em 1em;
   }
   .player-header {
     color: #FFF;
     font-family: Poppins;
     font-size: 17px;
-    font-style: normal;
     font-weight: 500;
-    line-height: normal;
   }
   .player {
     color: #ECECEC;
     font-family: Poppins;
     font-size: 20px;
-    font-style: normal;
     font-weight: 500;
-    line-height: normal;
+    margin: 0;
   }
 </style>
