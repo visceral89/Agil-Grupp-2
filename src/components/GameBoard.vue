@@ -7,12 +7,10 @@
 		<div id="game-board">
 			<div class="category-column" v-for="(category, index) in categoryList" :key="index">
 				<div class="category-card">{{ category }}</div>
-				<div
-					class="question-card"
+				<QuestionCard
 					v-for="(question, questionIndex) in questionsList[index]"
-					:key="questionIndex">
-					{{ question.points }}
-				</div>
+					:key="questionIndex"
+					:question="question" />
 			</div>
 		</div>
 	</div>
@@ -20,6 +18,7 @@
 
 <script>
 import questions from "../lib/questions.json";
+import QuestionCard from "./QuestionCard.vue";
 export default {
 	data() {
 		return {
@@ -28,6 +27,7 @@ export default {
 			questionsList: [],
 		};
 	},
+	components: { QuestionCard },
 	methods: {
 		createBoard() {
 			//Hantera Kategorier
@@ -112,11 +112,7 @@ h2 {
 	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 	box-shadow: -2px 4px 0 0 rgba(0, 0, 0, 0.5);
 }
-.question-card {
-	background-color: #e4cff1;
-	color: #181818;
-	box-shadow: -2px 4px 0 0 rgba(0, 0, 0, 0.2);
-}
+
 
 @media (min-width: 580px) {
 }
