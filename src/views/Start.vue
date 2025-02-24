@@ -43,5 +43,15 @@ export default {
 		font-style: normal;
 		font-weight: 500;
 		line-height: normal;
+		&:hover {
+			background-color: var(--color-card-hover);
+		}
 	}
+
+	@media (min-width: 890px) {
+    Button {
+      width: 180px;
+		height: 60px;
+    }
+  }
 </style>
