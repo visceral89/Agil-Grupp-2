@@ -52,16 +52,6 @@ export default {
 </script>
 
 <style scoped>
-#game-wrapper {
-	min-height: 100%;
-	width: 100%;
-}
-
-h2,
-.category-card,
-.question-card {
-	line-height: normal;
-}
 h2 {
 	color: #fff;
 	text-align: center;
@@ -71,44 +61,46 @@ h2 {
 }
 #game-board {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, auto);
 	grid-template-rows: auto;
 	align-items: center;
 	justify-items: center;
-
 	border-radius: 6px;
 	margin: auto;
 	text-align: center;
 	background-color: rgba(246, 246, 246, 0.3);
+	margin: 0.5rem;
+	padding: 0.6rem 0.2rem;
 }
 
 .category-column {
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: 10px;
 }
 
-.category-card,
-.question-card {
-	margin: auto;
+.category-card {
+	background-color: var(--color-category-background);
+	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	box-shadow: var(--box-shadow);
+	border-radius: var(--border-radius);
+	min-width: 82px;
+	min-height: 44px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: fit-content;
-	min-height: 44px;
-	border-radius: 6px;
-	font-size: 14px;
-	font-weight: 400;
-	width: 100%;
-	padding: 1rem;
-}
-.category-card {
-	background-color: #6d4192;
-	color: #fff;
-	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-	box-shadow: -2px 4px 0 0 rgba(0, 0, 0, 0.5);
+	padding: 0.2rem 0.6rem;
 }
 
-@media (min-width: 580px) {
+@media (min-width: 500px) {
+	#game-board {
+		grid-column-gap: 10px;
+	}
+	.category-card {
+		min-width: 100px;
+	}
+	.category-column {
+		width: 100%;
+	}
 }
 </style>
