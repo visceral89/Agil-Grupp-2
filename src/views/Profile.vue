@@ -17,25 +17,32 @@
 </template>
 
 <script>
-import { useRoute } from "vue-router";
 import users from "../lib/users.json";
-import { computed, ref } from "vue";
 
 export default {
-  setup() {
-    const route = useRoute();
-    const base_url = ref("src/");
-    const userId = computed(() => Number(route.params.id));
-    const highscoreList = computed(() => [...users].sort((a, b) => b.points - a.points));
-    const topPlayer = computed(() => highscoreList.value[0]);
-    
-    const user = computed(() => users.find(u => u.id === userId.value) || topPlayer.value);
-
-    const useDefaultAvatar = (event) => {
-      event.target.src = base_url.value + "assets/images/user-avatars/avatar-image.jpg";
+  data() {
+    return {
+      base_url: "src/",
     };
-
-    return { user, base_url, useDefaultAvatar };
+  },
+  computed: {
+    userId() {
+      return Number(this.$route.params.id);
+    },
+    highscoreList() {
+      return [...users].sort((a, b) => b.points - a.points);
+    },
+    topPlayer() {
+      return this.highscoreList[0];
+    },
+    user() {
+      return users.find(u => u.id === this.userId) || this.topPlayer;
+    }
+  },
+  methods: {
+    useDefaultAvatar(event) {
+      event.target.src = this.base_url + "assets/images/user-avatars/avatar-image.jpg";
+    }
   }
 };
 </script>
