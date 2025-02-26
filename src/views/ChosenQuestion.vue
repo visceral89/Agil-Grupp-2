@@ -6,20 +6,25 @@
     
     <div id="question-card">
       <!-- chosen question from game board -->
-      <div v-for="(answer, index) in selectedQuestion.answers" 
-      :key="index" @click="onSelectAnswer(answer, index)" 
+      <button v-for="(answer, index) in selectedQuestion.answers" 
+      :key="index" @click="onSelectAnswer(answer, index); /* onSetDisabled() */" 
       :class="{
         correct: selectedAnswer === index && isCorrect,
         wrong: selectedAnswer === index && !isCorrect
       }"
-      class="answer-choice">
+      class="answer-choice"
+      :disabled="selectedAnswer">
         <span id="selected-answer">{{ answer }}</span>
-      </div>
+      </button>
     </div>
-    <ActivePlayers />
+    <ActivePlayers v-if="selectedAnswer === null"/>
 
-		<div id="next-btn-wrapper">
-			<RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
+		<div id="next-btn-wrapper" v-show="selectedAnswer !== null">
+			<div id="result-msg">
+        <p v-if="isCorrect">Grattis, du valde rätt!</p>
+        <p v-else>Tyvärr, du valde fel</p>
+      </div>
+      <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
 		</div>
   </div>
 </template>
@@ -39,7 +44,8 @@ export default {
       questions: questions, //gets questions array from imported questions.json
       selectedQuestion: null,
       selectedAnswer: null,
-      isCorrect: false
+      isCorrect: false,
+/*       isDisabled: false */
     }
   },
   created() {
@@ -68,7 +74,11 @@ export default {
         this.isCorrect = false
         console.log(answer, 'fel svar')
       }
-    }
+    },
+/*     onSetDisabled() {
+      this.isDisabled = true
+      console.log(this.isDisabled, 'sätt disabled')
+    } */
   },
   components: {
     ActivePlayers,
@@ -123,14 +133,6 @@ export default {
       background-color: var(--color-card-hover);
     }
   }
-  span {
-    padding: 10px;
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-  }
   .correct, .correct:hover {
     background-color: var(--color-right-answer);
     color: var(--color-neutral-light);
@@ -141,11 +143,18 @@ export default {
   }
   #next-btn-wrapper {
 		display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 	}
+  #result-msg {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-weight: 500;
+  }
 	Button {
-		background: var(--color-secondary);
-		padding: 9px 26px 9px 25px;
+    background: var(--color-secondary);
 		color: #ECECEC;
 		font-family: Poppins;
 		font-size: 20px;
