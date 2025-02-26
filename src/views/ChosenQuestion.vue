@@ -10,10 +10,11 @@
       :key="index" @click="onSelectAnswer(answer, index); /* onSetDisabled() */" 
       :class="{
         correct: selectedAnswer === index && isCorrect,
-        wrong: selectedAnswer === index && !isCorrect
+        wrong: selectedAnswer === index && !isCorrect,
+        disabled: selectedAnswer !== index && isDisabled
       }"
       class="answer-choice"
-      :disabled="selectedAnswer">
+      :disabled="isDisabled">
         <span id="selected-answer">{{ answer }}</span>
       </button>
     </div>
@@ -45,7 +46,7 @@ export default {
       selectedQuestion: null,
       selectedAnswer: null,
       isCorrect: false,
-/*       isDisabled: false */
+      isDisabled: false
     }
   },
   created() {
@@ -62,6 +63,8 @@ export default {
       console.log(this.selectedQuestion, 'selectedQuestion')
     },
     onSelectAnswer(answer, index) {
+      this.isDisabled = true
+      console.log(this.isDisabled, 'disabled')
       //gets index from clicked answer
       if (answer === this.selectedQuestion.answer) {
         this.selectedAnswer = index //sets the index to the chosenAnswer
@@ -75,10 +78,6 @@ export default {
         console.log(answer, 'fel svar')
       }
     },
-/*     onSetDisabled() {
-      this.isDisabled = true
-      console.log(this.isDisabled, 'sätt disabled')
-    } */
   },
   components: {
     ActivePlayers,
@@ -140,6 +139,11 @@ export default {
   .wrong, .wrong:hover {
     background-color: var(--color-wrong-answer);
     color: var(--color-neutral-light);
+  }
+  .disabled, .disabled:hover {
+    background-color: var(--color-disabled);
+    color: #484848;
+    cursor: default;
   }
   #next-btn-wrapper {
 		display: flex;
