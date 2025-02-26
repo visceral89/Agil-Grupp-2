@@ -25,7 +25,7 @@ export default {
 			loginError: false,
 			loginPassword: '',
 			loginUsername: '',
-			users,
+			//users: users, //Överflödigt??
 			userStorage: useUserStorage() 
 		};
 	},
@@ -39,8 +39,7 @@ export default {
 
 			//Om värdet stämmer omdirigera till startskärmen, annars generera ett felmeddelande
 			if (loggedInUser) {
-				console.log(`Yay, ${loggedInUser.username} har loggat in!`)
-				
+				this.userStorage.loginUser(loggedInUser)
 				this.$router.push('/')
 			} else {
 				this.errorMessage = 'Fel inloggningsuppgifter.'
@@ -91,17 +90,5 @@ export default {
 	font-size: .8em;
 	position: absolute;
 	transform: translateY(7em);
-}
-
-Button {
-	background: var(--color-secondary);
-	padding: 9px 26px 9px 25px;
-	color: #ECECEC;
-	font-family: Poppins;
-	font-size: 20px;
-	font-weight: 500;
-	&:hover {
-		background-color: var(--color-card-hover);
-	}
 }
 </style>

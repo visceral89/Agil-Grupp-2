@@ -70,7 +70,7 @@ export default {
     display: block;
   }
   &:first-of-type div::after {
-    background: url("../../public/crown-logo.webp") no-repeat;
+    background: url("../assets/highscore-crown.webp") no-repeat;
     content: "";
     display: inline-block;
     height: 64px;
