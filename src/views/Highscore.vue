@@ -1,7 +1,7 @@
 <template>
   <div class="highscore-wrapper">
     <section class="highscore-top-section">
-      <img class="highscore-top-trophy" src="../assets/images/highscore-trophy.png" alt="Highscore trophy">
+      <img class="highscore-top-trophy" src="../assets/images/highscore-trophy.webp" alt="Highscore trophy">
       <h1 class="highscore-top-title">Highscore</h1>
     </section>
     <section class="highscore-table">
@@ -68,15 +68,16 @@ export default {
   }
   .highscore-avatar {
     display: block;
-    width: 6em;
+    transform: translateY(-4px);
+    width: 5.5em;
   }
   &:first-of-type div::after {
-    background: url("../assets/highscore-crown.webp") no-repeat;
+    background: url("../assets/images/highscore-crown.webp") no-repeat;
     content: "";
     display: inline-block;
     height: 64px;
     position: absolute;
-    translate: 9px -128px;
+    translate: 13px -136px;
     width: 64px;
   }
 }

@@ -55,5 +55,25 @@
 		"friends": [],
 		"points": 0,
 		"email": "hej@iths.se"
+	},
+	{
+		"id": 6,
+		"username": "Magnus",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/magnus.svg",
+		"achievements": [],
+		"friends": [],
+		"points": 0,
+		"email": "hej@iths.se"
+	},
+	{
+		"id": 7,
+		"username": "Vanja",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/vanja.svg",
+		"achievements": [],
+		"friends": [],
+		"points": 0,
+		"email": "hej@iths.se"
 	}
 ]
