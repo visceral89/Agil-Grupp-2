@@ -6,7 +6,7 @@
 					<h2>Lägg till motståndare</h2>
 					<div>
 						<div class="friend" v-for="user in users">
-							<img :src="user.avatar" alt="avatar" />
+							<img :src="'src/' + user.avatar" alt="avatar" />
 							<p>{{ user.username }}</p>
 							<p id="points">Points: {{ user.points }}</p>
 							<span class="material-symbols-outlined"> add </span>
@@ -32,10 +32,9 @@ span {
 	color: var(--color-neutral-dark);
 }
 img {
-	/*
-	height: 24px;
-	width: 24px;
-   */
+	height: 32px;
+	width: 32px;
+	margin-right: 1rem;
 }
 span {
 	font-size: 1.8rem;
