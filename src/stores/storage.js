@@ -20,6 +20,7 @@ export const useUserStorage = defineStore("userStorage", {
 			points: 0,
 			email: "hej@iths.se",
 		},
+		opponent: {},
 	}),
 	actions: {
 		loginUser(user) {

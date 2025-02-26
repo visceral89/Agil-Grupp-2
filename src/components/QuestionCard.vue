@@ -1,5 +1,7 @@
 <template>
-	<div @click="isDisabeled" class="question-card" :class="{ disabeled: isDisabeled }">{{ question.points }}</div>
+	<div @click="isDisabeled" class="question-card" :class="{ disabeled: isDisabeled }">
+		{{ question.points }}
+	</div>
 </template>
 <script>
 export default {
@@ -36,6 +38,12 @@ export default {
 @media (min-width: 500px) {
 	.question-card {
 		min-width: 100px;
+	}
+}
+@media (min-width: 700px) {
+	.question-card {
+		min-width: 200px;
+		padding: 0.2rem 0.6rem;
 	}
 }
 </style>
