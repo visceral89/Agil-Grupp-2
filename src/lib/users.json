@@ -1,42 +1,47 @@
 [
-  {
-    "id": 1,
-    "username": "Anna",
-    "avatar": "assets/images/user-avatars/image-19.png",
-    "achievements": [],
-    "friends": [],
-    "points": 52
-  },
-  {
-    "id": 2,
-    "username": "Anton",
-    "avatar": "assets/images/user-avatars/image-14.png",
-    "achievements": [],
-    "friends": [],
-    "points": 76
-  },
-  {
-    "id": 3,
-    "username": "Angelica",
-    "avatar": "assets/images/user-avatars/image-16.png",
-    "achievements": [],
-    "friends": [],
-    "points": 35
-  },
-  {
-    "id": 4,
-    "username": "Danny",
-    "avatar": "assets/images/user-avatars/image-22.png",
-    "achievements": [],
-    "friends": [],
-    "points": 57
-  },
-  {
-    "id": 5,
-    "username": "Gustav",
-    "avatar": "assets/images/user-avatars/image-23.png",
-    "achievements": [],
-    "friends": [],
-    "points": 96
-  }
+	{
+		"id": 1,
+		"username": "Anna",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/image-19.png",
+		"achievements": [],
+		"friends": [],
+		"points": 52
+	},
+	{
+		"id": 2,
+		"username": "Anton",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/image-14.png",
+		"achievements": [],
+		"friends": [],
+		"points": 76
+	},
+	{
+		"id": 3,
+		"username": "Angelica",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/image-16.png",
+		"achievements": [],
+		"friends": [],
+		"points": 35
+	},
+	{
+		"id": 4,
+		"username": "Danny",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/image-22.png",
+		"achievements": [],
+		"friends": [],
+		"points": 57
+	},
+	{
+		"id": 5,
+		"username": "Gustav",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/image-23.png",
+		"achievements": [],
+		"friends": [],
+		"points": 96
+	}
 ]

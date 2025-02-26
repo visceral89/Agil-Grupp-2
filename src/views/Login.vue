@@ -1,12 +1,13 @@
-<template>// Template</template>
+<template>{{ userStorage.activeUser.username }} {{ userStorage.activeUser.id }}</template>
 
 <script>
+import { useUserStorage } from "../stores/storage";
+
 export default {
 	data() {
-		return {};
+		return { userStorage: useUserStorage() };
 	},
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
