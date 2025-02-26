@@ -4,10 +4,10 @@ export const useUserStorage = defineStore("userStorage", {
 	state: () => ({
 		// Default Active User, finns som en fallback ifall ingen data finns från Login.
 		activeUser: {
-			id: 1,
-			username: "Anna",
+			id: 5,
+			username: "Gäst",
 			password: "abc",
-			avatar: "assets/images/user-avatars/image-19.png",
+			avatar: "assets/images/user-avatars/guest.svg",
 			achievements: [
 				{
 					title: "En achivement",

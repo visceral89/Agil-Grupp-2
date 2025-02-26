@@ -33,13 +33,6 @@ export default {
     align-items: center;
     margin-top: 36px;
   }
-  img {
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-    margin-top: 19px;
-  }
   #welcome-text {
     width: 270px;
   }

@@ -68,6 +68,7 @@ export default {
   }
   .highscore-avatar {
     display: block;
+    width: 6em;
   }
   &:first-of-type div::after {
     background: url("../assets/highscore-crown.webp") no-repeat;

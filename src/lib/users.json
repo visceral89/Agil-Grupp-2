@@ -1,9 +1,9 @@
 [
 	{
 		"id": 1,
-		"username": "Anna",
+		"username": "Felicia",
 		"password": "abc",
-		"avatar": "assets/images/user-avatars/image-19.png",
+		"avatar": "assets/images/user-avatars/felicia.svg",
 		"achievements": [
 			{
 				"title": "En achivement",
@@ -13,47 +13,47 @@
 			}
 		],
 		"friends": [],
-		"points": 52,
+		"points": 700,
 		"email": "hej@iths.se"
 	},
 	{
 		"id": 2,
-		"username": "Anton",
+		"username": "Ilirjana",
 		"password": "abc",
-		"avatar": "assets/images/user-avatars/image-14.png",
+		"avatar": "assets/images/user-avatars/Ilirjana.png",
 		"achievements": [],
 		"friends": [],
-		"points": 76,
+		"points": 900,
 		"email": "hej@iths.se"
 	},
 	{
 		"id": 3,
-		"username": "Angelica",
+		"username": "Patrik",
 		"password": "abc",
-		"avatar": "assets/images/user-avatars/image-16.png",
+		"avatar": "assets/images/user-avatars/patrik.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 35,
+		"points": 100,
 		"email": "hej@iths.se"
 	},
 	{
 		"id": 4,
-		"username": "Danny",
+		"username": "Rasmus",
 		"password": "abc",
-		"avatar": "assets/images/user-avatars/image-22.png",
+		"avatar": "assets/images/user-avatars/rasmus.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 57,
+		"points": 200,
 		"email": "hej@iths.se"
 	},
 	{
 		"id": 5,
-		"username": "Gustav",
+		"username": "Gäst",
 		"password": "abc",
-		"avatar": "assets/images/user-avatars/image-23.png",
+		"avatar": "assets/images/user-avatars/guest.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 96,
+		"points": 0,
 		"email": "hej@iths.se"
 	}
 ]
