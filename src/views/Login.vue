@@ -2,11 +2,11 @@
 	<div class="login-wrapper">
 		<img class="login-logo" src="../assets/logo/FF-logo.webp" alt="FrågeFejden logotyp">
 	</div>
-	<form @submit.prevent="checkLogin" class="login-form">
+	<form @submit.prevent="handleLogin" class="login-form">
 		<input v-model="loginUsername" type="text" placeholder="Användarnamn">
 		<input v-model="loginPassword" type="password" placeholder="Lösenord">
-		<input type="submit" value="Logga in">
-		<Button />
+		<p v-if="loginError" class="login-error-msg">{{ errorMessage }}</p>
+		<Button>Logga in</Button>
 	</form>
 </template>
 
@@ -20,7 +20,9 @@ export default {
 		Button
 	},
 	data() {
-		return { 
+		return {
+			errorMessage: '',
+			loginError: false,
 			loginPassword: '',
 			loginUsername: '',
 			users,
@@ -28,8 +30,22 @@ export default {
 		};
 	},
 	methods: {
-		checkLogin() {
-			console.log(this.users)
+		handleLogin() {
+			//Se ifall värdet i input-fälten stämmer överens med någon användare i users.json
+			const loggedInUser = users.find(
+				user => 
+				user.username === this.loginUsername && 
+				user.password === this.loginPassword)
+
+			//Om värdet stämmer omdirigera till startskärmen, annars generera ett felmeddelande
+			if (loggedInUser) {
+				console.log(`Yay, ${loggedInUser.username} har loggat in!`)
+				
+				this.$router.push('/')
+			} else {
+				this.errorMessage = 'Fel inloggningsuppgifter.'
+				this.loginError = true
+			}
 		}
 	}
 };
@@ -71,26 +87,21 @@ export default {
 	}
 }
 
-input[type="submit"] {
-		background: var(--color-secondary);
-		padding: 9px 26px 9px 25px;
-		color: #ECECEC;
-		font-family: Poppins;
-		font-size: 20px;
-		font-weight: 500;
-		&:hover {
-			background-color: var(--color-card-hover);
-		}
+.login-error-msg {
+	font-size: .8em;
+	position: absolute;
+	transform: translateY(7em);
+}
+
+Button {
+	background: var(--color-secondary);
+	padding: 9px 26px 9px 25px;
+	color: #ECECEC;
+	font-family: Poppins;
+	font-size: 20px;
+	font-weight: 500;
+	&:hover {
+		background-color: var(--color-card-hover);
 	}
-	Button {
-		background: var(--color-secondary);
-		padding: 9px 26px 9px 25px;
-		color: #ECECEC;
-		font-family: Poppins;
-		font-size: 20px;
-		font-weight: 500;
-		&:hover {
-			background-color: var(--color-card-hover);
-		}
-	}
+}
 </style>
