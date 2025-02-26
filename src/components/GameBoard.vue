@@ -12,25 +12,36 @@
 					:key="questionIndex"
 					:to="`/game/${question.id}`"
 					style="display: contents">
-					<QuestionCard :question="question"/>
+					<QuestionCard :question="question" />
 				</router-link>
 			</div>
 		</div>
+		<div id="player-container">
+			<div id="player">{{ userStorage.activeUser.username }}</div>
+			<div id="opponent" @click="toggleInviteModal">
+				{{ userStorage.activeUser.username || "Bjud in vän" }}
+			</div>
+		</div>
+		<InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
 	</div>
 </template>
 
 <script>
 import questions from "../lib/questions.json";
 import QuestionCard from "./QuestionCard.vue";
+import InviteModal from "./InviteModal.vue";
+import { useUserStorage } from "../stores/storage";
 export default {
 	data() {
 		return {
+			isInviteOpen: false,
 			questions: questions,
 			categoryList: [],
 			questionsList: [],
+			userStorage: useUserStorage(),
 		};
 	},
-	components: { QuestionCard },
+	components: { QuestionCard, InviteModal },
 	methods: {
 		createBoard() {
 			//Hantera Kategorier
@@ -45,6 +56,10 @@ export default {
 				);
 			}
 			console.log(this.questionsList);
+		},
+		toggleInviteModal() {
+			this.isInviteOpen = !this.isInviteOpen;
+			console.log(this.isInviteOpen);
 		},
 	},
 
@@ -62,18 +77,36 @@ h2 {
 	font-style: normal;
 	font-weight: 700;
 }
+#game-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 #game-board {
 	display: grid;
 	grid-template-columns: repeat(3, auto);
+	gap: 10px;
 	grid-template-rows: auto;
 	align-items: center;
 	justify-items: center;
-	border-radius: 6px;
-	margin: auto;
+	border-radius: 12px;
+	max-width: 1200px;
 	text-align: center;
 	background-color: rgba(246, 246, 246, 0.3);
 	margin: 0.5rem;
-	padding: 0.6rem 0.2rem;
+	padding: 0.6rem 0.6rem;
+	padding-bottom: 0.9rem;
+}
+#player-container {
+	display: flex;
+	gap: 2rem;
+	div {
+		display: flex;
+		padding: 1rem 2rem;
+		border-radius: var(--border-radius);
+		background-color: var(--color-secondary);
+	}
 }
 
 .category-column {
@@ -104,6 +137,12 @@ h2 {
 	}
 	.category-column {
 		width: 100%;
+	}
+}
+@media (min-width: 700px) {
+	.category-card {
+		min-width: 200px;
+		padding: 0.2rem 0.6rem;
 	}
 }
 </style>
