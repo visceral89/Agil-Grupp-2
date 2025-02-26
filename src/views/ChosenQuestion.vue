@@ -21,22 +21,12 @@
 		<div id="next-btn-wrapper">
 			<RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
 		</div>
-
-
-    <!-- prepare for when props/import is done -->
-<!--     <div v-if="selectedQuestion" id="question-card">
-      <div class="question-wrapper">
-        <h2>{{ selectedQuestion.question }}</h2>
-      </div>
-      <div  v-for="answer in selectedQuestion.answers" :key="selectedQuestion.id" class="answer-choice">
-        <span>{{ answer }}</span>
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script>
 //import the whole json-file
+import { useUserStorage } from "../stores/storage";
 import questions from '../lib/questions.json'
 import ActivePlayers from '../components/ActivePlayers.vue';
 import Button from '../components/Button.vue'
@@ -44,27 +34,20 @@ import Button from '../components/Button.vue'
 export default {
   data() {
     return {
+      userStorage: useUserStorage(), //gets userstorage data from storage.js
       id: this.$route.params.id, //gets id from route param sent from gameboard
       questions: questions, //gets questions array from imported questions.json
       selectedQuestion: null,
       selectedAnswer: null,
       isCorrect: false
-      //if use of props
-/*       selectedQuestion: this.question */
     }
   },
-/*   props: {
-    question: {
-      type: Object,
-      required: true
-    }
-  }, */
   created() {
     this.getQuestion()
   },
   methods: {
     //fetches the corresponding question based on the id recieved from route-params
-    getQuestion(id) {
+    getQuestion() {
       //convert id to number
       const questionId = parseInt(this.id)
 
@@ -75,12 +58,14 @@ export default {
     onSelectAnswer(answer, index) {
       //gets index from clicked answer
       if (answer === this.selectedQuestion.answer) {
-        this.selectedAnswer = index
-        this.isCorrect = answer === this.selectedQuestion.answer 
-        console.log(answer, 'rätt svar')
+        this.selectedAnswer = index //sets the index to the chosenAnswer
+        this.isCorrect = true
+
+        this.userStorage.addPoints(this.selectedQuestion.points)
       }
       else {
         this.selectedAnswer = index
+        this.isCorrect = false
         console.log(answer, 'fel svar')
       }
     }
