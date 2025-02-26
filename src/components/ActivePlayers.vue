@@ -3,7 +3,7 @@
     <div id="active-player">
       <p class="player-header">Spelare att svara:</p>
       <div id="player-1-wrapper">
-        <p class="player">{{ users[1].username }}</p>
+        <p class="player">{{ userStorage.activeUser.username }}</p>
       </div>
     </div>
     <div v-if="secondPlayer" id="next-player">
@@ -16,15 +16,12 @@
 </template>
 
 <script>
-import users from '../lib/users.json'
+import { useUserStorage } from "../stores/storage";
 
 export default {
   data() {
     return {
-      name: '',
-      activePlayer: null,
-      secondPlayer: null,
-      users: users
+      userStorage: useUserStorage(), //gets userstorage data from storage.js
     }
   }
 }
