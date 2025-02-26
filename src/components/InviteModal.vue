@@ -9,7 +9,7 @@
 							<img :src="'src/' + user.avatar" alt="avatar" />
 							<p>{{ user.username }}</p>
 							<p id="points">Points: {{ user.points }}</p>
-							<span class="material-symbols-outlined"> add </span>
+							<span class="material-symbols-outlined" @click="inviteFriend(user.id)"> add </span>
 						</div>
 					</div>
 				</div>
@@ -19,9 +19,16 @@
 </template>
 <script>
 import users from "../lib/users.json";
+import { useUserStorage } from "../stores/storage";
 export default {
 	data() {
-		return { users: users };
+		return { users: users, userStorage: useUserStorage() };
+	},
+	methods: {
+		inviteFriend(id) {
+			// Skicka detta till Pinia.
+			console.log(`Friend ${id} invited`);
+		},
 	},
 };
 </script>

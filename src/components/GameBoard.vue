@@ -18,7 +18,9 @@
 		</div>
 		<div id="player-container">
 			<div id="player">{{ userStorage.activeUser.username }}</div>
-			<div id="opponent" @click="toggleInviteModal">{{ userStorage.activeUser.username }}</div>
+			<div id="opponent" @click="toggleInviteModal">
+				{{ userStorage.activeUser.username || "Bjud in vän" }}
+			</div>
 		</div>
 		<InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
 	</div>
@@ -98,6 +100,13 @@ h2 {
 }
 #player-container {
 	display: flex;
+	gap: 2rem;
+	div {
+		display: flex;
+		padding: 1rem 2rem;
+		border-radius: var(--border-radius);
+		background-color: var(--color-secondary);
+	}
 }
 
 .category-column {
