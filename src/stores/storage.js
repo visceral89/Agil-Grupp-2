@@ -30,6 +30,7 @@ export const useUserStorage = defineStore("userStorage", {
 				console.log("Error: User not active?!");
 			} else {
 				this.activeUser.points += points;
+				console.log(this.activeUser.points, "poäng");
 			}
 		},
 	},
