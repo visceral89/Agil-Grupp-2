@@ -25,7 +25,7 @@ export default {
 			loginError: false,
 			loginPassword: '',
 			loginUsername: '',
-			users,
+			users: users, //Överflödigt??
 			userStorage: useUserStorage() 
 		};
 	},
@@ -39,8 +39,7 @@ export default {
 
 			//Om värdet stämmer omdirigera till startskärmen, annars generera ett felmeddelande
 			if (loggedInUser) {
-				console.log(`Yay, ${loggedInUser.username} har loggat in!`)
-				
+				this.userStorage.activeUser = loggedInUser //Sparas loggedInUser till Pinia såhär? 
 				this.$router.push('/')
 			} else {
 				this.errorMessage = 'Fel inloggningsuppgifter.'

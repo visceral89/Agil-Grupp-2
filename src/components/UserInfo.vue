@@ -1,23 +1,26 @@
 <template>
   <div class="user-wrapper">
     <div class="user-img-wrapper">
-      <img src="../assets/images/avtar-image.jpg" alt="Profilavtar">
+      <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
     </div>
     <div id="welcome-text">
-      <p>Välkommen, {{ users[1].username }}</p>
+      <p>Välkommen, {{ userStorage.activeUser.username }}</p>
     </div>
   </div>
 </template>
 
 <script>
 import users from '../lib/users.json'
+import { useUserStorage } from "../stores/storage";
 
 export default {
   data() {
     return {
+      base_url: "src/",
       name: '',
       activePlayer: null,
-      users: users
+      users: users,
+      userStorage: useUserStorage()
     }
   }
 }
