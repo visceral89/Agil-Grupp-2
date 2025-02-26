@@ -4,9 +4,17 @@
 		"username": "Anna",
 		"password": "abc",
 		"avatar": "assets/images/user-avatars/image-19.png",
-		"achievements": [],
+		"achievements": [
+			{
+				"title": "En achivement",
+				"points": 100,
+				"img": "security",
+				"color": "#b57c47"
+			}
+		],
 		"friends": [],
-		"points": 52
+		"points": 52,
+		"email": "hej@iths.se"
 	},
 	{
 		"id": 2,
@@ -15,7 +23,8 @@
 		"avatar": "assets/images/user-avatars/image-14.png",
 		"achievements": [],
 		"friends": [],
-		"points": 76
+		"points": 76,
+		"email": "hej@iths.se"
 	},
 	{
 		"id": 3,
@@ -24,7 +33,8 @@
 		"avatar": "assets/images/user-avatars/image-16.png",
 		"achievements": [],
 		"friends": [],
-		"points": 35
+		"points": 35,
+		"email": "hej@iths.se"
 	},
 	{
 		"id": 4,
@@ -33,7 +43,8 @@
 		"avatar": "assets/images/user-avatars/image-22.png",
 		"achievements": [],
 		"friends": [],
-		"points": 57
+		"points": 57,
+		"email": "hej@iths.se"
 	},
 	{
 		"id": 5,
@@ -42,6 +53,7 @@
 		"avatar": "assets/images/user-avatars/image-23.png",
 		"achievements": [],
 		"friends": [],
-		"points": 96
+		"points": 96,
+		"email": "hej@iths.se"
 	}
 ]
