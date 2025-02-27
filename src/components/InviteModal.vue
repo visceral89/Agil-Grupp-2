@@ -9,7 +9,9 @@
 							<img :src="'src/' + user.avatar" alt="avatar" />
 							<p>{{ user.username }}</p>
 							<p id="points">Points: {{ user.points }}</p>
-							<span class="material-symbols-outlined" @click="inviteFriend(user.id)"> add </span>
+							<span class="material-symbols-outlined" @click="userStorage.setOpponent(user)">
+								add
+							</span>
 						</div>
 					</div>
 				</div>
