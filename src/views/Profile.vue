@@ -3,6 +3,7 @@
     <div class="profile-header">
       <img class="profile-avatar" :src="base_url + user.avatar" alt="Profilbild" @error="useDefaultAvatar">
       <h2 class="profile-name">{{ user.username }}</h2>
+      <Achievments />
       <p class="points">{{ user.points }} p</p>
       <button @click="showFriends = !showFriends" class="friend-button">Vänner</button>
       <ul v-if="showFriends" class="friends-list">
@@ -19,6 +20,7 @@
 <script>
 import users from "../lib/users.json";
 import { useUserStorage } from "../stores/storage";
+import Achievments from '../components/Achievments.vue'
 
 export default {
   data() {
@@ -37,6 +39,9 @@ export default {
     useDefaultAvatar(event) {
       event.target.src = "src/assets/images/user-avatars/avatar-image.jpg";
     }
+  },
+  components: {
+    Achievments
   }
 };
 </script>

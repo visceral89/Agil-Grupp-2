@@ -9,14 +9,7 @@ export const useUserStorage = defineStore("userStorage", {
 			username: "Gäst",
 			password: "abc",
 			avatar: "assets/images/user-avatars/guest.svg",
-			achievements: [
-				{
-					title: "En achivement",
-					points: 100,
-					img: "security",
-					color: "#b57c47",
-				},
-			],
+			achievements: [],
 			friends: [],
 			points: 0,
 			email: "hej@iths.se",
