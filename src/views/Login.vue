@@ -40,7 +40,7 @@ export default {
 			//Om värdet stämmer omdirigera till startskärmen, annars generera ett felmeddelande
 			if (loggedInUser) {
 				this.userStorage.loginUser(loggedInUser)
-				this.$router.push('/')
+				this.$router.push('/start')
 			} else {
 				this.errorMessage = 'Fel inloggningsuppgifter.'
 				this.loginError = true
