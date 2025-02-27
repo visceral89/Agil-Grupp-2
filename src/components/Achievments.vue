@@ -1,8 +1,8 @@
 <template>
    <div id="achievments-wrapper">
-      <div v-for="(achievment, index) in achievments" 
+      <div v-for="(achievment, index) in userStorage.activeUser.achievements" 
       :key="index"
-      v-if="userStorage.activeUser.points >= 0">
+      class="achievment">
          <span 
          class="material-symbols-outlined md-36" 
          :style="{color: achievment.color}">
@@ -17,13 +17,11 @@
 
 <script>
    import { useUserStorage } from "../stores/storage";
-   import achievments from "../lib/achievments.json"
 
    export default {
       data() {
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
-            achievments: achievments
          }
   },
    }
@@ -32,8 +30,13 @@
 <style scoped>
    #achievments-wrapper {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row-reverse;
       justify-content: center;
+   }
+   .achievment {
+      margin: 10px;
+   }
+   span {
+      font-size: 38px;
    }
 </style>
