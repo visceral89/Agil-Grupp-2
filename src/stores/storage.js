@@ -23,7 +23,7 @@ export const useUserStorage = defineStore("userStorage", {
 	}),
 	actions: {
 		loginUser(user) {
-			this.activeUser = user;
+			this.setActiveUser(user);
 			this.loggedinUser = user;
 		},
 		addPoints(points) {
@@ -50,17 +50,28 @@ export const useUserStorage = defineStore("userStorage", {
 		},
 		setPlayers() {
 			if (!this.loggedinUser || Object.keys(this.loggedinUser).length === 0) {
-				 console.log("No logged-in user found, cant set player1.");
-				 return;
+				console.log("No logged-in user found, cant set player1.");
+				return;
 			}
 
 			if (Object.keys(this.player1).length < 1) {
-				 this.player1 = { ...this.loggedinUser };
-				 console.log("Player 1 set to:", this.player1);
+				this.player1 = { ...this.loggedinUser };
+				console.log("Player 1 set to:", this.player1);
 			} else {
-				 console.log("Player 1 already exists in Pinia.");
+				console.log("Player 1 already exists in Pinia.");
 			}
-	  }
-
+		},
+		setActiveUser(user) {
+			// Short helper function that can be run From multiple places.This makes it moore dynamic if we for some reason want to change the active user via a parameter.
+			this.activeUser = user;
+		},
+		flipActiveUser() {
+			// Here we change active user from user 1 or User 2
+			if (this.activeUser === this.player1) {
+				this.activeUser = { ...this.player2 };
+			} else {
+				this.activeUser = { ...this.player1 };
+			}
+		},
 	},
 });
