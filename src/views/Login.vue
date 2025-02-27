@@ -61,7 +61,7 @@ export default {
 }
 
 .login-logo {
-	max-width: 30em;
+	max-width: 20em;
 	width: 50%;
 }
 
