@@ -19,6 +19,7 @@
       </button>
     </div>
     <ActivePlayers v-if="selectedAnswer === null"/>
+    <Achievments />
 
 		<div id="next-btn-wrapper" v-show="selectedAnswer !== null">
 			<div id="result-msg">
@@ -36,6 +37,7 @@ import { useUserStorage } from "../stores/storage";
 import questions from '../lib/questions.json'
 import ActivePlayers from '../components/ActivePlayers.vue';
 import Button from '../components/Button.vue'
+import Achievments from "../components/Achievments.vue";
 
 export default {
   data() {
@@ -81,7 +83,8 @@ export default {
   },
   components: {
     ActivePlayers,
-    Button
+    Button,
+    Achievments
   }
 }
 </script>
@@ -123,7 +126,7 @@ export default {
     white-space: normal;
     border-radius: 9px;
     background-color: var(--color-card-background);
-    color: #484848;
+    color: var(--color-neutral-grey);
     box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.30);
     transition: var(--transition);
     &:hover {
@@ -142,7 +145,7 @@ export default {
   }
   .disabled, .disabled:hover {
     background-color: var(--color-disabled);
-    color: #484848;
+    color: var(--color-neutral-grey);
     cursor: default;
   }
   #next-btn-wrapper {
