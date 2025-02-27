@@ -19,7 +19,6 @@
       </button>
     </div>
     <ActivePlayers v-if="selectedAnswer === null"/>
-    <Achievments />
 
 		<div id="next-btn-wrapper" v-show="selectedAnswer !== null">
 			<div id="result-msg">
@@ -37,7 +36,6 @@ import { useUserStorage } from "../stores/storage";
 import questions from '../lib/questions.json'
 import ActivePlayers from '../components/ActivePlayers.vue';
 import Button from '../components/Button.vue'
-import Achievments from "../components/Achievments.vue";
 
 export default {
   data() {
@@ -83,8 +81,7 @@ export default {
   },
   components: {
     ActivePlayers,
-    Button,
-    Achievments
+    Button
   }
 }
 </script>
