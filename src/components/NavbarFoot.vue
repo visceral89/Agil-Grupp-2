@@ -5,12 +5,12 @@
 				<router-link to="/highscore" style="display: contents">
 					<span class="material-symbols-outlined md-36">leaderboard</span></router-link
 				>
-				<router-link to="/" style="display: contents"
+				<router-link to="/start" style="display: contents"
 					><span id="crown" class="material-symbols-outlined md-36" @click="toggleSubMenu"
 						>crown</span
 					></router-link
 				>
-				<router-link to="/" style="display: contents"
+				<router-link to="/start" style="display: contents"
 					><span class="material-symbols-outlined md-36">settings</span></router-link
 				>
 			</div>

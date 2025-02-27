@@ -11,9 +11,10 @@ export default createRouter({
   history: createWebHistory("/"),
   routes: [
     {
-      path: "/login",
+      path: "/",
       name: "Login",
       component: Login,
+      meta: { hideNavbars: true }
     },
     {
       path: "/game",
@@ -36,7 +37,7 @@ export default createRouter({
       component: Profile,
     },
     {
-      path: "/",
+      path: "/start",
       name: "Start",
       component: Start,
     },

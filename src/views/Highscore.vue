@@ -2,7 +2,7 @@
   <div class="highscore-wrapper">
     <section class="highscore-top-section">
       <img class="highscore-top-trophy" src="../assets/images/highscore-trophy.webp" alt="Highscore trophy">
-      <h1 class="highscore-top-title">Highscore</h1>
+      <h2 class="highscore-top-title">Highscore</h2>
     </section>
     <section class="highscore-table">
       <div v-for="(player, index) in highscoreList" class="highscore-cell">
@@ -48,11 +48,17 @@ export default {
   .highscore-top-trophy {
     width: 50%;
   }
+  .highscore-top-title {
+    font-size: 1.5em;
+  }
 }
 .highscore-table {
   display: flex;
   flex-direction: column;
   gap: .8em;
+  height: 550px;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 .highscore-cell {
   align-items: center;
@@ -65,6 +71,9 @@ export default {
   .highscore-cell-points {
     font-weight: bold;
     margin-left: auto;
+  }
+  .highscore-avatar-container {
+    position: relative;
   }
   .highscore-avatar {
     display: block;
