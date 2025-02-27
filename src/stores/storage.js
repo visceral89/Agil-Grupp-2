@@ -49,13 +49,18 @@ export const useUserStorage = defineStore("userStorage", {
 			});
 		},
 		setPlayers() {
-			// Checks if player 1 exists, if not then assign the logged in player to player 1.
-			if (Object.keys(this.player1).length < 1) {
-				this.player1 = { ...this.loggedinUser };
-				console.log(this.player1);
-			} else {
-				console.log("Player 1 finns redan i Pinia");
+			if (!this.loggedinUser || Object.keys(this.loggedinUser).length === 0) {
+				 console.log("No logged-in user found, cant set player1.");
+				 return;
 			}
-		},
+
+			if (Object.keys(this.player1).length < 1) {
+				 this.player1 = { ...this.loggedinUser };
+				 console.log("Player 1 set to:", this.player1);
+			} else {
+				 console.log("Player 1 already exists in Pinia.");
+			}
+	  }
+
 	},
 });
