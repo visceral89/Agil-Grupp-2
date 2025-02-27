@@ -1,8 +1,15 @@
 <template>
    <div id="result-container">
-      <div id="result-wrapper">
-         <div class="player-wrapper">{{ userStorage.activeUser.username }}</div>
-         <div class="player-wrapper">Player 2</div>
+      <!--Show this modal if there are no more questions and the game is finished-->
+      <div id="result-wrapper" v-if="result">
+         <div class="player-wrapper">
+            <p>{{ userStorage.activeUser.username }}</p>
+            <p>{{ userStorage.activeUser.points }}</p>
+         </div>
+         <div class="player-wrapper">
+            <p>Player 2</p>
+            <p>0p</p>
+         </div>
       </div>
    </div>
 </template>
