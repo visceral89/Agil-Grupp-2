@@ -32,7 +32,15 @@ export const useUserStorage = defineStore("userStorage", {
 			} else {
 				this.activeUser.points += points;
 				console.log(this.activeUser.points, "poäng");
+
+				this.unlockAchievments()
 			}
 		},
+		unlockAchievments(points) {
+			if (points >= Achievments.pointsToUnlock) {
+				console.log("achievment unlocked");
+				this.achievements.push()
+			}
+		}
 	},
 });

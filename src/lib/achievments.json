@@ -3,6 +3,36 @@
       "title": "Toe dipper",
       "pointsToUnlock": 100,
       "img": "security",
+      "color": "#625D5D"
+   },
+   {
+      "title": "Banner Bearer",
+      "pointsToUnlock": 500,
+      "img": "security",
+      "color": "#625D5D"
+   },
+   {
+      "title": "Oathbound Knight",
+      "pointsToUnlock": 1000,
+      "img": "security",
+      "color": "#C9AE5D"
+   },
+   {
+      "title": "Crested Lord",
+      "pointsToUnlock": 2000,
+      "img": "security",
       "color": "#b57c47"
+   },
+   {
+      "title": "Grand Duke",
+      "pointsToUnlock": 4000,
+      "img": "security",
+      "color": "#C0C0C0"
+   },
+   {
+      "title": "King of Scholars",
+      "pointsToUnlock": 5000,
+      "img": "security",
+      "color": "#FFD700"
    }
 ]
