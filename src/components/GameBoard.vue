@@ -65,6 +65,7 @@ export default {
 
 	created() {
 		this.createBoard();
+		this.userStorage.setPlayers();
 	},
 };
 </script>
