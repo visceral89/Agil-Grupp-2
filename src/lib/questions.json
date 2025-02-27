@@ -10,10 +10,10 @@
 	{
 		"id": 2,
 		"category": "Geografi",
-		"question": "Vad är Europas längsta flod?",
-		"answers": ["Donau", "Volga", "Rhen", "Dnepr"],
+		"question": "Vilken är världens största ö?",
+		"answers": ["Grönland", "Madagaskar", "Australien", "Borneo"],
 		"points": 200,
-		"answer": "Volga"
+		"answer": "Grönland"
 	},
 	{
 		"id": 3,
@@ -26,10 +26,10 @@
 	{
 		"id": 4,
 		"category": "Geografi",
-		"question": "Vilket hav ligger mellan Europa och Afrika?",
-		"answers": ["Atlanten", "Medelhavet", "Indiska oceanen", "Röda havet"],
+		"question": "Vilket land har flest tidszoner?",
+		"answers": ["USA", "Ryssland", "Frankrike", "Kina"],
 		"points": 400,
-		"answer": "Medelhavet"
+		"answer": "Frankrike"
 	},
 	{
 		"id": 5,
@@ -42,10 +42,10 @@
 	{
 		"id": 6,
 		"category": "Geografi",
-		"question": "Vilket är världens minsta land?",
-		"answers": ["Monaco", "San Marino", "Vatikanstaten", "Liechtenstein"],
+		"question": "Vilken är världens högsta vulkan?",
+		"answers": ["Mauna Loa", "Kilimanjaro", "Ojos del Salado", "Mount St. Helens"],
 		"points": 600,
-		"answer": "Vatikanstaten"
+		"answer": "Ojos del Salado"
 	},
 	{
 		"id": 7,
@@ -61,7 +61,7 @@
 		"question": "Vem var Sveriges kung under stormaktstiden?",
 		"answers": ["Karl XII", "Gustav Vasa", "Karl X Gustav", "Gustav II Adolf"],
 		"points": 200,
-		"answer": "Karl XII"
+		"answer": "Gustav II Adolf"
 	},
 	{
 		"id": 9,
@@ -74,10 +74,10 @@
 	{
 		"id": 10,
 		"category": "Historia",
-		"question": "Vilket land blev först med att skicka en människa till månen?",
+		"question": "Vilket land blev först med att skicka en satellilt till rymden?",
 		"answers": ["USA", "Sovjetunionen", "Kina", "Tyskland"],
 		"points": 400,
-		"answer": "USA"
+		"answer": "Sovjetunionen"
 	},
 	{
 		"id": 11,
@@ -138,9 +138,9 @@
 	{
 		"id": 18,
 		"category": "Vetenskap",
-		"question": "Vilken typ av vågor används i mikrovågsugnar?",
-		"answers": ["Radiovågor", "Infrarött ljus", "Mikrovågor", "Ultravioletta vågor"],
+		"question": "Vilket fenomen är ansvarigt för norrsken?",
+		"answers": ["Kosmiska strålar", "Solflares", "Magnetiska stormar", "Partikelstrålning från solen"],
 		"points": 600,
-		"answer": "Mikrovågor"
+		"answer": "Partikelstrålning från solen"
 	}
 ]
