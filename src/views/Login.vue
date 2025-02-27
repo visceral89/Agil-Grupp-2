@@ -1,13 +1,15 @@
 <template>
 	<div class="login-wrapper">
-		<img class="login-logo" src="../assets/logo/FF-logo.webp" alt="FrågeFejden logotyp">
+		<div class="logo-wrapper">
+			<img class="login-logo" src="../assets/logo/FF-logo.webp" alt="FrågeFejden logotyp">
+		</div>
+		<form @submit.prevent="handleLogin" class="login-form">
+			<input v-model="loginUsername" type="text" placeholder="Användarnamn">
+			<input v-model="loginPassword" type="password" placeholder="Lösenord">
+			<p v-if="loginError" class="login-error-msg">{{ errorMessage }}</p>
+			<Button>Logga in</Button>
+		</form>
 	</div>
-	<form @submit.prevent="handleLogin" class="login-form">
-		<input v-model="loginUsername" type="text" placeholder="Användarnamn">
-		<input v-model="loginPassword" type="password" placeholder="Lösenord">
-		<p v-if="loginError" class="login-error-msg">{{ errorMessage }}</p>
-		<Button>Logga in</Button>
-	</form>
 </template>
 
 <script>
@@ -52,23 +54,29 @@ export default {
 
 <style scoped>
 .login-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+}
+
+.logo-wrapper {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 4em;
-  padding-top: 2em;
-}
-
-.login-logo {
-	max-width: 20em;
-	width: 50%;
+  margin-bottom: 3em;
+	.login-logo {
+		max-width: 20em;
+		width: 60%;
+	}
 }
 
 .login-form {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 4em;
 	input {
 		background: var(--color-neutral-light);
 		border: none;
