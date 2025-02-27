@@ -23,7 +23,10 @@
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
          }
-  },
+      },
+      created() {
+         this.userStorage.unlockAchievments()
+      }
    }
 </script>
 
