@@ -123,7 +123,7 @@ export default {
     white-space: normal;
     border-radius: 9px;
     background-color: var(--color-card-background);
-    color: #484848;
+    color: var(--color-neutral-grey);
     box-shadow: -2px 4px 0px 0px rgba(0, 0, 0, 0.30);
     transition: var(--transition);
     &:hover {
@@ -142,7 +142,7 @@ export default {
   }
   .disabled, .disabled:hover {
     background-color: var(--color-disabled);
-    color: #484848;
+    color: var(--color-neutral-grey);
     cursor: default;
   }
   #next-btn-wrapper {
