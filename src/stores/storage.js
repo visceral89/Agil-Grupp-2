@@ -37,9 +37,15 @@ export const useUserStorage = defineStore("userStorage", {
 			this.availableAchievments.forEach(achievment => {
 				//checks if the active users points are equal to or more to unlock a achievment in the array
 				if (this.activeUser.points >= achievment.pointsToUnlock) {
-					console.log(achievment.title, "achievment unlocked");
-					//push the achievment to the active users achievments
-					this.activeUser.achievements.push(achievment)
+					//checks if the achievment is already in the activeusers achievments
+					if (this.activeUser.achievements.includes(achievment)) {
+						console.log(achievment.title, "achievment already unlocked");
+					}
+					else {
+						console.log(achievment.title, "achievment unlocked");
+						//push the achievment to the active users achievments
+						this.activeUser.achievements.push(achievment)
+					}
 				}
 			})
 		}
