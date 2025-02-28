@@ -49,12 +49,12 @@ export const useUserStorage = defineStore("userStorage", {
 			});
 		},
 		setPlayers() {
-			if (!this.loggedinUser || Object.keys(this.loggedinUser).length === 0) {
+			if (!this.loggedinUser) {
 				console.log("No logged-in user found, cant set player1.");
 				return;
 			}
 
-			if (Object.keys(this.player1).length < 1) {
+			if (!this.player1) {
 				this.player1 = { ...this.loggedinUser };
 				console.log("Player 1 set to:", this.player1);
 			} else {

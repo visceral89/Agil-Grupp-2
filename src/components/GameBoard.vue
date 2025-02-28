@@ -19,7 +19,7 @@
 		<div id="player-container">
 			<div id="player">{{ userStorage.activeUser.username }}</div>
 			<div id="opponent" @click="toggleInviteModal">
-				{{ userStorage.player2.username || "Bjud in vän" }}
+				{{ displayOpponent }}
 			</div>
 		</div>
 		<InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
@@ -67,6 +67,11 @@ export default {
 		this.createBoard();
 		this.userStorage.setPlayers();
 	},
+	computed: {
+		displayOpponent() {
+			return this.userStorage.player2?.username || "Bjud in vän";
+		},
+	},
 };
 </script>
 
@@ -102,6 +107,7 @@ h2 {
 #player-container {
 	display: flex;
 	gap: 2rem;
+	margin-top: 2rem;
 	div {
 		display: flex;
 		padding: 1rem 2rem;
