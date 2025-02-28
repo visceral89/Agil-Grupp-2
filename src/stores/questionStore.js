@@ -1,8 +1,5 @@
 import { defineStore } from "pinia";
-<<<<<<< HEAD
 import questions from "../lib/questions.json";
-=======
->>>>>>> 6bd558b (Skapat questionstore)
 
 /*
 Vad ska vi göra här. Vi behöver något sätt att hålla reda på vilka frågor som är aktiva och vilka som är tagna.
