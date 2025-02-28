@@ -53,6 +53,52 @@ export const useUserStorage = defineStore("userStorage", {
 				}
 			});
 		},
+		setPlayers() {
+			if (!this.loggedinUser) {
+				console.log("No logged-in user found, cant set player1.");
+				return;
+			}
+
+			if (!this.player1) {
+				this.player1 = { ...this.loggedinUser };
+				console.log("Player 1 set to:", this.player1);
+			} else {
+				console.log("Player 1 already exists in Pinia.");
+			}
+		},
+		setActiveUser(user) {
+			// Short helper function that can be run From multiple places.This makes it moore dynamic if we for some reason want to change the active user via a parameter.
+			this.activeUser = user;
+		},
+		setOpponent(user) {
+			// This function is called from Invite modal and sets player 2 to be the opponent "manually"
+			this.player2 = user;
+			console.log(this.player2);
+		},
+		flipActiveUser() {
+			// Here we change active user from user 1 or User 2
+			if (!this.player1 || !this.player2) {
+				if (this.activeUser === this.player1) {
+					this.setActiveUser(this.player2);
+				} else {
+					this.setActiveUser(this.player1);
+				}
+			} else {
+				console.log("Player 1 or Player 2 is not set. Cant flipflop");
+			}
+		},
+		clearPlayers() {
+			// Maybe we wont need this function but ill implement it just in case.
+			// This function just clears the player 1 and 2. Incase we are resetting the game or something.
+			this.player1 = null;
+			this.player2 = null;
+			console.log("Both Players reset to null");
+		},
+		logoutUser() {
+			// Logout function, resets loggedinUser to null.
+			this.loggedinUser = null;
+			console.log("Logged out");
+		},
 	},
 });
 
