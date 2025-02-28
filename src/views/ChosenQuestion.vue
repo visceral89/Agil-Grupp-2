@@ -89,7 +89,7 @@ export default {
 <style scoped>
   .question-wrapper {
     width: fit-content;
-    max-width: 80vw;
+    max-width: 90vw;
     margin: auto;
   }
   h2 {
@@ -98,7 +98,7 @@ export default {
     color: #FFF;
     text-align: center;
     font-family: Poppins;
-    font-size: 28px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -106,9 +106,9 @@ export default {
   #question-card {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
     width: fit-content;
-    padding: 18px 0;
+    padding: 12px 0;
     margin-top: 28px;
     margin-left: auto;
     margin-right: auto;
@@ -119,6 +119,7 @@ export default {
     justify-content: center;
     min-width: 100px;
     min-height: 50px;
+    font-size: 1.1rem;
     text-align: center;
     white-space: normal;
     border-radius: 9px;
@@ -135,10 +136,12 @@ export default {
   .correct, .correct:hover {
     background-color: var(--color-right-answer);
     color: var(--color-neutral-light);
+    box-shadow: none;
   }
   .wrong, .wrong:hover {
     background-color: var(--color-wrong-answer);
     color: var(--color-neutral-light);
+    box-shadow: none;
   }
   .disabled, .disabled:hover {
     background-color: var(--color-disabled);
@@ -154,14 +157,14 @@ export default {
   #result-msg {
     color: #FFF;
     font-family: Poppins;
-    font-size: 17px;
+    font-size: 1.1rem;
     font-weight: 500;
   }
 	Button {
     background: var(--color-secondary);
 		color: #ECECEC;
 		font-family: Poppins;
-		font-size: 20px;
+		font-size: 1.3rem;
 		font-style: normal;
 		font-weight: 500;
 		line-height: normal;
@@ -171,9 +174,18 @@ export default {
 	}
 
   @media (min-width: 890px) {
+    h2 {
+      font-size: 1.7rem;
+    }
     #question-card {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px 53px;
-  }
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 53px;
+    }
+    .answer-choice {
+      font-size: 1.3rem;
+    }
+    #result-msg {
+      font-size: 1.2rem;
+    }
   }
 </style>

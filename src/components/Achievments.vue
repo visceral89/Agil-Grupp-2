@@ -35,12 +35,13 @@
       display: flex;
       flex-direction: row-reverse;
       justify-content: center;
+      max-width: 300px;
    }
    .achievment {
       margin: 10px;
    }
    span {
-      font-size: 38px;
+      font-size: 2rem;
    }
    
    /*style for tooltip*/
@@ -50,9 +51,10 @@
    }
    .tooltip .tooltip-text {
       visibility: hidden;
-      width: 120px;
+      width: 65px;
       background-color: var(--color-card-background);
       color: var(--color-neutral-dark);
+      font-size: .8rem;
       text-align: center;
       padding: 5px 10px;
       border-radius: 6px;
@@ -62,5 +64,18 @@
    .tooltip:hover .tooltip-text {
       visibility: visible;
    }
+
+   @media (min-width: 890px) {
+      #achievments-wrapper {
+         max-width: 600px;
+      }
+      span {
+         font-size: 2.5rem;
+      }
+      .tooltip .tooltip-text {
+         width: 120px;
+         font-size: 1rem;
+      }
+  }
 
 </style>

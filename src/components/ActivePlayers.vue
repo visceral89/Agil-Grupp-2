@@ -16,16 +16,16 @@
 </template>
 
 <script>
-import { useUserStorage } from "../stores/storage";
+  import { useUserStorage } from "../stores/storage";
 
-export default {
-  data() {
-    return {
-      userStorage: useUserStorage(), //gets userstorage data from storage.js
-      secondPlayer: null
+  export default {
+    data() {
+      return {
+        userStorage: useUserStorage(), //gets userstorage data from storage.js
+        secondPlayer: null
+      }
     }
   }
-}
 </script>
 
 <style scoped>
