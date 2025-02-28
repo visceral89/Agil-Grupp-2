@@ -47,12 +47,14 @@
 
 <script>
    import { useUserStorage } from "../stores/storage";
+   import users from "../lib/users.json";
    
    export default {
       data() {
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
             base_url: "src/",
+            users: users
          }
       }
    }
