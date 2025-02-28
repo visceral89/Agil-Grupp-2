@@ -8,10 +8,12 @@
             </div>
             <div class="result-list-wrapper">
                <h2>Snyggt spelat! Du samlade {{ userStorage.activeUser.points }} poäng.</h2>
-               <p>Highscoreplats</p>
-               <div class="result-card">
-                  <p>Spelare 1</p>
-                  <p>100p</p>
+               <div class="result-list">
+                  <p>Highscoreplats</p>
+                  <div class="result-card">
+                     <p>Spelare 1</p>
+                     <p>100p</p>
+                  </div>
                </div>
             </div>
          </div>
@@ -19,24 +21,24 @@
 
          <!--if 2-players-->
 
-
-<!--          <div id="2-player-wrapper">
+<!--           <div id="2-player-wrapper">
             <div class="user-img-wrapper">
-               <img :src="'src/' + userStorage.activeUser.avatar" alt="Profilavtar">
+               <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
             </div>
             <div class="result-list-wrapper">
                <h2>Grattis, spelare vann!</h2>
-               <p>Resultat</p>
-               <div class="result-card">
-                  <p>{{ userStorage.activeUser.username }}</p>
-                  <p>{{ userStorage.activeUser.points }}</p>
-                  <p>Spelare 2</p>
-                  <p>100p</p>
+               <div class="result-list">
+                  <p>Resultat</p>
+                  <div class="result-card">
+                     <p>{{ userStorage.activeUser.username }}</p>
+                     <p>{{ userStorage.activeUser.points }}</p>
+                     <p>Spelare 2</p>
+                     <p>100p</p>
+                  </div>
                </div>
             </div>
          </div> -->
 
-         
          <!--if 2-players-->
 
       </div>
@@ -72,8 +74,11 @@
       border-radius: 50%;
    }
    .result-list-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
       width: 75vw;
-      height: 40vh;
+      height: fit-content;
       border-radius: 6px;
       background-color: var(--color-card-background);
       padding: var(--padding-card);
@@ -85,7 +90,11 @@
       font-size: 1.7rem;
       font-weight: 500;
    }
-   h2 + p {
+   .result-list {
+      padding-bottom: 1rem;
+      margin: auto;
+   }
+   .result-list > p {
       color: var(--color-neutral-dark);
       font-size: 1.1rem;
       font-weight: 500;

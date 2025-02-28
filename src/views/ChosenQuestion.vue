@@ -175,6 +175,12 @@ export default {
 			background-color: var(--color-card-hover);
 		}
 	}
+  #result-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
 
   @media (min-width: 890px) {
     h2 {
