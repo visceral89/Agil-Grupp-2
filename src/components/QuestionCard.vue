@@ -1,13 +1,23 @@
 <template>
-	<div @click="isDisabeled" class="question-card" :class="{ disabeled: isDisabeled }">
+	<div @click="setDisabeled" class="question-card" :class="{ disabeled: isDisabeled }">
 		{{ question.points }}
 	</div>
 </template>
 <script>
+import { useQuestionStore } from "../stores/questionStore";
 export default {
 	props: ["question"],
 	data() {
-		return { isDisabeled: false };
+		return { isDisabeled: false, questionStore: useQuestionStore() };
+	},
+	created() {
+		console.log(this.question);
+		this.isDisabeled = this.questionStore.checkDisabeled(this.question.id);
+	},
+	methods: {
+		setDisabeled() {
+			this.questionStore.disableQuestion(this.question.id);
+		},
 	},
 };
 </script>
