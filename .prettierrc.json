@@ -1,7 +1,7 @@
 {
-        "tabWidth": 4,
-        "semi": false,
-        "singleQuote": false,
-        "trailingComma": "none",
-        "vueIndentScriptAndStyle": true
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "none",
+    "vueIndentScriptAndStyle": true
 }
