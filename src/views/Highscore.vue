@@ -58,6 +58,7 @@ export default {
   gap: .8em;
   height: 550px;
   overflow-y: scroll;
+  padding-top: 2.1em;
   scrollbar-width: none;
 }
 .highscore-cell {
@@ -94,7 +95,6 @@ export default {
   .highscore-top-section {
     flex-direction: row;
     gap: 2em;
-    margin-bottom: 2em;
     .highscore-top-title {
       font-size: 3em;
     }
