@@ -4,12 +4,12 @@
          <!--if 1-players-->
          <div id="1-player-wrapper">
             <div class="user-img-wrapper">
-               <img :src="'src/' + userStorage.activeUser.avatar" alt="Profilavtar">
+               <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
             </div>
             <div class="result-list-wrapper">
-               <h2>Snyggt spelat! Du samlade xxx poäng.</h2>
+               <h2>Snyggt spelat! Du samlade {{ userStorage.activeUser.points }} poäng.</h2>
                <p>Highscoreplats</p>
-               <div id="result-card">
+               <div class="result-card">
                   <p>Spelare 1</p>
                   <p>100p</p>
                </div>
@@ -18,21 +18,25 @@
          <!--if 1-players-->
 
          <!--if 2-players-->
-         <div id="2-player-wrapper">
+
+
+<!--          <div id="2-player-wrapper">
             <div class="user-img-wrapper">
                <img :src="'src/' + userStorage.activeUser.avatar" alt="Profilavtar">
             </div>
             <div class="result-list-wrapper">
                <h2>Grattis, spelare vann!</h2>
                <p>Resultat</p>
-               <div id="result-card">
+               <div class="result-card">
                   <p>{{ userStorage.activeUser.username }}</p>
                   <p>{{ userStorage.activeUser.points }}</p>
                   <p>Spelare 2</p>
                   <p>100p</p>
                </div>
             </div>
-         </div>
+         </div> -->
+
+         
          <!--if 2-players-->
 
       </div>
@@ -46,11 +50,60 @@
       data() {
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
+            base_url: "src/",
          }
       }
    }
 </script>
 
 <style scoped>
-
+   #result-wrapper {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+   }
+   .user-img-wrapper {
+      display: flex;
+      justify-content: center;
+   }
+   img {
+      width: 140px;
+      height: auto;
+      border-radius: 50%;
+   }
+   .result-list-wrapper {
+      width: 75vw;
+      height: 40vh;
+      border-radius: 6px;
+      background-color: var(--color-card-background);
+      padding: var(--padding-card);
+      margin-top: 20px;
+   }
+   h2 {
+      color: var(--color-neutral-dark);
+      text-align: center;
+      font-size: 1.7rem;
+      font-weight: 500;
+   }
+   h2 + p {
+      color: var(--color-neutral-dark);
+      font-size: 1.1rem;
+      font-weight: 500;
+   }
+   .result-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 255px;
+      height: 45px;
+      border-radius: 6px;
+      background-color: var(--color-card-secondary);
+      box-shadow: var(--box-shadow);
+      padding: 0 8px;
+   }
+   .result-card > p {
+      color: var(--color-neutral-dark);
+      font-size: 14px;
+      font-weight: 400;
+   }
 </style>
