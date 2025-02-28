@@ -48,4 +48,5 @@ export const useQuestionStore = defineStore("questionStore", {
 			}
 		},
 	},
+	questions: null,
 });
