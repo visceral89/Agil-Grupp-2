@@ -14,11 +14,11 @@ export const useUserStorage = defineStore("userStorage", {
 			points: 0,
 			email: "hej@iths.se",
 		},
-		// Player 1 sätts från logged in user i början.
-		player1: {},
-		// Player 2 är ursprungligen motståndaren. Activeplayer skiftas mellan spelare 1 och 2.
-		player2: {},
-		loggedinUser: {},
+		// Player 1 initializies to null nstead of empty object. This preserves reactivity and makes empty checks easier.
+		player1: null,
+		// Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.
+		player2: null,
+		loggedinUser: null,
 		availableAchievments: availableAchievments,
 	}),
 	actions: {
@@ -68,14 +68,31 @@ export const useUserStorage = defineStore("userStorage", {
 		setOpponent(user) {
 			// This function is called from Invite modal and sets player 2 to be the opponent "manually"
 			this.player2 = user;
+			console.log(this.player2);
 		},
 		flipActiveUser() {
 			// Here we change active user from user 1 or User 2
-			if (this.activeUser === this.player1) {
-				this.setActiveUser(this.player2);
+			if (!this.player1 || !this.player2) {
+				if (this.activeUser === this.player1) {
+					this.setActiveUser(this.player2);
+				} else {
+					this.setActiveUser(this.player1);
+				}
 			} else {
-				this.setActiveUser(this.player1);
+				console.log("Player 1 or Player 2 is not set. Cant flipflop");
 			}
+		},
+		clearPlayers() {
+			// Maybe we wont need this function but ill implement it just in case.
+			// This function just clears the player 1 and 2. Incase we are resetting the game or something.
+			this.player1 = null;
+			this.player2 = null;
+			console.log("Both Players reset to null");
+		},
+		logoutUser() {
+			// Logout function, resets loggedinUser to null.
+			this.loggedinUser = null;
+			console.log("Logged out");
 		},
 	},
 });

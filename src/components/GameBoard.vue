@@ -19,7 +19,7 @@
 		<div id="player-container">
 			<div id="player">{{ userStorage.activeUser.username }}</div>
 			<div id="opponent" @click="toggleInviteModal">
-				{{ userStorage.activeUser.username || "Bjud in vän" }}
+				{{ userStorage.player2.username || "Bjud in vän" }}
 			</div>
 		</div>
 		<InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
