@@ -111,11 +111,26 @@
       background-color: var(--color-card-secondary);
       box-shadow: var(--box-shadow);
       padding: 0 8px;
-      margin: 15px
    }
    .result-card > p {
       color: var(--color-neutral-dark);
       font-size: 14px;
       font-weight: 400;
    }
+
+   @media (min-width: 890px) {
+    h2 {
+      font-size: 1.7rem;
+    }
+    #question-card {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 53px;
+    }
+    .answer-choice {
+      font-size: 1.3rem;
+    }
+    #result-msg {
+      font-size: 1.2rem;
+    }
+  }
 </style>
