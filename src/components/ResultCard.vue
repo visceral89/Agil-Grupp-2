@@ -1,8 +1,31 @@
 <template>
    <div id="result-container">
       <div id="result-wrapper">
+         
+         <!--if 2-players-->
+         <div id="2-player-wrapper" v-if="userStorage.player2 !== null">
+            <div class="user-img-wrapper">
+               <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
+            </div>
+            <div class="result-list-wrapper">
+               <h2>Grattis, spelare vann!</h2>
+               <div class="result-list">
+                  <p>Resultat</p>
+                  <div class="result-card">
+                     <p>{{ userStorage.activeUser.username }}</p>
+                     <p>{{ userStorage.activeUser.points }}</p>
+                  </div>
+                  <div class="result-card">
+                     <p>Spelare 2</p>
+                     <p>100p</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--if 2-players-->         
+         
          <!--if 1-players-->
-         <div id="1-player-wrapper">
+         <div id="1-player-wrapper" v-else>
             <div class="user-img-wrapper">
                <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
             </div>
@@ -18,29 +41,6 @@
             </div>
          </div>
          <!--if 1-players-->
-
-         <!--if 2-players-->
-
-<!--           <div id="2-player-wrapper">
-            <div class="user-img-wrapper">
-               <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
-            </div>
-            <div class="result-list-wrapper">
-               <h2>Grattis, spelare vann!</h2>
-               <div class="result-list">
-                  <p>Resultat</p>
-                  <div class="result-card">
-                     <p>{{ userStorage.activeUser.username }}</p>
-                     <p>{{ userStorage.activeUser.points }}</p>
-                     <p>Spelare 2</p>
-                     <p>100p</p>
-                  </div>
-               </div>
-            </div>
-         </div> -->
-
-         <!--if 2-players-->
-
       </div>
    </div>
 </template>
@@ -111,6 +111,7 @@
       background-color: var(--color-card-secondary);
       box-shadow: var(--box-shadow);
       padding: 0 8px;
+      margin: 15px
    }
    .result-card > p {
       color: var(--color-neutral-dark);
