@@ -8,7 +8,7 @@
                <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
             </div>
             <div class="result-list-wrapper">
-               <h2>Grattis, spelare vann!</h2>
+               <h2>Grattis, {{ userStorage.activeUser.username }} vann!</h2>
                <div class="result-list">
                   <p>Resultat</p>
                   <div class="result-card">
@@ -34,8 +34,8 @@
                <div class="result-list">
                   <p>Highscoreplats</p>
                   <div class="result-card">
-                     <p>Spelare 1</p>
-                     <p>100p</p>
+                     <p>{{ userStorage.activeUser.username }}</p>
+                     <p>{{ userStorage.activeUser.points }}</p>
                   </div>
                </div>
             </div>
@@ -111,6 +111,7 @@
       background-color: var(--color-card-secondary);
       box-shadow: var(--box-shadow);
       padding: 0 8px;
+      margin-bottom: 15px;
    }
    .result-card > p {
       color: var(--color-neutral-dark);
