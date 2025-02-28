@@ -57,7 +57,7 @@
       font-size: .8rem;
       text-align: center;
       padding: 5px 10px;
-      border-radius: 6px;
+      border-radius: 2px 20px 20px 20px;
       position: absolute;
       z-index: 1;
    }

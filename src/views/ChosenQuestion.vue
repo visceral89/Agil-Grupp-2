@@ -25,12 +25,14 @@
         <p v-if="isCorrect">Grattis, du valde rätt!</p>
         <p v-else>Tyvärr, du valde fel</p>
       </div>
-      <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
+      <div id="next-btn">
+        <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
+      </div>
 		</div>
+    <div id="result-wrapper">
+      <RouterLink to="/game/result"> <Button>Resultat</Button> </RouterLink>
+    </div>
   </div>
-  <div id="result-wrapper">
-		<RouterLink to="/game/result"> <Button>Resultat</Button> </RouterLink>
-	</div>
 </template>
 
 <script>
@@ -160,21 +162,26 @@ export default {
   #result-msg {
     color: #FFF;
     font-family: Poppins;
-    font-size: 1.1rem;
+    font-size: .9rem;
     font-weight: 500;
+    margin: 0;
   }
 	Button {
     background: var(--color-secondary);
 		color: #ECECEC;
 		font-family: Poppins;
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		font-style: normal;
 		font-weight: 500;
 		line-height: normal;
+    margin: 0;
     &:hover {
 			background-color: var(--color-card-hover);
 		}
 	}
+  #next-btn {
+    margin-bottom: 30px;
+  }
   #result-wrapper {
     display: flex;
     justify-content: center;
