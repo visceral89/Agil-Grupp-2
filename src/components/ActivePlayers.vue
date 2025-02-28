@@ -46,7 +46,7 @@
     background: var(--color-secondary);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    padding: 1em 2em;
+    padding: .6em 2em;
     width: fit-content;
   }
   #player-2-wrapper {

@@ -28,6 +28,9 @@
       <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
 		</div>
   </div>
+  <div id="result-wrapper">
+		<RouterLink to="/game/result"> <Button>Resultat</Button> </RouterLink>
+	</div>
 </template>
 
 <script>
@@ -172,6 +175,11 @@ export default {
 			background-color: var(--color-card-hover);
 		}
 	}
+  #result-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   @media (min-width: 890px) {
     h2 {
