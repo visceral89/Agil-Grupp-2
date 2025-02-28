@@ -28,6 +28,9 @@
       <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
 		</div>
   </div>
+  <div id="result-wrapper">
+		<RouterLink to="/game/result"> <Button>Resultat</Button> </RouterLink>
+	</div>
 </template>
 
 <script>

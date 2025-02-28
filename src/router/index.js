@@ -6,6 +6,7 @@ import Highscore from "../views/Highscore.vue";
 import Login from "../views/Login.vue";
 import Profile from "../views/Profile.vue";
 import ChosenQuestion from "../views/ChosenQuestion.vue";
+import ResultScreen from "../views/ResultScreen.vue";
 
 export default createRouter({
   history: createWebHistory("/"),
@@ -25,6 +26,11 @@ export default createRouter({
 			path: "/game/:id",
 			name: "ChosenQuestion",
 			component: ChosenQuestion,
+		},
+    {
+			path: "/game/result",
+			name: "ResultScreen",
+			component: ResultScreen,
 		},
     {
       path: "/highscore",

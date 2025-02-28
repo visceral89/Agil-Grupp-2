@@ -1,15 +1,40 @@
 <template>
    <div id="result-container">
-      <!--Show this modal if there are no more questions and the game is finished-->
-      <div id="result-wrapper" v-if="result">
-         <div class="player-wrapper">
-            <p>{{ userStorage.activeUser.username }}</p>
-            <p>{{ userStorage.activeUser.points }}</p>
+      <div id="result-wrapper">
+         <!--if 1-players-->
+         <div id="1-player-wrapper">
+            <div class="user-img-wrapper">
+               <img :src="'src/' + userStorage.activeUser.avatar" alt="Profilavtar">
+            </div>
+            <div class="result-list-wrapper">
+               <h2>Snyggt spelat! Du samlade xxx poäng.</h2>
+               <p>Highscoreplats</p>
+               <div id="result-card">
+                  <p>Spelare 1</p>
+                  <p>100p</p>
+               </div>
+            </div>
          </div>
-         <div class="player-wrapper">
-            <p>Player 2</p>
-            <p>0p</p>
+         <!--if 1-players-->
+
+         <!--if 2-players-->
+         <div id="2-player-wrapper">
+            <div class="user-img-wrapper">
+               <img :src="'src/' + userStorage.activeUser.avatar" alt="Profilavtar">
+            </div>
+            <div class="result-list-wrapper">
+               <h2>Grattis, spelare vann!</h2>
+               <p>Resultat</p>
+               <div id="result-card">
+                  <p>{{ userStorage.activeUser.username }}</p>
+                  <p>{{ userStorage.activeUser.points }}</p>
+                  <p>Spelare 2</p>
+                  <p>100p</p>
+               </div>
+            </div>
          </div>
+         <!--if 2-players-->
+
       </div>
    </div>
 </template>
