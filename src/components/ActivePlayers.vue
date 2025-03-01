@@ -22,7 +22,17 @@
     data() {
       return {
         userStorage: useUserStorage(), //gets userstorage data from storage.js
+        activePlayer: useUserStorage().activeUser
       }
+    },
+    methods: {
+      //switch between player 1 and player 2
+/*       switchPlayer() {
+        this.activePlayer = 
+        this.activePlayer === this.userStorage.player1
+        ? this.userStorage.player2
+        : this.userStorage.player1
+      } */
     }
   }
 </script>
