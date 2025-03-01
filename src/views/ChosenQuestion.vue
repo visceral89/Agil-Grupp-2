@@ -7,7 +7,7 @@
     <div id="question-card">
       <!-- chosen question from game board -->
       <button v-for="(answer, index) in selectedQuestion.answers" 
-      :key="index" @click="onSelectAnswer(answer, index); /* onSetDisabled() */" 
+      :key="index" @click="onSelectAnswer(answer, index)" 
       :class="{
         correct: selectedAnswer === index && isCorrect,
         wrong: selectedAnswer === index && !isCorrect,
@@ -18,7 +18,7 @@
         <span id="selected-answer">{{ answer }}</span>
       </button>
     </div>
-    <ActivePlayers v-if="selectedAnswer === null"/>
+    <ActivePlayers v-if="selectedAnswer === null" />
 
 		<div id="next-btn-wrapper" v-show="selectedAnswer !== null">
 			<div id="result-msg">

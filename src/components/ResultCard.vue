@@ -4,7 +4,7 @@
           <!--if 2-players-->
           <div id="2-player-wrapper" v-if="userStorage.player2 !== null">
             <div class="user-img-wrapper">
-               <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
+               <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar" />
             </div>
             <div class="result-list-wrapper">
                <h2>Grattis, {{ userStorage.activeUser.username }} vann!</h2>

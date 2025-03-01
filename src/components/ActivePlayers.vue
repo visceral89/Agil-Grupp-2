@@ -6,10 +6,10 @@
         <p class="player">{{ userStorage.activeUser.username }}</p>
       </div>
     </div>
-    <div v-if="secondPlayer" id="next-player">
+    <div v-if="userStorage.player2" id="next-player">
       <p class="player-header">På tur:</p>
       <div id="player-2-wrapper">
-        <p class="player">Player 2</p>
+        <p class="player">{{ userStorage.player2.username }}</p>
       </div>
     </div>
   </div>
@@ -22,7 +22,6 @@
     data() {
       return {
         userStorage: useUserStorage(), //gets userstorage data from storage.js
-        secondPlayer: null
       }
     }
   }
@@ -55,6 +54,7 @@
     border-radius: var(--border-radius);
     box-shadow: -2px 4px 0px 0px #6D698F;
     padding: .5em 1em;
+    margin-bottom: 20px;
   }
   .player-header {
     color: #FFF;
