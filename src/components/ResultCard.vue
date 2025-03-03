@@ -15,8 +15,8 @@
                      <p>{{ userStorage.activeUser.points }}</p>
                   </div>
                   <div class="result-card">
-                     <p>Spelare 2</p>
-                     <p>100p</p>
+                     <p>{{ userStorage.player2.username }}</p>
+                     <p>{{ userStorage.player2.points }}</p>
                   </div>
                </div>
             </div>
@@ -29,12 +29,12 @@
                <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar" />
             </div>
             <div class="result-list-wrapper">
-               <h2>Snyggt spelat! Du samlade {{ userStorage.activeUser.points }} poäng.</h2>
+               <h2>Snyggt spelat! Du har samlat {{ userStorage.activeUser.points }} poäng.</h2>
                <div class="result-list">
-                  <p>Highscoreplats</p>
+                  <p>Highscoreplats/Resultat</p>
                   <div class="result-card">
-                     <p>Spelare 1</p>
-                     <p>100p</p>
+                     <p>{{ userStorage.activeUser.username }}</p>
+                     <p>{{ userStorage.activeUser.points }}</p>
                   </div>
                </div>
             </div>
@@ -53,6 +53,9 @@
             userStorage: useUserStorage(), //gets userstorage data from storage.js
             base_url: "src/",
          }
+      },
+      created() {
+         this.userStorage.checkWinner()
       }
    }
 </script>

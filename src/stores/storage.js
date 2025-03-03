@@ -37,6 +37,20 @@ export const useUserStorage = defineStore("userStorage", {
 				this.unlockAchievments();
 			}
 		},
+		checkWinner() {
+/* 			if (player2) {
+				if (this.activeUser.points > this.player2.points) {
+					console.log(this.player1.username, 'wins')
+				}
+				else if (this.activeUser.points < this.player2.points) {
+					console.log(this.player2.username, 'wins')
+				}
+			}
+			else {
+				return
+			} */
+
+		},
 		unlockAchievments() {
 			//loop through the json-file
 			this.availableAchievments.forEach((achievment) => {

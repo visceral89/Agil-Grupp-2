@@ -29,7 +29,7 @@
         <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
       </div>
 		</div>
-    <div id="result-wrapper">
+    <div id="result-wrapper" v-show="isGameOver">
       <RouterLink to="/game/result"> <Button>Resultat</Button> </RouterLink>
     </div>
   </div>
@@ -38,6 +38,7 @@
 <script>
 //import the whole json-file
 import { useUserStorage } from "../stores/storage";
+import { useQuestionStore } from "../stores/questionStore"
 import questions from '../lib/questions.json'
 import ActivePlayers from '../components/ActivePlayers.vue';
 import Button from '../components/Button.vue'
@@ -46,12 +47,14 @@ export default {
   data() {
     return {
       userStorage: useUserStorage(), //gets userstorage data from storage.js
+      questionStore: useQuestionStore(),
       id: this.$route.params.id, //gets id from route param sent from gameboard
       questions: questions, //gets questions array from imported questions.json
       selectedQuestion: null,
       selectedAnswer: null,
       isCorrect: false,
-      isDisabled: false
+      isDisabled: false,
+      isGameOver: false
     }
   },
   created() {
@@ -76,11 +79,16 @@ export default {
         this.isCorrect = true
 
         this.userStorage.addPoints(this.selectedQuestion.points)
+        this.questionStore.checkGameOver()
       }
       else {
         this.selectedAnswer = index
         this.isCorrect = false
         console.log(answer, 'fel svar')
+      }
+
+      if (this.questionStore.checkGameOver()) {
+        this.isGameOver = true
       }
     },
   },
