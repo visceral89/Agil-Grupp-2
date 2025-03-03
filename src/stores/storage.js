@@ -38,6 +38,7 @@ export const useUserStorage = defineStore("userStorage", {
 				//call this function every time a user gets points to check if an achievment can be collected
 				this.unlockAchievments();
 			}
+			this.flipActiveUser() //flips to new active user after points have been given
 		},
 		unlockAchievments() {
 			//loop through the json-file
@@ -86,11 +87,14 @@ export const useUserStorage = defineStore("userStorage", {
 		},
 		flipActiveUser() {
 			// Here we change active user from user 1 or User 2
-			if (!this.player1 || !this.player2) {
+			if (this.player1 && this.player2) {
 				if (this.activeUser === this.player1) {
 					this.setActiveUser(this.player2);
+					console.log(this.activeUser, "Ny aktiv spelare");
 				} else {
 					this.setActiveUser(this.player1);
+					console.log(this.activeUser, "Ny aktiv spelare");
+
 				}
 			} else {
 				console.log("Player 1 or Player 2 is not set. Cant flipflop");
