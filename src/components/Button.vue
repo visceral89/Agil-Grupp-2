@@ -29,7 +29,7 @@ button {
 	font-size: 20px;
 	font-weight: 500;
 	&:hover {
-		background-color: var(--color-card-hover);
+		background-color: var(--color-secondary-hover);
 	}
 }
 </style>
