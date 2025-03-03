@@ -70,14 +70,14 @@
                         )
                     )
                 }
-                console.log(this.questionsList)
+                // console.log(this.questionsList)
             },
             toggleInviteModal() {
                 this.isInviteOpen = !this.isInviteOpen
-                console.log(this.isInviteOpen)
+                //  console.log(this.isInviteOpen)
             },
             checkGameOver() {
-                return this.questionStore.checkGameOver()
+                this.outOfQuestions = this.questionStore.checkGameOver()
             }
         },
 
@@ -85,7 +85,7 @@
             this.createBoard()
             this.userStorage.setPlayers()
             this.checkGameOver()
-            console.log(this.checkGameOver())
+            console.log(this.outOfQuestions)
         },
         computed: {
             displayOpponent() {

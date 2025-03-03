@@ -16,7 +16,7 @@
             return { isDisabeled: false, questionStore: useQuestionStore() }
         },
         created() {
-            console.log(this.question)
+            // console.log(this.question)
             this.isDisabeled = this.questionStore.checkDisabeled(
                 this.question.id
             )
