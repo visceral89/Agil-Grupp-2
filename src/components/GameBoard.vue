@@ -128,6 +128,11 @@
             background-color: var(--color-secondary);
         }
     }
+    #opponent {
+        &:hover {
+            background-color: var(--color-secondary-hover);
+        }
+    }
 
     .category-column {
         display: flex;
