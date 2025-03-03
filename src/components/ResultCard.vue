@@ -51,7 +51,7 @@
       data() {
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
-            base_url: "src/",
+            base_url: "../src/",
          }
       },
       created() {

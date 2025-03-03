@@ -31,6 +31,7 @@
 		</div>
     <div id="result-wrapper" v-show="isGameOver">
       <RouterLink to="/game/result"> <Button>Resultat</Button> </RouterLink>
+      <div class="firework"></div>
     </div>
   </div>
 </template>
@@ -194,6 +195,53 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .firework, .firework::before, .firework::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background: 
+      radial-gradient(var(--color-accent) 0.2vmin, #0000 0) 50% 0%,
+      radial-gradient(var(--color-accent) 0.3vmin, #0000 0) 0% 50%,
+      radial-gradient(var(--color-accent), 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(var(--color-accent), 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(var(--color-accent), 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(var(--color-accent), 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(var(--color-accent), 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(var(--color-accent), 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(var(--color-accent), 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(var(--color-accent), 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(var(--color-accent), 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(var(--color-accent), 0.5vmin, #0000 0) 13% 24%;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  .firework::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important;
+  }
+  .firework::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+  @keyframes firework {
+    0% {
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% {
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% {
+      width: 45vmin;
+      opacity: 0;
+    }
   }
 
   @media (min-width: 890px) {
