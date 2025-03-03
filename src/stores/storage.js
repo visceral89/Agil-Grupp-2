@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import availableAchievments from "../lib/achievments.json";
+import users from "../lib/users.json"
 
 export const useUserStorage = defineStore("userStorage", {
 	state: () => ({
@@ -20,6 +21,7 @@ export const useUserStorage = defineStore("userStorage", {
 		player2: null,
 		loggedinUser: null,
 		availableAchievments: availableAchievments,
+		users: users
 	}),
 	actions: {
 		loginUser(user) {
@@ -37,20 +39,6 @@ export const useUserStorage = defineStore("userStorage", {
 				this.unlockAchievments();
 			}
 		},
-		checkWinner() {
-/* 			if (player2) {
-				if (this.activeUser.points > this.player2.points) {
-					console.log(this.player1.username, 'wins')
-				}
-				else if (this.activeUser.points < this.player2.points) {
-					console.log(this.player2.username, 'wins')
-				}
-			}
-			else {
-				return
-			} */
-
-		},
 		unlockAchievments() {
 			//loop through the json-file
 			this.availableAchievments.forEach((achievment) => {
@@ -66,6 +54,13 @@ export const useUserStorage = defineStore("userStorage", {
 					}
 				}
 			});
+		},
+		setHighscore(username) {
+			this.users.sort((a, b) => {
+				return b.points - a.points
+			})
+			const highscoreIndex = this.users.findIndex(user => user.username === username)
+			return highscoreIndex ? highscoreIndex + 1 : null
 		},
 		setPlayers() {
 			if (!this.loggedinUser) {

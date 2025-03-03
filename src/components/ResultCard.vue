@@ -31,9 +31,9 @@
             <div class="result-list-wrapper">
                <h2>Snyggt spelat! Du har samlat {{ userStorage.activeUser.points }} poäng.</h2>
                <div class="result-list">
-                  <p>Highscoreplats/Resultat</p>
+                  <p>Du är just nu på plats {{ highscoreRank }} i highscore-listan!</p>
                   <div class="result-card">
-                     <p>{{ userStorage.activeUser.username }}</p>
+                     <p>{{ highscoreRank }}. {{ userStorage.activeUser.username }}</p>
                      <p>{{ userStorage.activeUser.points }}</p>
                   </div>
                </div>
@@ -52,10 +52,16 @@
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
             base_url: "../src/",
+            highscoreRank: null
          }
       },
       created() {
-         this.userStorage.checkWinner()
+         this.getHighscore()
+      },
+      methods: {
+         getHighscore() {
+            this.highscoreRank = this.userStorage.setHighscore(this.userStorage.activeUser.username)
+         }
       }
    }
 </script>
@@ -111,7 +117,7 @@
       background-color: var(--color-card-secondary);
       box-shadow: var(--box-shadow);
       padding: 0 8px;
-      margin-bottom: 15px;
+      margin: 0 auto 15px;
    }
    .result-card > p {
       color: var(--color-neutral-dark);

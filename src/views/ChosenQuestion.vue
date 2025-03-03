@@ -29,7 +29,7 @@
         <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
       </div>
 		</div>
-    <div id="result-wrapper" v-show="isGameOver">
+    <div id="result-wrapper" v-show="isGameEnded">
       <RouterLink to="/game/result"> <Button>Resultat</Button> </RouterLink>
       <div class="firework"></div>
     </div>
@@ -55,7 +55,7 @@ export default {
       selectedAnswer: null,
       isCorrect: false,
       isDisabled: false,
-      isGameOver: false
+      isGameEnded: false
     }
   },
   created() {
@@ -89,7 +89,7 @@ export default {
       }
 
       if (this.questionStore.checkGameOver()) {
-        this.isGameOver = true
+        this.isGameEnded = true
       }
     },
   },
@@ -207,17 +207,17 @@ export default {
     aspect-ratio: 1;
     background: 
       radial-gradient(var(--color-accent) 0.2vmin, #0000 0) 50% 0%,
-      radial-gradient(var(--color-accent) 0.3vmin, #0000 0) 0% 50%,
-      radial-gradient(var(--color-accent), 0.5vmin, #0000 0) 50% 99%,
-      radial-gradient(var(--color-accent), 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(var(--color-secondary) 0.3vmin, #0000 0) 0% 50%,
+      radial-gradient(var(--color-category-background), 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(var(--color-card-secondary), 0.2vmin, #0000 0) 99% 50%,
       radial-gradient(var(--color-accent), 0.3vmin, #0000 0) 80% 90%,
-      radial-gradient(var(--color-accent), 0.5vmin, #0000 0) 95% 90%,
-      radial-gradient(var(--color-accent), 0.5vmin, #0000 0) 10% 60%,
-      radial-gradient(var(--color-accent), 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(var(--color-secondary), 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(var(--color-category-background), 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(var(--color-card-secondary), 0.2vmin, #0000 0) 31% 80%,
       radial-gradient(var(--color-accent), 0.3vmin, #0000 0) 80% 10%,
-      radial-gradient(var(--color-accent), 0.2vmin, #0000 0) 90% 23%,
-      radial-gradient(var(--color-accent), 0.3vmin, #0000 0) 45% 20%,
-      radial-gradient(var(--color-accent), 0.5vmin, #0000 0) 13% 24%;
+      radial-gradient(var(--color-secondary), 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(var(--color-category-background), 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(var(--color-card-secondary), 0.5vmin, #0000 0) 13% 24%;
     background-size: 0.5vmin 0.5vmin;
     background-repeat: no-repeat;
     animation: firework 2s infinite;
