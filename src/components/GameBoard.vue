@@ -75,19 +75,21 @@
             toggleInviteModal() {
                 this.isInviteOpen = !this.isInviteOpen
                 console.log(this.isInviteOpen)
+            },
+            checkGameOver() {
+                return this.questionStore.checkGameOver()
             }
         },
 
         created() {
             this.createBoard()
             this.userStorage.setPlayers()
+            this.checkGameOver()
+            console.log(this.checkGameOver())
         },
         computed: {
             displayOpponent() {
                 return this.userStorage.player2?.username || "Bjud in vän"
-            },
-            checkGameOver() {
-                return this.questionStore.checkGameOver()
             }
         }
     }
