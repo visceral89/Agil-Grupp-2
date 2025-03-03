@@ -26,6 +26,9 @@
             <div id="opponent" @click="toggleInviteModal">
                 {{ displayOpponent }}
             </div>
+            <router-link v-if="outOfQuestions" to="/game/result"
+                ><div>Resultat</div></router-link
+            >
         </div>
         <InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
     </div>
@@ -85,7 +88,7 @@
             this.createBoard()
             this.userStorage.setPlayers()
             this.checkGameOver()
-            console.log(this.outOfQuestions)
+            console.log(this.outOfQuestions) /*! Comment this out later */
         },
         computed: {
             displayOpponent() {
