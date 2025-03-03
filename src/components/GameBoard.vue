@@ -36,6 +36,7 @@
     import QuestionCard from "./QuestionCard.vue"
     import InviteModal from "./InviteModal.vue"
     import { useUserStorage } from "../stores/storage"
+    import { useQuestionStore } from "../stores/questionStore"
     export default {
         data() {
             return {
@@ -43,7 +44,9 @@
                 questions: questions,
                 categoryList: [],
                 questionsList: [],
-                userStorage: useUserStorage()
+                userStorage: useUserStorage(),
+                questionStore: useQuestionStore(),
+                outOfQuestions: false
             }
         },
         components: { QuestionCard, InviteModal },
@@ -82,6 +85,9 @@
         computed: {
             displayOpponent() {
                 return this.userStorage.player2?.username || "Bjud in vän"
+            },
+            checkGameOver() {
+                return this.questionStore.checkGameOver()
             }
         }
     }
