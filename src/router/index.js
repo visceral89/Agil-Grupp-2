@@ -15,37 +15,65 @@ export default createRouter({
       path: "/",
       name: "Login",
       component: Login,
-      meta: { hideNavbars: true }
+      meta: {
+        hideNavbars: true,
+        enterClass: "animate__animated animate__fadeIn",
+        leaveClass: "animate__animated animate__fadeOut"
+     }
     },
     {
       path: "/game",
       name: "Game",
-      component: Game
+      component: Game,
+      meta: {
+        enterClass: "animate__animated animate__fadeIn",
+        leaveClass: "animate__animated animate__fadeOut"
+      }
     },
     {
       path: "/game/:id",
       name: "ChosenQuestion",
-      component: ChosenQuestion
+      component: ChosenQuestion,
+      meta: {
+        enterClass: "animate__animated animate__fadeIn",
+        leaveClass: "animate__animated animate__fadeOut"
+      }
     },
     {
       path: "/game/result",
       name: "ResultScreen",
-      component: ResultScreen
+      component: ResultScreen,
+      meta: {
+        enterClass: "animate__animated animate__fadeIn",
+        leaveClass: "animate__animated animate__fadeOut"
+      }
     },
     {
       path: "/highscore",
       name: "Highscore",
-      component: Highscore
+      component: Highscore,
+      meta: {
+        enterClass: "animate__animated animate__fadeInRight",
+        leaveClass: "animate__animated animate__fadeOutLeft"
+      }
     },
     {
       path: "/profile",
       name: "Profile",
-      component: Profile
+      component: Profile,
+      meta: {
+        enterClass: "animate__animated animate__fadeInRight",
+        leaveClass: "animate__animated animate__fadeOutLeft"
+      }
     },
     {
       path: "/start",
       name: "Start",
-      component: Start
+      component: Start,
+      meta: {
+        enterClass: "animate__animated animate__fadeInRight",
+        leaveClass: "animate__animated animate__fadeOutLeft"
+      }
     }
   ]
 })

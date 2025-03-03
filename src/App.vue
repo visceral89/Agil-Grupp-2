@@ -1,7 +1,19 @@
 <template>
-	<NavbarTop v-if="!hideNav"/>
-	<RouterView />
-	<NavbarFoot  v-if="!hideNav"/>
+	<NavbarTop v-if="!hideNav" />
+	<Router-View v-slot="{ Component, route }">
+<!--         <Transition
+            :enter-active-class="route.meta.enterClass"
+            :leave-active-class="route.meta.leaveClass"
+            mode="out-in">
+            <component :is="Component" />
+        </Transition> -->
+        <Transition
+            name="page-opacity"
+            mode="out-in">
+            <component :is="Component" />
+        </Transition>
+    </Router-View>
+	<NavbarFoot v-if="!hideNav" />
 </template>
 
 <script>
@@ -18,4 +30,15 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+/* Radera om Animate.css */
+.page-opacity-enter-active,
+.page-opacity-leave-active {
+    transition: all 300ms ease;
+}
+
+.page-opacity-enter-from,
+.page-opacity-leave-to {
+    opacity: 0;
+}
+</style>

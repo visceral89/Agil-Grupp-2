@@ -1,14 +1,16 @@
 <template>
-	<UserInfo />
-	
-	<div id="start-game-wrapper">
-		<div id="start-btn-wrapper">
-			<RouterLink to="/game"> <Button>Spela (1p)</Button> </RouterLink>
-		</div>
-		<div>
-			<RouterLink to="/game"> <Button>Spela (2p)</Button> </RouterLink>
-		</div>
-	</div>
+    <div>
+        <UserInfo />
+
+        <div id="start-game-wrapper">
+            <div id="start-btn-wrapper">
+                <RouterLink to="/game"> <Button>Spela (1p)</Button> </RouterLink>
+            </div>
+            <div>
+                <RouterLink to="/game"> <Button>Spela (2p)</Button> </RouterLink>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
