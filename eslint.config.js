@@ -10,7 +10,7 @@ export default [
         'warn',
         {
           html: {
-            component: 'always',
+            component: 'any',
             normal: 'always',
             void: 'always'
           }
