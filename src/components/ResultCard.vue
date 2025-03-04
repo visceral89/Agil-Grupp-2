@@ -15,8 +15,8 @@
                      <p>{{ userStorage.activeUser.points }}</p>
                   </div>
                   <div class="result-card">
-                     <p>Spelare 2</p>
-                     <p>100p</p>
+                     <p>{{ userStorage.player2.username }}</p>
+                     <p>{{ userStorage.player2.points }}</p>
                   </div>
                </div>
             </div>
@@ -29,12 +29,12 @@
                <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar" />
             </div>
             <div class="result-list-wrapper">
-               <h2>Snyggt spelat! Du samlade {{ userStorage.activeUser.points }} poäng.</h2>
+               <h2>Snyggt spelat! Du har samlat {{ userStorage.activeUser.points }} poäng.</h2>
                <div class="result-list">
-                  <p>Highscoreplats</p>
+                  <p>Du är just nu på plats {{ highscoreRank }} i highscore-listan!</p>
                   <div class="result-card">
-                     <p>Spelare 1</p>
-                     <p>100p</p>
+                     <p>{{ highscoreRank }}. {{ userStorage.activeUser.username }}</p>
+                     <p>{{ userStorage.activeUser.points }}</p>
                   </div>
                </div>
             </div>
@@ -51,7 +51,16 @@
       data() {
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
-            base_url: "src/",
+            base_url: "../src/",
+            highscoreRank: null
+         }
+      },
+      created() {
+         this.getHighscore()
+      },
+      methods: {
+         getHighscore() {
+            this.highscoreRank = this.userStorage.setHighscore(this.userStorage.activeUser.username)
          }
       }
    }
@@ -108,7 +117,7 @@
       background-color: var(--color-card-secondary);
       box-shadow: var(--box-shadow);
       padding: 0 8px;
-      margin-bottom: 15px;
+      margin: 0 auto 15px;
    }
    .result-card > p {
       color: var(--color-neutral-dark);

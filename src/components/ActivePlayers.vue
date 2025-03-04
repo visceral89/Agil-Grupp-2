@@ -9,7 +9,8 @@
     <div v-if="userStorage.player2" id="next-player">
       <p class="player-header">På tur:</p>
       <div id="player-2-wrapper">
-        <p class="player">{{ userStorage.player2.username }}</p>
+        <p class="player" v-if="userStorage.activeUser !== userStorage.player2">{{ userStorage.player2.username }}</p>
+        <p class="player" v-else>{{ userStorage.player1.username }}</p>
       </div>
     </div>
   </div>
@@ -22,18 +23,8 @@
     data() {
       return {
         userStorage: useUserStorage(), //gets userstorage data from storage.js
-        activePlayer: useUserStorage().activeUser
       }
     },
-    methods: {
-      //switch between player 1 and player 2
-/*       switchPlayer() {
-        this.activePlayer = 
-        this.activePlayer === this.userStorage.player1
-        ? this.userStorage.player2
-        : this.userStorage.player1
-      } */
-    }
   }
 </script>
 
