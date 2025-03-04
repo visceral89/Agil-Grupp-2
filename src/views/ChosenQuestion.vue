@@ -69,11 +69,10 @@ export default {
 
       //find the first correct element of the array questions
       this.selectedQuestion = this.questions.find(question => question.id === questionId)
-      console.log(this.selectedQuestion, 'selectedQuestion')
     },
     onSelectAnswer(answer, index) {
       this.isDisabled = true
-      console.log(this.isDisabled, 'disabled')
+
       //gets index from clicked answer
       if (answer === this.selectedQuestion.answer) {
         this.selectedAnswer = index //sets the index to the chosenAnswer
@@ -85,7 +84,7 @@ export default {
       else {
         this.selectedAnswer = index
         this.isCorrect = false
-        console.log(answer, 'fel svar')
+
         this.userStorage.flipActiveUser()
       }
 
