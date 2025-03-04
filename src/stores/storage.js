@@ -20,6 +20,7 @@ export const useUserStorage = defineStore("userStorage", {
 		// Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.
 		player2: null,
 		loggedInUser: null,
+		isWinner: null,
 		availableAchievments: availableAchievments,
 		users: users
 	}),
@@ -30,17 +31,13 @@ export const useUserStorage = defineStore("userStorage", {
 		},
 		addPoints(points) {
 			if (!this.activeUser) {
-				console.log("Error: User not active?!");
                 this.flipActiveUser() //flips to new active user after points have been given
 			} else {
 				this.activeUser.points += points;
-				console.log(this.activeUser.points, "points");
-
 				//call this function every time a user gets points to check if an achievment can be collected
 				this.unlockAchievments();
                 this.flipActiveUser() //flips to new active user after points have been given
 			}
-			//this.flipActiveUser() //flips to new active user after points have been given
 		},
 		unlockAchievments() {
 			//loop through the json-file
@@ -49,9 +46,7 @@ export const useUserStorage = defineStore("userStorage", {
 				if (this.activeUser.points >= achievment.pointsToUnlock) {
 					//checks if the achievment is already in the activeusers achievments
 					if (this.activeUser.achievements.includes(achievment)) {
-						console.log(achievment.title, "achievment already unlocked");
 					} else {
-						console.log(achievment.title, "achievment unlocked");
 						//push the achievment to the active users achievments
 						this.activeUser.achievements.push(achievment);
 					}
@@ -100,6 +95,21 @@ export const useUserStorage = defineStore("userStorage", {
 				}
 			} else {
 				console.log("Player 1 or Player 2 is not set. Cant flipflop");
+			}
+		},
+		checkWinner(player1, player2) {
+			if (this.player1 && this.player2) {
+				if (this.player1.points > this.player2.points) {
+					this.isWinner = this.player1
+					console.log(this.isWinner.username, 'player 1 vinner')
+				}
+				else {
+					this.isWinner = this.player2
+					console.log(this.isWinner.username, 'player 2 vinner')
+				}
+			}
+			else {
+				console.log('finns bara 1 spelare som kan vinna')
 			}
 		},
 		clearPlayers() {

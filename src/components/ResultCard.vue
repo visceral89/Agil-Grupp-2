@@ -11,8 +11,8 @@
                <div class="result-list">
                   <p>Resultat</p>
                   <div class="result-card">
-                     <p>{{ userStorage.activeUser.username }}</p>
-                     <p>{{ userStorage.activeUser.points }}</p>
+                     <p>{{ userStorage.player1.username }}</p>
+                     <p>{{ userStorage.player1.points }}</p>
                   </div>
                   <div class="result-card">
                      <p>{{ userStorage.player2.username }}</p>
@@ -57,6 +57,11 @@
       },
       created() {
          this.getHighscore()
+
+         if (this.userStorage.player1 && this.userStorage.player2) {
+            this.userStorage.checkWinner()
+         }
+
       },
       methods: {
          getHighscore() {
