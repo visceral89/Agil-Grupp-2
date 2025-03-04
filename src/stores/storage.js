@@ -21,6 +21,7 @@ export const useUserStorage = defineStore("userStorage", {
 		player2: null,
 		loggedInUser: null,
 		isWinner: null,
+		isLoser: null,
 		availableAchievments: availableAchievments,
 		users: users
 	}),
@@ -58,7 +59,8 @@ export const useUserStorage = defineStore("userStorage", {
 				return b.points - a.points
 			})
 			const highscoreIndex = this.users.findIndex(user => user.username === username)
-			return highscoreIndex ? highscoreIndex + 1 : null
+			console.log(highscoreIndex)
+			return highscoreIndex !== -1 ? highscoreIndex + 1 : null
 		},
 		setPlayers() {
 			if (!this.loggedInUser) {
@@ -97,15 +99,17 @@ export const useUserStorage = defineStore("userStorage", {
 				console.log("Player 1 or Player 2 is not set. Cant flipflop");
 			}
 		},
-		checkWinner(player1, player2) {
+		checkWinner() {
 			if (this.player1 && this.player2) {
 				if (this.player1.points > this.player2.points) {
 					this.isWinner = this.player1
 					console.log(this.isWinner.username, 'player 1 vinner')
+					this.isLoser = this.player2
 				}
 				else {
 					this.isWinner = this.player2
 					console.log(this.isWinner.username, 'player 2 vinner')
+					this.isLoser = this.player1
 				}
 			}
 			else {

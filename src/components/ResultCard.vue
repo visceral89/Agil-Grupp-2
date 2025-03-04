@@ -4,19 +4,19 @@
           <!--if 2-players-->
           <div id="2-player-wrapper" v-if="userStorage.player2 !== null">
             <div class="user-img-wrapper">
-               <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar" />
+               <img :src="base_url + userStorage.isWinner.avatar" alt="Profilavtar" />
             </div>
             <div class="result-list-wrapper">
-               <h2>Grattis, {{ userStorage.activeUser.username }} vann!</h2>
+               <h2>Grattis, {{ userStorage.isWinner.username }} vann!</h2>
                <div class="result-list">
                   <p>Resultat</p>
                   <div class="result-card">
-                     <p>{{ userStorage.player1.username }}</p>
-                     <p>{{ userStorage.player1.points }}</p>
+                     <p>{{ userStorage.isWinner.username }}</p>
+                     <p>{{ userStorage.isWinner.points }}p</p>
                   </div>
                   <div class="result-card">
-                     <p>{{ userStorage.player2.username }}</p>
-                     <p>{{ userStorage.player2.points }}</p>
+                     <p>{{ userStorage.isLoser.username }}</p>
+                     <p>{{ userStorage.isLoser.points }}p</p>
                   </div>
                </div>
             </div>
@@ -34,7 +34,7 @@
                   <p>Du är just nu på plats {{ highscoreRank }} i highscore-listan!</p>
                   <div class="result-card">
                      <p>{{ highscoreRank }}. {{ userStorage.activeUser.username }}</p>
-                     <p>{{ userStorage.activeUser.points }}</p>
+                     <p>{{ userStorage.activeUser.points }}p</p>
                   </div>
                </div>
             </div>
@@ -57,11 +57,7 @@
       },
       created() {
          this.getHighscore()
-
-         if (this.userStorage.player1 && this.userStorage.player2) {
-            this.userStorage.checkWinner()
-         }
-
+         this.userStorage.checkWinner()
       },
       methods: {
          getHighscore() {
