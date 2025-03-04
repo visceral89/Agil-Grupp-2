@@ -29,7 +29,7 @@
                 <router-link to="/start">spela</router-link>
                 <router-link to="/highscore">highscore</router-link>
                 <router-link to="/profile">profil</router-link>
-                <router-link to="/" id="logout-link"
+                <router-link to="/" id="logout-link" @click="handleLogout"
                     ><div id="logout">
                         logga ut
                         <span class="material-symbols-outlined"> logout </span>
@@ -40,9 +40,18 @@
     </nav>
 </template>
 <script>
+    import { useUserStorage } from "../stores/storage"
     export default {
         data() {
-            return {}
+            return {
+                userStorage: useUserStorage()
+            }
+        },
+        methods: {
+            handleLogout() {
+                this.userStorage.logoutUser()
+                this.userStorage.clearPlayers()
+            }
         }
     }
 </script>
