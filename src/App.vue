@@ -1,17 +1,17 @@
 <template>
 	<NavbarTop v-if="!hideNav" />
 	<Router-View v-slot="{ Component, route }">
-<!--         <Transition
+        <Transition
             :enter-active-class="route.meta.enterClass"
             :leave-active-class="route.meta.leaveClass"
             mode="out-in">
             <component :is="Component" />
-        </Transition> -->
-        <Transition
+        </Transition>
+        <!-- <Transition
             name="page-opacity"
             mode="out-in">
             <component :is="Component" />
-        </Transition>
+        </Transition> -->
     </Router-View>
 	<NavbarFoot v-if="!hideNav" />
 </template>
