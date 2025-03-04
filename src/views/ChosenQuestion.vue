@@ -25,7 +25,7 @@
         <p v-if="isCorrect">Grattis, du valde rätt!</p>
         <p v-else>Tyvärr, du valde fel</p>
       </div>
-      <div id="next-btn">
+      <div id="next-btn" v-show="!isGameEnded">
         <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
       </div>
 		</div>
