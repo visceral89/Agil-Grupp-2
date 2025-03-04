@@ -1,10 +1,10 @@
 <template>
   <div class="user-wrapper">
     <div class="user-img-wrapper">
-      <img :src="base_url + userStorage.activeUser.avatar" alt="Profilavtar">
+      <img :src="base_url + userStorage.loggedInUser.avatar" alt="Profilavtar">
     </div>
     <div id="welcome-text">
-      <p>Välkommen, {{ userStorage.activeUser.username }}</p>
+      <p>Välkommen, {{ userStorage.loggedInUser.username }}</p>
     </div>
   </div>
 </template>

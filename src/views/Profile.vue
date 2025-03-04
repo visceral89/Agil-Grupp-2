@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     user() {
-      return this.userStorage.activeUser;
+      return this.userStorage.loggedInUser;
     },
     filteredFriends() {
       return users.filter(friend => friend.id !== this.user.id);
