@@ -6,21 +6,25 @@
                     >account_circle</span
                 >
             </router-link>
-            <img
-                src="../assets/logo/FF-simple-logo.webp"
-                alt="frage fejden logo"
-            />
+            <router-link to="/start">
+                <img
+                    src="../assets/logo/FF-simple-logo.webp"
+                    alt="frage fejden logo"
+            /></router-link>
             <router-link to="/">
                 <span class="material-symbols-outlined md-36">help</span>
             </router-link>
         </div>
         <div class="navbar-content-desktop">
-            <div class="logo-container">
-                <img
-                    src="../assets/logo/FF-simple-logo.webp"
-                    alt="frage fejden logo"
-                />
-            </div>
+            <router-link to="/start" style="display: contents">
+                <div class="logo-container">
+                    <img
+                        src="../assets/logo/FF-simple-logo.webp"
+                        alt="frage fejden logo"
+                        class="logo"
+                    />
+                </div>
+            </router-link>
             <div class="links-container">
                 <router-link to="/start">spela</router-link>
                 <router-link to="/highscore">highscore</router-link>
@@ -70,7 +74,12 @@
     .navbar-content-desktop {
         display: none;
     }
-
+    .logo {
+        transition: all 0.5s ease;
+    }
+    .logo:hover {
+        transform: scale(1.1);
+    }
     .logo-container {
         display: flex;
         flex-grow: 1;
