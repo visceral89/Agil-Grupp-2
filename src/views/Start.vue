@@ -36,19 +36,6 @@ export default {
 		margin-top: 61px;
 		margin-bottom: 39px;
 	}
-	Button {
-		background: var(--color-secondary);
-		padding: 9px 26px 9px 25px;
-		color: #ECECEC;
-		font-family: Poppins;
-		font-size: 20px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: normal;
-		&:hover {
-			background-color: var(--color-card-hover);
-		}
-	}
 
 	@media (min-width: 890px) {
     Button {
