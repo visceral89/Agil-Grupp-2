@@ -39,6 +39,7 @@ export default {
 				user.username === this.loginUsername && 
 				user.password === this.loginPassword)
 
+                console.log(loggedInUser)
 			//Om värdet stämmer omdirigera till startskärmen, annars generera ett felmeddelande
 			if (loggedInUser) {
 				this.userStorage.loginUser(loggedInUser)

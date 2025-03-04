@@ -19,26 +19,28 @@ export const useUserStorage = defineStore("userStorage", {
 		player1: null,
 		// Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.
 		player2: null,
-		loggedinUser: null,
+		loggedInUser: null,
 		availableAchievments: availableAchievments,
 		users: users
 	}),
 	actions: {
 		loginUser(user) {
 			this.setActiveUser(user);
-			this.loggedinUser = user;
+			this.loggedInUser = user;
 		},
 		addPoints(points) {
 			if (!this.activeUser) {
 				console.log("Error: User not active?!");
+                this.flipActiveUser() //flips to new active user after points have been given
 			} else {
 				this.activeUser.points += points;
 				console.log(this.activeUser.points, "points");
 
 				//call this function every time a user gets points to check if an achievment can be collected
 				this.unlockAchievments();
+                this.flipActiveUser() //flips to new active user after points have been given
 			}
-			this.flipActiveUser() //flips to new active user after points have been given
+			//this.flipActiveUser() //flips to new active user after points have been given
 		},
 		unlockAchievments() {
 			//loop through the json-file
@@ -64,13 +66,13 @@ export const useUserStorage = defineStore("userStorage", {
 			return highscoreIndex ? highscoreIndex + 1 : null
 		},
 		setPlayers() {
-			if (!this.loggedinUser) {
+			if (!this.loggedInUser) {
 				console.log("No logged-in user found, cant set player1.");
 				return;
 			}
 
 			if (!this.player1) {
-				this.player1 = { ...this.loggedinUser };
+				this.player1 = { ...this.loggedInUser };
 				console.log("Player 1 set to:", this.player1);
 			} else {
 				console.log("Player 1 already exists in Pinia.");
@@ -88,12 +90,12 @@ export const useUserStorage = defineStore("userStorage", {
 		flipActiveUser() {
 			// Here we change active user from user 1 or User 2
 			if (this.player1 && this.player2) {
-				if (this.activeUser === this.player1) {
+				if (this.activeUser.id === this.player1.id) {
 					this.setActiveUser(this.player2);
-					console.log(this.activeUser, "Ny aktiv spelare");
+					console.log(this.activeUser, "Ny aktiv spelare, player 2");
 				} else {
 					this.setActiveUser(this.player1);
-					console.log(this.activeUser, "Ny aktiv spelare");
+					console.log(this.activeUser, "Ny aktiv spelare, player 1");
 
 				}
 			} else {
@@ -108,8 +110,8 @@ export const useUserStorage = defineStore("userStorage", {
 			console.log("Both Players reset to null");
 		},
 		logoutUser() {
-			// Logout function, resets loggedinUser to null.
-			this.loggedinUser = null;
+			// Logout function, resets loggedInUser to null.
+			this.loggedInUser = null;
 			console.log("Logged out");
 		},
 	},
@@ -134,13 +136,13 @@ export const useUserStorage = defineStore("userStorage", {
 		player1: null,
 		// Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.
 		player2: null,
-		loggedinUser: null,
+		loggedInUser: null,
 		availableAchievments: availableAchievments,
 	}),
 	actions: {
 		loginUser(user) {
 			this.setActiveUser(user);
-			this.loggedinUser = user;
+			this.loggedInUser = user;
 		},
 		addPoints(points) {
 			if (!this.activeUser) {
@@ -165,13 +167,13 @@ export const useUserStorage = defineStore("userStorage", {
 			});
 		},
 		setPlayers() {
-			if (!this.loggedinUser) {
+			if (!this.loggedInUser) {
 				console.log("No logged-in user found, cant set player1.");
 				return;
 			}
 
 			if (!this.player1) {
-				this.player1 = { ...this.loggedinUser };
+				this.player1 = { ...this.loggedInUser };
 				console.log("Player 1 set to:", this.player1);
 			} else {
 				console.log("Player 1 already exists in Pinia.");
@@ -206,8 +208,8 @@ export const useUserStorage = defineStore("userStorage", {
 			console.log("Both Players reset to null");
 		},
 		logoutUser() {
-			// Logout function, resets loggedinUser to null.
-			this.loggedinUser = null;
+			// Logout function, resets loggedInUser to null.
+			this.loggedInUser = null;
 			console.log("Logged out");
 		},
 	},

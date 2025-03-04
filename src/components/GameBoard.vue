@@ -22,7 +22,7 @@
             </div>
         </div>
         <div id="player-container">
-            <div id="player">{{ userStorage.activeUser.username }}</div>
+            <div id="player">{{ userStorage.loggedInUser.username }}</div>
             <div id="opponent" @click="toggleInviteModal">
                 {{ displayOpponent }}
             </div>
