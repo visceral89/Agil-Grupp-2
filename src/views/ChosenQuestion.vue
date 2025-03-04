@@ -3,11 +3,11 @@
     <div class="question-wrapper">
       <h2>{{ selectedQuestion.question }}</h2>
     </div>
-    
+
     <div id="question-card">
       <!-- chosen question from game board -->
-      <button v-for="(answer, index) in selectedQuestion.answers" 
-      :key="index" @click="onSelectAnswer(answer, index)" 
+      <button v-for="(answer, index) in selectedQuestion.answers"
+      :key="index" @click="onSelectAnswer(answer, index)"
       :class="{
         correct: selectedAnswer === index && isCorrect,
         wrong: selectedAnswer === index && !isCorrect,
@@ -86,6 +86,7 @@ export default {
         this.selectedAnswer = index
         this.isCorrect = false
         console.log(answer, 'fel svar')
+        this.userStorage.flipActiveUser()
       }
 
       if (this.questionStore.checkGameOver()) {
@@ -205,7 +206,7 @@ export default {
     transform: translate(-50%, -50%);
     width: 0.5vmin;
     aspect-ratio: 1;
-    background: 
+    background:
       radial-gradient(var(--color-accent) 0.2vmin, #0000 0) 50% 0%,
       radial-gradient(var(--color-secondary) 0.3vmin, #0000 0) 0% 50%,
       radial-gradient(var(--color-category-background), 0.5vmin, #0000 0) 50% 99%,
