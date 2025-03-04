@@ -13,7 +13,7 @@
                 <div class="category-card">{{ category }}</div>
                 <router-link
                     v-for="(question, questionIndex) in questionsList[index]"
-                    :key="questionIndex"
+                    :key="category + questionIndex"
                     :to="`/game/${question.id}`"
                     style="display: contents"
                 >
