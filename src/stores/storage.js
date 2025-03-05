@@ -22,6 +22,7 @@ export const useUserStorage = defineStore("userStorage", {
 		loggedInUser: null,
 		isWinner: null,
 		isLoser: null,
+		isTie: null,
 		availableAchievments: availableAchievments,
 		users: users
 	}),
@@ -106,10 +107,14 @@ export const useUserStorage = defineStore("userStorage", {
 					console.log(this.isWinner.username, 'player 1 vinner')
 					this.isLoser = this.player2
 				}
-				else {
+				else if (this.player1.points < this.player2.points) {
 					this.isWinner = this.player2
 					console.log(this.isWinner.username, 'player 2 vinner')
 					this.isLoser = this.player1
+				}
+				else {
+					this.isTie = true
+					console.log(this.isTie, 'oavgjort')
 				}
 			}
 			else {
