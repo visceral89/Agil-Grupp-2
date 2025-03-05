@@ -2,7 +2,7 @@
     <nav class="navbar animate__animated animate__fadeIn">
         <div class="navbar-content-mobile">
             <router-link to="/profile">
-                <span class="material-symbols-outlined md-36"
+                <span class="material-symbols-outlined md-36 mobile-icon"
                     >account_circle</span
                 >
             </router-link>
@@ -12,7 +12,9 @@
                     alt="frage fejden logo"
             /></router-link>
             <router-link to="/">
-                <span class="material-symbols-outlined md-36">help</span>
+                <span class="material-symbols-outlined md-36 mobile-icon"
+                    >help</span
+                >
             </router-link>
         </div>
         <div class="navbar-content-desktop">
@@ -58,10 +60,10 @@
 </script>
 
 <style scoped>
-    span {
+    .mobile-icon {
         font-size: 40px;
-        color: #e8e8e8;
     }
+
     img {
         width: 154px;
         height: 77px;
@@ -84,20 +86,25 @@
     .navbar-content-desktop {
         display: none;
     }
+
     .logo {
         transition: all 0.5s ease;
     }
+
     .logo:hover {
         transform: scale(1.05);
     }
+
     .logo-container {
         display: flex;
         flex-grow: 1;
     }
+
     .links-container {
         display: flex;
         gap: 2rem;
     }
+
     #logout {
         font-size: 1rem;
         display: flex;
@@ -106,16 +113,16 @@
         span {
             font-size: 20px;
         }
-        /* Funkade inte att köra &:hover */
-    }
-    #logout-link:hover {
-        color: var(--color-accent);
+        &:hover {
+            color: var(--color-accent);
+        }
     }
 
     @media (min-width: 890px) {
         .navbar-content-mobile {
             display: none;
         }
+
         .navbar-content-desktop {
             padding: 16px 50px;
             display: flex;
