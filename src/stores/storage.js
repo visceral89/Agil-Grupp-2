@@ -1,5 +1,5 @@
-import { defineStore } from "pinia";
-import availableAchievments from "../lib/achievments.json";
+import { defineStore } from "pinia"
+import availableAchievments from "../lib/achievments.json"
 import users from "../lib/users.json"
 
 export const useUserStorage = defineStore("userStorage", {
