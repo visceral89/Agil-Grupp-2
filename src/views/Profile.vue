@@ -6,11 +6,14 @@
         <img class="profile-avatar" :src="base_url + user.avatar" alt="Profilbild" @error="useDefaultAvatar">
       </div>
       <h2 class="profile-name">{{ user.username }}</h2>
+      
+      
+      <h3 class="achievements-title">Utmärkelser</h3>
       <Achievments />
+      
       <p class="points">{{ user.points }} p</p>
 
       <h3 class="friends-title">Vänner</h3>
-
       <div class="friends-list-container">
         <ul class="friends-list">
           <li v-for="friend in filteredFriends" :key="friend.id" class="friend-item">
@@ -108,6 +111,15 @@ export default {
   font-weight: bold;
 }
 
+.achievements-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: var(--color-neutral-light);
+}
+
 .friends-title {
   font-size: 1.5rem;
   font-weight: bold;
@@ -117,45 +129,43 @@ export default {
   color: var(--color-neutral-light);
 }
 
-.friends-list-container {
-  width: 100%;
-  max-width: 600px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  margin-top: 0px;
-}
-
 .friends-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px 30px;
   padding: 0;
   list-style: none;
+  width: 100%;
+  max-width: 420px;
 }
 
 .friend-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  background: var(--color-card-background); 
+  border-radius: var(--border-radius);
+  padding: 3px 8px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 190px;
+  justify-content: space-between;
 }
 
 .friend-avatar {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-bottom: 3px;
+  margin-right: 10px;
 }
 
 .friend-name {
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: 1rem;
+  flex-grow: 1;
+  color: var(--color-neutral-dark);
 }
 
 .friend-points {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--color-secondary);
 }
 </style>
