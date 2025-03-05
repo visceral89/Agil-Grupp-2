@@ -59,6 +59,17 @@
                 // Skapa ett set av en array, alla unika.
                 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 
+                /*
+                Psuedo Kod:
+
+                1. this.categoryList = [...new Set(this.questions.map(question) =>question.category).slice(2)]
+                Försäkra oss om att det bara finns 3 element i categoryList. Vet inte hur vi ska göra det random dock.
+                Set försäkrar oss om att dom är unika i alla fall.
+
+                2. 
+
+                */
+
                 this.categoryList = [
                     ...new Set(
                         this.questions.map((question) => question.category)
