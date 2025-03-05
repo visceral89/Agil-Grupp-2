@@ -66,7 +66,7 @@
                 Försäkra oss om att det bara finns 3 element i categoryList. Vet inte hur vi ska göra det random dock.
                 Set försäkrar oss om att dom är unika i alla fall.
 
-                2. 
+                2.
 
                 */
 
@@ -76,11 +76,20 @@
                     )
                 ]
 
-                for (let i = 0; i < this.categoryList.length; i++) {
+                // Quick and dirty shuffle
+                this.categoryList.sort(() => Math.random() - 0.5)
+
+                // Limits categories to 3
+                // https://stackoverflow.com/questions/30061969/select-random-object-from-json
+
+                const selectedCategories = this.categoryList.slice(0, 3)
+                console.log(selectedCategories)
+
+                for (let i = 0; i < selectedCategories.length; i++) {
                     this.questionsList.push(
                         this.questions.filter(
                             (question) =>
-                                question.category === this.categoryList[i]
+                                question.category === this.selectedCategories[i]
                         )
                     )
                 }

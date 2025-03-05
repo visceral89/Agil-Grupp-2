@@ -118,13 +118,14 @@ export const useUserStorage = defineStore("userStorage", {
         clearPlayers() {
             // Maybe we wont need this function but ill implement it just in case.
             // This function just clears the player 1 and 2. Incase we are resetting the game or something.
-            this.player1 = null
-            this.player2 = null
+
+            //this.player1 = null
+            //this.player2 = null
             console.log("Both Players reset to " + this.player1)
         },
         logoutUser() {
             // Logout function, resets loggedInUser to null.
-            this.loggedInUser = null
+            //this.loggedInUser = null
             console.log("Logged out")
         }
     }
