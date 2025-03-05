@@ -11,7 +11,12 @@
 <script>
     import { useQuestionStore } from "../stores/questionStore"
     export default {
-        props: ["question"],
+        props: {
+            question: {
+                type: Object,
+                required: true
+            }
+        },
         data() {
             return { isDisabeled: false, questionStore: useQuestionStore() }
         },
