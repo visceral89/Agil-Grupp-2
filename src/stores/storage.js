@@ -15,6 +15,7 @@ export const useUserStorage = defineStore("userStorage", {
             points: 0,
             email: "hej@iths.se"
         },
+        guestUser: false,
         // Player 1 initializies to null nstead of empty object. This preserves reactivity and makes empty checks easier.
         player1: null,
         // Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.

@@ -98,6 +98,7 @@
                     const loggedInGuest = this.userStorage.activeUser
                     loggedInGuest.username = this.loginGuestname
 
+                    this.userStorage.guestUser = true
                     this.userStorage.loginUser(loggedInGuest)
                     this.$router.push("/start")
                 } else {

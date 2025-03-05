@@ -40,16 +40,6 @@
 		"email": "hej@iths.se"
 	},
 	{
-		"id": 5,
-		"username": "Gäst",
-		"password": "abc",
-		"avatar": "assets/images/user-avatars/guest.svg",
-		"achievements": [],
-		"friends": [],
-		"points": 0,
-		"email": "hej@iths.se"
-	},
-	{
 		"id": 6,
 		"username": "Magnus",
 		"password": "abc",
