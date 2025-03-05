@@ -18,6 +18,7 @@
         <span id="selected-answer">{{ answer }}</span>
       </button>
     </div>
+    <TimerCountdown />
     <ActivePlayers v-if="selectedAnswer === null" />
 
 		<div id="next-btn-wrapper" v-show="selectedAnswer !== null">
@@ -43,6 +44,7 @@ import { useQuestionStore } from "../stores/questionStore"
 import questions from '../lib/questions.json'
 import ActivePlayers from '../components/ActivePlayers.vue';
 import Button from '../components/Button.vue'
+import TimerCountdown from "../components/TimerCountdown.vue";
 
 export default {
   data() {
@@ -95,7 +97,8 @@ export default {
   },
   components: {
     ActivePlayers,
-    Button
+    Button,
+    TimerCountdown
   }
 }
 </script>

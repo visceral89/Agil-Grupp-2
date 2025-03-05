@@ -4,19 +4,20 @@
           <!--if 2-players-->
           <div id="2-player-wrapper" v-if="userStorage.player2 !== null">
             <div class="user-img-wrapper">
-               <img :src="base_url + userStorage.isWinner.avatar" alt="Profilavtar" />
+               <img v-if="userStorage.isWinner" :src="base_url + userStorage.isWinner.avatar" alt="Profilavtar" />
             </div>
             <div class="result-list-wrapper">
-               <h2>Grattis, {{ userStorage.isWinner.username }} vann!</h2>
+               <h2 v-if="userStorage.isWinner">Grattis, {{ userStorage.isWinner.username }} vann FrågeFejden!</h2>
+               <h2 v-else>Fejden slutade oavgjord!</h2>
                <div class="result-list">
                   <p>Resultat</p>
                   <div class="result-card">
-                     <p>{{ userStorage.isWinner.username }}</p>
-                     <p>{{ userStorage.isWinner.points }}p</p>
+                     <p>{{ userStorage.player1.username }}</p>
+                     <p>{{ userStorage.player1.points }}p</p>
                   </div>
                   <div class="result-card">
-                     <p>{{ userStorage.isLoser.username }}</p>
-                     <p>{{ userStorage.isLoser.points }}p</p>
+                     <p>{{ userStorage.player2.username }}</p>
+                     <p>{{ userStorage.player2.points }}p</p>
                   </div>
                </div>
             </div>
@@ -100,6 +101,7 @@
       font-weight: 500;
    }
    .result-list {
+      width: 255px;
       padding-bottom: 1rem;
       margin: auto;
    }
@@ -128,18 +130,19 @@
 
    @media (min-width: 890px) {
       img {
-         width: 160px;
+         width: 170px;
+      }
+      .result-list-wrapper {
+         width: 50vw;
+      }
+      .result-list {
+         width: 300px;
       }
       .result-list > p {
          font-size: 1.3rem;
       }
       .result-card {
          width: 300px;
-         height: 45px;
-         border-radius: 6px;
-         background-color: var(--color-card-secondary);
-         box-shadow: var(--box-shadow);
-         padding: 0 8px;
       }
       .result-card > p {
          font-size: 1rem;
