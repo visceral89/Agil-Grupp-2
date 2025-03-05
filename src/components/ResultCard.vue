@@ -100,6 +100,7 @@
       font-weight: 500;
    }
    .result-list {
+      width: 255px;
       padding-bottom: 1rem;
       margin: auto;
    }
@@ -128,18 +129,19 @@
 
    @media (min-width: 890px) {
       img {
-         width: 160px;
+         width: 170px;
+      }
+      .result-list-wrapper {
+         width: 50vw;
+      }
+      .result-list {
+         width: 300px;
       }
       .result-list > p {
          font-size: 1.3rem;
       }
       .result-card {
          width: 300px;
-         height: 45px;
-         border-radius: 6px;
-         background-color: var(--color-card-secondary);
-         box-shadow: var(--box-shadow);
-         padding: 0 8px;
       }
       .result-card > p {
          font-size: 1rem;
