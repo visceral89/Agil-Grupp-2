@@ -46,8 +46,7 @@
             },
             handleLogout() {
                 // We clear the loggedInUser and also Player 1 & 2. Theese gets re-added on login.
-                this.userStorage.logoutUser()
-                this.userStorage.clearPlayers()
+                console.log("Logout logik flyttad till /")
             }
         }
     }
