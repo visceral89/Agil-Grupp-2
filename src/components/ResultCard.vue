@@ -7,8 +7,8 @@
                <img v-if="userStorage.isWinner" :src="base_url + userStorage.isWinner.avatar" alt="Profilavtar" />
             </div>
             <div class="result-list-wrapper">
-               <h2 v-if="userStorage.isWinner">Grattis, {{ userStorage.isWinner.username }} vann!</h2>
-               <h2 v-else>Spelet blev oavgjort!</h2>
+               <h2 v-if="userStorage.isWinner">Grattis, {{ userStorage.isWinner.username }} vann FrågeFejden!</h2>
+               <h2 v-else>Fejden slutade oavgjord!</h2>
                <div class="result-list">
                   <p>Resultat</p>
                   <div class="result-card">
