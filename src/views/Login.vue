@@ -4,18 +4,18 @@
 			<img class="login-logo" src="../assets/logo/FF-logo.webp" alt="FrågeFejden logotyp" />
 		</div>
         <Transition name="fade" mode="out-in">
-            <form key="user" v-if="!guestForm" @submit.prevent="handleLogin" class="login-form">
+            <form v-if="!guestForm" @submit.prevent="handleLogin" class="login-form">
                 <input v-model="loginUsername" type="text" placeholder="Användarnamn" />
                 <input v-model="loginPassword" type="password" placeholder="Lösenord" />
                 <p v-if="loginError" class="login-error-msg">{{ errorMessage }}</p>
                 <Button>Logga in</Button>
-                <p @click="toggleLogin" class="guest-login-p">Logga in som gäst</p>
+                <p @click="toggleLogin" class="login-option">Logga in som gäst</p>
             </form>
-            <form key="guest" v-else @submit.prevent="handleGuestLogin" class="guest-login-form">
+            <form v-else @submit.prevent="handleGuestLogin" class="guest-login-form">
                 <input v-model="loginGuestname" type="text" placeholder="Gästnamn" />
                 <p v-if="loginError" class="login-error-msg">{{ errorMessage }}</p>
                 <Button>Logga in</Button>
-                <p @click="toggleLogin" class="guest-login-p">Logga in som användare</p>
+                <p @click="toggleLogin" class="login-option">Logga in som användare</p>
             </form>
         </Transition>
 	</div>
@@ -65,7 +65,6 @@ export default {
             if (this.loginGuestname.length > 0) {
                 const loggedInGuest = this.userStorage.activeUser
                 loggedInGuest.username = this.loginGuestname
-                console.log(loggedInGuest)
 
                 this.userStorage.loginUser(loggedInGuest)
                 this.$router.push('/start')
@@ -126,7 +125,7 @@ export default {
 	}
 }
 
-.guest-login-p {
+.login-option {
     cursor: pointer;
     font-size: .9em;
     text-decoration: underline;
