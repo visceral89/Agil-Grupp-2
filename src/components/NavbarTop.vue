@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar">
+	<nav class="navbar animate__animated animate__fadeIn">
 		<div class="navbar-content-mobile">
 			<router-link to="/profile">
 				<span class="material-symbols-outlined md-36">account_circle</span>

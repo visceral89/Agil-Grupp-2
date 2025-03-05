@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar">
+	<nav class="navbar animate__animated animate__fadeIn">
 		<div class="navbar-padding">
 			<div class="navbar-content-mobile">
 				<router-link to="/highscore" style="display: contents">

@@ -31,6 +31,15 @@ export default {
 </script>
 
 <style scoped>
+nav {
+    animation-duration: 2s;
+}
+
+.animate__zoomIn,
+.animate__zoomOut {
+    animation-duration: 1s;
+}
+
 /* Radera om Animate.css */
 .page-opacity-enter-active,
 .page-opacity-leave-active {
