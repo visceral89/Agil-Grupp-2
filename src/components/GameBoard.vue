@@ -59,17 +59,6 @@
                 // Skapa ett set av en array, alla unika.
                 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
 
-                /*
-                Psuedo Kod:
-
-                1. this.categoryList = [...new Set(this.questions.map(question) =>question.category).slice(2)]
-                Försäkra oss om att det bara finns 3 element i categoryList. Vet inte hur vi ska göra det random dock.
-                Set försäkrar oss om att dom är unika i alla fall.
-
-                2.
-
-                */
-
                 this.categoryList = [
                     ...new Set(
                         this.questions.map((question) => question.category)
@@ -80,7 +69,6 @@
                 this.categoryList.sort(() => Math.random() - 0.5)
 
                 // Limits categories to 3
-                // https://stackoverflow.com/questions/30061969/select-random-object-from-json
 
                 const selectedCategories = this.categoryList.slice(0, 3)
                 console.log(selectedCategories)
@@ -94,6 +82,9 @@
                     )
                 }
                 // console.log(this.questionsList)
+                // Så questionslist är egentligen 3 arrayer med frågor i varje array.
+                // Man bör kunna sortera dom per poäng och sen slica av listan (6) eller så.
+                // Vi måste bara vara skra på att poängen är unika.
             },
             toggleInviteModal() {
                 this.isInviteOpen = !this.isInviteOpen
