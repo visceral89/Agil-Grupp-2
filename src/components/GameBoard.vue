@@ -89,7 +89,7 @@
                     this.questionsList.push(
                         this.questions.filter(
                             (question) =>
-                                question.category === this.selectedCategories[i]
+                                question.category === selectedCategories[i]
                         )
                     )
                 }
