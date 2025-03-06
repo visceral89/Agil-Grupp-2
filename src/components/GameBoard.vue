@@ -56,6 +56,9 @@
         },
         components: { QuestionCard, InviteModal },
         methods: {
+            checkStoredQuestions() {
+                return this.questionStore.storedQuestionsList === null
+            },
             createBoard() {
                 console.log("Active User: " + this.activeUser)
                 console.log("isTwoPlayer?: " + this.twoPlayer)
@@ -89,6 +92,10 @@
                 // Så questionslist är egentligen 3 arrayer med frågor i varje array.
                 // Man bör kunna sortera dom per poäng och sen slica av listan (6) eller så.
                 // Vi måste bara vara skra på att poängen är unika.
+                this.questionStore.storedQuestionsList = {
+                    ...this.questionsList
+                }
+                this.questionStore.categoryList = { ...this.categoryList }
             },
             toggleInviteModal() {
                 this.isInviteOpen = !this.isInviteOpen
@@ -100,7 +107,13 @@
         },
 
         created() {
-            this.createBoard()
+            console.log(!this.checkStoredQuestions)
+            if (this.checkStoredQuestions) {
+                this.createBoard()
+            } else {
+                this.categoryList = { ...this.questionStore.categoryList }
+                this.questionsList = { ...this.questionStore.questionsList }
+            }
             this.userStorage.setPlayers()
             this.checkGameOver()
         },

@@ -14,7 +14,9 @@ Det är alternativ 1, vet inte hur snyggt det är ännu.
 export const useQuestionStore = defineStore("questionStore", {
     state: () => ({
         answeredQuestions: [],
-        questionsList: questions
+        questionsList: questions,
+        storedQuestionsList: null,
+        storedCategoryList: null
     }),
     actions: {
         checkDisabeled(id) {
