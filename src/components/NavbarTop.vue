@@ -39,7 +39,9 @@
             <span @click="isHelpModalOpen = true" class="material-symbols-outlined md-36 help-modal">help</span>
         </div>
     </nav>
-    <HelpModal v-if="isHelpModalOpen" @is-help-modal-open="toggleHelpModal" />
+    <Teleport to="body">
+        <HelpModal v-if="isHelpModalOpen" @is-help-modal-open="toggleHelpModal" />
+    </Teleport>
 </template>
 <script>
     import { useUserStorage } from "../stores/storage"
