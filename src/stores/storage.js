@@ -25,9 +25,10 @@ export const useUserStorage = defineStore("userStorage", {
         stopTimer: false,
         isWinner: null,
         isLoser: null,
-		isTie: null,
+        isTie: null,
         availableAchievments: availableAchievments,
-        users: users
+        users: users,
+        twoplayer: false
     }),
     actions: {
         loginUser(user) {
@@ -43,7 +44,7 @@ export const useUserStorage = defineStore("userStorage", {
                 this.unlockAchievments()
                 this.flipActiveUser() //flips to new active user after points have been given
                 this.stopTimer = true
-                console.log(this.stopTimer, 'stanna timer vid svar')
+                console.log(this.stopTimer, "stanna timer vid svar")
             }
         },
         unlockAchievments() {
@@ -94,7 +95,7 @@ export const useUserStorage = defineStore("userStorage", {
         },
         checkTimeLeft() {
             this.isTimeOut = true
-            console.log('tiden är ute')
+            console.log("tiden är ute")
         },
         flipActiveUser() {
             // Here we change active user from user 1 or User 2
@@ -120,11 +121,10 @@ export const useUserStorage = defineStore("userStorage", {
                     this.isWinner = this.player2
                     console.log(this.isWinner.username, "player 2 vinner")
                     this.isLoser = this.player1
+                } else {
+                    this.isTie = true
+                    console.log(this.isTie, "oavgjort")
                 }
-				else {
-					this.isTie = true
-					console.log(this.isTie, 'oavgjort')
-				}
             } else {
                 console.log("finns bara 1 spelare som kan vinna")
             }
