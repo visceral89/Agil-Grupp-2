@@ -1,43 +1,44 @@
 <template>
    <!-- https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/ -->
-   <div id="timer-wrapper">
-      <div class="base-timer">
-         <svg
-            class="base-timer__svg"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg">
-            <g class="base-timer__circle">
-               <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
-               <path
-                  id="base-timer-path-remaining" 
-                  :stroke-dasharray="circleDasharray"
-                  :class="['base-timer__path-remaining', remainingPathColor]"
-                  d="
-                  M 50, 50 
-                  m -45, 0 
-                  a 45,45 0 1,0 90,0 
-                  a 45,45 0 1,0 -90,0"
-               />
-            </g>
-         </svg>
-         <span id="base-timer-label" class="base-timer__label">
-            {{ formatTimeLeft(timeLeft) }}
-         </span>
-      </div>
+   <div class="base-timer">
+      <svg
+         class="base-timer__svg"
+         viewBox="0 0 100 100"
+         xmlns="http://www.w3.org/2000/svg">
+         <g class="base-timer__circle">
+            <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
+            <path
+               id="base-timer-path-remaining" 
+               :stroke-dasharray="circleDasharray"
+               :class="['base-timer__path-remaining', remainingPathColor]"
+               d="
+               M 50, 50 
+               m -45, 0 
+               a 45,45 0 1,0 90,0 
+               a 45,45 0 1,0 -90,0"
+            />
+         </g>
+      </svg>
+      <span id="base-timer-label" class="base-timer__label">
+         {{ formatTimeLeft(timeLeft) }}
+      </span>
    </div>
 </template>
 
 <script>
+   import { useUserStorage } from "../stores/storage";
+   
    export default {
       data() {
          return {
+            userStorage: useUserStorage(), //gets userstorage data from storage.js
             timeLimit: 20,
             timePassed: 0,
             timeLeft: 20,
             timerInterval: null,
             remainingPathColor: "green",
             fullDashArray: 283,
-            circleDasharray: null
+            circleDasharray: null,
          }
       },
       created() {
@@ -62,6 +63,10 @@
                
                   this.setColor() //update color based on time left
                   this.setCircleDasharray();
+
+                  if (this.timeLeft === 0) {
+                     this.userStorage.checkTimeLeft()
+                  }
                }
                else {
                   clearInterval(this.timerInterval) //stops timer at 0 
@@ -94,9 +99,11 @@
 
 <style scoped>
    .base-timer {
-      position: relative;
-      height: 150px;
-      width: 150px;
+      position: absolute;
+      top: 73%;
+      left: 1rem;
+      height: 70px;
+      width: 70px;
    }
    .base-timer__circle {
       fill: none;
@@ -108,13 +115,13 @@
    }
    .base-timer__label {
       position: absolute;
-      height: 150px;
-      width: 150px;
+      height: 70px;
+      width: 70px;
       top: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 20px;
    }
    .base-timer__path-remaining {
       stroke-width: 7px;
@@ -136,4 +143,18 @@
    .base-timer__svg {
       transform: scaleX(-1);
    }
+
+   @media (min-width: 890px) {
+      .base-timer {
+         top: 50%;
+         left: 3rem;
+         height: 150px;
+         width: 150px;
+      }
+      .base-timer__label {
+         height: 150px;
+         width: 150px;
+         font-size: 22px;
+      }
+  }
 </style>

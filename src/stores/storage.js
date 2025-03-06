@@ -21,6 +21,7 @@ export const useUserStorage = defineStore("userStorage", {
         // Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.
         player2: null,
         loggedInUser: null,
+        isTimeOut: false,
         isWinner: null,
         isLoser: null,
 		isTie: null,
@@ -87,6 +88,10 @@ export const useUserStorage = defineStore("userStorage", {
             // This function is called from Invite modal and sets player 2 to be the opponent "manually"
             this.player2 = user
             console.log(this.player2)
+        },
+        checkTimeLeft() {
+            this.isTimeOut = true
+            console.log('tiden är ute')
         },
         flipActiveUser() {
             // Here we change active user from user 1 or User 2
