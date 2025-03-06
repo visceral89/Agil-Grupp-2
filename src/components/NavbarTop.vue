@@ -11,11 +11,9 @@
                     src="../assets/logo/FF-simple-logo.webp"
                     alt="frage fejden logo"
             /></router-link>
-            <router-link to="/">
-                <span class="material-symbols-outlined md-36 mobile-icon"
-                    >help</span
-                >
-            </router-link>
+            <span @click="isHelpModalOpen = true" class="material-symbols-outlined md-36 mobile-icon"
+                >help</span
+            >
         </div>
         <div class="navbar-content-desktop">
             <router-link to="/start" style="display: contents">
@@ -38,14 +36,22 @@
                     </div>
                 </router-link>
             </div>
+            <span @click="isHelpModalOpen = true" class="material-symbols-outlined md-36 help-modal">help</span>
         </div>
     </nav>
+    <HelpModal v-if="isHelpModalOpen" @is-help-modal-open="toggleHelpModal" />
 </template>
 <script>
     import { useUserStorage } from "../stores/storage"
+    import HelpModal from "./HelpModal.vue"
+
     export default {
+        components: {
+            HelpModal
+        },
         data() {
             return {
+                isHelpModalOpen: false,
                 userStorage: useUserStorage()
             }
         },
@@ -53,6 +59,9 @@
             handleLogout() {
                 // We clear the loggedInUser and also Player 1 & 2. Theese gets re-added on login.
                 console.log("Logout logik flyttad till /")
+            },
+            toggleHelpModal() {
+                this.isHelpModalOpen = !this.isHelpModalOpen
             }
         }
     }
@@ -126,6 +135,13 @@
             padding: 16px 50px;
             display: flex;
             align-items: center;
+        }
+
+        .help-modal {
+            bottom: 2em;
+            cursor: pointer;
+            position: absolute;
+            right: 2em;
         }
     }
     @media (min-width: 1200px) {
