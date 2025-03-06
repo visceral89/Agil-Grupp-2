@@ -40,7 +40,9 @@
         </div>
     </nav>
     <Teleport to="body">
-        <HelpModal v-if="isHelpModalOpen" @is-help-modal-open="toggleHelpModal" />
+        <Transition name="fade">
+            <HelpModal v-if="isHelpModalOpen" @is-help-modal-open="toggleHelpModal" />
+        </Transition>
     </Teleport>
 </template>
 <script>
@@ -126,6 +128,17 @@
         &:hover {
             color: var(--color-accent);
         }
+    }
+
+    /* Modal transition */
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 250ms ease-in-out;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
     }
 
     @media (min-width: 890px) {
