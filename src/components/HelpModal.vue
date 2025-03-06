@@ -1,10 +1,8 @@
 <template>
-    <div @click="$emit('is-help-modal-open')" class="modal-container">
+    <div class="modal-container">
         <div class="modal-content">
-            <div class="modal-header">
-                <h3>Välkommen till FrågeFejden</h3>
-                <span @click="isModalOpen = false" class="material-symbols-outlined close-icon"> close </span>
-            </div>
+            <span @click="$emit('is-help-modal-open')" class="material-symbols-outlined close-icon"> close </span>
+            <h3>Välkommen till FrågeFejden</h3>
             <p>
                 FrågeFejden är det ultimata spelet för alla quizälskare – en
                 spännande kamp i allmänbildning där bara den skarpaste hjärnan
@@ -53,10 +51,12 @@
         margin-inline: auto;
         max-width: 80%;
         padding: 1em 2em;
-        .modal-header {
-            align-items: center;
-            display: flex;
-            justify-content: space-between;
+        position: relative;
+        .close-icon {
+            cursor: pointer;
+            position: absolute;
+            right: 1em;
+            top: 1em;
         }
     }
 
