@@ -1,27 +1,29 @@
 <template>
    <!-- https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/ -->
-   <div class="base-timer">
-      <svg
-         class="base-timer__svg"
-         viewBox="0 0 100 100"
-         xmlns="http://www.w3.org/2000/svg">
-         <g class="base-timer__circle">
-            <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
-            <path
-               id="base-timer-path-remaining" 
-               :stroke-dasharray="circleDasharray"
-               :class="['base-timer__path-remaining', remainingPathColor]"
-               d="
-               M 50, 50 
-               m -45, 0 
-               a 45,45 0 1,0 90,0 
-               a 45,45 0 1,0 -90,0"
-            />
-         </g>
-      </svg>
-      <span id="base-timer-label" class="base-timer__label">
-         {{ formatTimeLeft(timeLeft) }}
-      </span>
+   <div id="timer-container">
+      <div class="base-timer">
+         <svg
+            class="base-timer-svg"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg">
+            <g class="base-timer-circle">
+               <circle class="base-timer-path-elapsed" cx="50" cy="50" r="45" />
+               <path
+                  id="base-timer-path-remaining" 
+                  :stroke-dasharray="circleDasharray"
+                  :class="['base-timer-path-remaining', remainingPathColor]"
+                  d="
+                  M 50, 50 
+                  m -45, 0 
+                  a 45,45 0 1,0 90,0 
+                  a 45,45 0 1,0 -90,0"
+               />
+            </g>
+         </svg>
+         <span id="base-timer-label" class="base-timer-label">
+            {{ formatTimeLeft(timeLeft) }}
+         </span>
+      </div>
    </div>
 </template>
 
@@ -98,22 +100,24 @@
 </script>
 
 <style scoped>
+   #timer-container {
+      max-width: fit-content;
+   }
    .base-timer {
       position: absolute;
-      top: 73%;
       left: 1rem;
       height: 70px;
       width: 70px;
    }
-   .base-timer__circle {
+   .base-timer-circle {
       fill: none;
       stroke: none;
    }
-   .base-timer__path-elapsed {
+   .base-timer-path-elapsed {
       stroke-width: 7px;
       stroke: grey;
    }
-   .base-timer__label {
+   .base-timer-label {
       position: absolute;
       height: 70px;
       width: 70px;
@@ -123,7 +127,7 @@
       justify-content: center;
       font-size: 20px;
    }
-   .base-timer__path-remaining {
+   .base-timer-path-remaining {
       stroke-width: 7px;
       stroke-linecap: round;
       transform: rotate(90deg);
@@ -140,18 +144,16 @@
    .red {
       stroke: var(--color-wrong-answer);
    }
-   .base-timer__svg {
+   .base-timer-svg {
       transform: scaleX(-1);
    }
 
    @media (min-width: 890px) {
       .base-timer {
-         top: 50%;
-         left: 3rem;
          height: 150px;
          width: 150px;
       }
-      .base-timer__label {
+      .base-timer-label {
          height: 150px;
          width: 150px;
          font-size: 22px;
