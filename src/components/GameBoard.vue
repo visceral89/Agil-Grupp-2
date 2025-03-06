@@ -23,7 +23,7 @@
         </div>
         <div id="player-container">
             <div id="player">{{ userStorage.loggedInUser.username }}</div>
-            <div id="opponent" @click="toggleInviteModal">
+            <div v-if="twoPlayer" id="opponent" @click="toggleInviteModal">
                 {{ displayOpponent }}
             </div>
             <router-link v-if="outOfQuestions" to="/game/result"
