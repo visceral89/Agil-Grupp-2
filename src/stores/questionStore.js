@@ -19,6 +19,10 @@ export const useQuestionStore = defineStore("questionStore", {
         storedCategoryList: null
     }),
     actions: {
+        storeQuestionAndCategories(questions, categories) {
+            this.storedQuestionsList = questions
+            this.storedCategoryList = categories
+        },
         checkDisabeled(id) {
             /*
          Finns id's i answeredQuestions[] ?

@@ -87,9 +87,10 @@
                 // Så questionslist är egentligen 3 arrayer med frågor i varje array.
                 // Man bör kunna sortera dom per poäng och sen slica av listan (6) eller så.
                 // Vi måste bara vara skra på att poängen är unika.
-                this.questionStore.storedQuestionsList = this.questionsList
-
-                this.questionStore.categoryList = this.categoryList
+                this.questionStore.storeQuestionAndCategories(
+                    this.questionsList,
+                    this.categoryList
+                )
             },
             toggleInviteModal() {
                 this.isInviteOpen = !this.isInviteOpen
