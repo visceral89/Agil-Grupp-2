@@ -28,5 +28,41 @@
 <script></script>
 
 <style scoped>
+    .modal-container {
+        backdrop-filter: blur(5px);
+        background-color: hsla(0, 0%, 0%, 0.2);
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100vw;
+    }
 
+    .modal-content {
+        background-color: var(--color-neutral-light);
+        border-radius: 1em;
+        color: var(--color-neutral-dark);
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        margin-inline: auto;
+        max-width: 80%;
+        padding: 1em 2em;
+        .modal-header {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    @media (min-width: 890px) {
+        .modal-content {
+            max-width: 50em;
+        }
+    }
 </style>
