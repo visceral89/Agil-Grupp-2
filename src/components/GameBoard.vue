@@ -49,12 +49,16 @@
                 questionsList: [],
                 userStorage: useUserStorage(),
                 questionStore: useQuestionStore(),
-                outOfQuestions: false
+                outOfQuestions: false,
+                activeUser: useUserStorage().activeUser,
+                twoPlayer: useUserStorage().twoplayer
             }
         },
         components: { QuestionCard, InviteModal },
         methods: {
             createBoard() {
+                console.log("Active User: " + this.activeUser)
+                console.log("isTwoPlayer?: " + this.twoPlayer)
                 //Hantera Kategorier
                 // Skapa ett set av en array, alla unika.
                 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
@@ -99,7 +103,6 @@
             this.createBoard()
             this.userStorage.setPlayers()
             this.checkGameOver()
-            console.log(this.outOfQuestions) /*! Comment this out later */
         },
         computed: {
             displayOpponent() {
