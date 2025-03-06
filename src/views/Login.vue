@@ -95,10 +95,10 @@
             handleGuestLogin() {
                 //Se ifall input-fältet för Gästnamn inte är tomt
                 if (this.loginGuestname.length > 0) {
-                    const loggedInGuest = this.userStorage.activeUser
+                    const loggedInGuest = this.userStorage.guestUser
                     loggedInGuest.username = this.loginGuestname
 
-                    this.userStorage.guestUser = true
+                    this.userStorage.loggedInGuestUser = true
                     this.userStorage.loginUser(loggedInGuest)
                     this.$router.push("/start")
                 } else {
