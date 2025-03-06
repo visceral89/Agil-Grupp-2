@@ -5,7 +5,8 @@ import users from "../lib/users.json"
 export const useUserStorage = defineStore("userStorage", {
     state: () => ({
         // Default Active User, finns som en fallback ifall ingen data finns från Login.
-        activeUser: {
+        activeUser: null,
+        guestUser: {
             id: 5,
             username: "Gäst",
             password: "abc",
@@ -15,7 +16,7 @@ export const useUserStorage = defineStore("userStorage", {
             points: 0,
             email: "hej@iths.se"
         },
-        guestUser: false,
+        loggedInGuestUser: false,
         // Player 1 initializies to null nstead of empty object. This preserves reactivity and makes empty checks easier.
         player1: null,
         // Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.
@@ -138,6 +139,8 @@ export const useUserStorage = defineStore("userStorage", {
             // Logout function, resets loggedInUser to null.
             this.loggedInUser = null
             console.log("Logged out")
+            // Nollställ activeUser
+            this.activeUser = null
         }
     }
 })

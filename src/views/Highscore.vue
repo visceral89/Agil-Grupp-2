@@ -34,7 +34,7 @@
 
     export default {
         created() { //Guest HSL
-            if (this.userStorage.guestUser) {
+            if (this.userStorage.loggedInGuestUser) {
                 if (!users.includes(this.userStorage.loggedInUser)) {
                     users.push(this.userStorage.loggedInUser)
                 }
