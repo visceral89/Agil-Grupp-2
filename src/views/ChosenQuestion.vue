@@ -11,7 +11,7 @@
       :class="{
         correct: selectedAnswer === index && isCorrect,
         wrong: selectedAnswer === index && !isCorrect,
-        disabled: selectedAnswer !== index && isDisabled
+        disabled: selectedAnswer !== index && isDisabled || userStorage.isTimeOut
       }"
       class="answer-choice"
       :disabled="isDisabled">
@@ -19,17 +19,27 @@
       </button>
     </div>
     <TimerCountdown />
-    <ActivePlayers v-if="selectedAnswer === null" />
+    <ActivePlayers v-if="selectedAnswer === null && !userStorage.isTimeOut" />
 
-		<div id="next-btn-wrapper" v-show="selectedAnswer !== null">
-			<div id="result-msg">
+		<div class="next-btn-wrapper" v-show="selectedAnswer !== null">
+			<div class="result-msg">
         <p v-if="isCorrect">Grattis, du valde rätt!</p>
         <p v-else>Tyvärr, du valde fel</p>
       </div>
-      <div id="next-btn" v-show="!isGameEnded">
+      <div class="next-btn">
         <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
       </div>
 		</div>
+
+    <div class="next-btn-wrapper" v-show="userStorage.isTimeOut">
+			<div class="result-msg">
+        <p>Tyvärr, tiden gick ut</p>
+      </div>
+      <div class="next-btn">
+        <RouterLink to="/game"> <Button>Nästa fråga</Button> </RouterLink>
+      </div>
+		</div>
+
     <div id="result-wrapper" v-show="isGameEnded">
       <RouterLink to="/game/result"> <Button>Resultat</Button> </RouterLink>
       <div class="firework"></div>
@@ -165,13 +175,13 @@ export default {
     color: var(--color-neutral-grey);
     cursor: default;
   }
-  #next-btn-wrapper {
+  .next-btn-wrapper {
 		display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 	}
-  #result-msg {
+  .result-msg {
     color: #FFF;
     font-family: Poppins;
     font-size: .9rem;

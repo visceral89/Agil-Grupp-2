@@ -26,9 +26,12 @@
 </template>
 
 <script>
+   import { useUserStorage } from "../stores/storage";
+   
    export default {
       data() {
          return {
+            userStorage: useUserStorage(), //gets userstorage data from storage.js
             timeLimit: 20,
             timePassed: 0,
             timeLeft: 20,
@@ -36,7 +39,6 @@
             remainingPathColor: "green",
             fullDashArray: 283,
             circleDasharray: null,
-            isTimeOut: false
          }
       },
       created() {
@@ -63,7 +65,7 @@
                   this.setCircleDasharray();
 
                   if (this.timeLeft === 0) {
-                     
+                     this.userStorage.checkTimeLeft()
                   }
                }
                else {
