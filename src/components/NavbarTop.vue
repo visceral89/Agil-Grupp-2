@@ -11,7 +11,9 @@
                     src="../assets/logo/FF-simple-logo.webp"
                     alt="frage fejden logo"
             /></router-link>
-            <span @click="isHelpModalOpen = true" class="material-symbols-outlined md-36 mobile-icon"
+            <span
+                @click="isHelpModalOpen = true"
+                class="material-symbols-outlined md-36 mobile-icon help-modal"
                 >help</span
             >
         </div>
@@ -36,12 +38,19 @@
                     </div>
                 </router-link>
             </div>
-            <span @click="isHelpModalOpen = true" class="material-symbols-outlined md-36 help-modal">help</span>
+            <span
+                @click="isHelpModalOpen = true"
+                class="material-symbols-outlined md-36 help-modal"
+                >help</span
+            >
         </div>
     </nav>
     <Teleport to="body">
         <Transition name="fade">
-            <HelpModal v-if="isHelpModalOpen" @is-help-modal-open="toggleHelpModal" />
+            <HelpModal
+                v-if="isHelpModalOpen"
+                @is-help-modal-open="toggleHelpModal"
+            />
         </Transition>
     </Teleport>
 </template>
@@ -130,6 +139,10 @@
         }
     }
 
+    .help-modal {
+        cursor: pointer;
+    }
+
     /* Modal transition */
     .fade-enter-active,
     .fade-leave-active {
@@ -154,7 +167,6 @@
 
         .help-modal {
             bottom: 2em;
-            cursor: pointer;
             position: absolute;
             right: 2em;
         }
