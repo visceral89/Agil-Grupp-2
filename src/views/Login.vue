@@ -98,6 +98,11 @@
                     const loggedInGuest = this.userStorage.guestUser
                     loggedInGuest.username = this.loginGuestname
 
+                    //Nollställ ev. tidigare guestUser-data
+                    this.userStorage.guestUser.points = 0
+                    this.userStorage.guestUser.achievements = []
+
+                    //Logga in ny guestUser
                     this.userStorage.loggedInGuestUser = true
                     this.userStorage.loginUser(loggedInGuest)
                     this.$router.push("/start")

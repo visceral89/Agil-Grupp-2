@@ -142,8 +142,6 @@ export const useUserStorage = defineStore("userStorage", {
             // Nollställ activeUser
             this.activeUser = null
             //Nollställ guestUser
-            this.guestUser.points = 0
-            this.guestUser.achievements = []
             this.loggedInGuestUser = false
         }
     }
