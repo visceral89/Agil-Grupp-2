@@ -18,15 +18,16 @@
             >
         </div>
         <div class="navbar-content-desktop">
-            <router-link to="/start" style="display: contents">
-                <div class="logo-container">
+            <div class="logo-container">
+                <router-link to="/start" style="display: contents">
                     <img
                         src="../assets/logo/FF-simple-logo.webp"
                         alt="frage fejden logo"
                         class="logo"
                     />
-                </div>
-            </router-link>
+                </router-link>
+            </div>
+
             <div class="links-container">
                 <router-link to="/start">spela</router-link>
                 <router-link to="/highscore">highscore</router-link>
