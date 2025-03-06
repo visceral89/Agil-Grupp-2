@@ -159,6 +159,7 @@
       .base-timer {
          height: 150px;
          width: 150px;
+         left: 15%;
       }
       .base-timer-label {
          height: 150px;
