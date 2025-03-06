@@ -22,6 +22,7 @@ export const useUserStorage = defineStore("userStorage", {
         player2: null,
         loggedInUser: null,
         isTimeOut: false,
+        stopTimer: false,
         isWinner: null,
         isLoser: null,
 		isTie: null,
@@ -41,6 +42,8 @@ export const useUserStorage = defineStore("userStorage", {
                 //call this function every time a user gets points to check if an achievment can be collected
                 this.unlockAchievments()
                 this.flipActiveUser() //flips to new active user after points have been given
+                this.stopTimer = true
+                console.log(this.stopTimer, 'stanna timer vid svar')
             }
         },
         unlockAchievments() {

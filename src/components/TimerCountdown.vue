@@ -44,6 +44,8 @@
          }
       },
       created() {
+         this.userStorage.isTimeOut = false
+         this.userStorage.stopTimer = false
          this.startTimer()
       },
       methods: {
@@ -59,6 +61,11 @@
          },
          startTimer() {
             this.timerInterval = setInterval(() => {
+              if (this.userStorage.stopTimer) {
+                  clearInterval(this.timerInterval)
+                  return
+               }
+               
                if (this.timeLeft > 0) {
                   this.timePassed++
                   this.timeLeft = this.timeLimit - this.timePassed

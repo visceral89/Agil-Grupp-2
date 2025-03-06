@@ -31,7 +31,7 @@
       </div>
 		</div>
 
-    <div class="next-btn-wrapper" v-show="userStorage.isTimeOut">
+    <div class="next-btn-wrapper" v-show="userStorage.isTimeOut && !userStorage.stopTimer" >
 			<div class="result-msg">
         <p>Tyvärr, tiden gick ut</p>
       </div>
