@@ -7,7 +7,6 @@
       </div>
       <h2 class="profile-name">{{ user.username }}</h2>
       
-      
       <h3 class="achievements-title">Utmärkelser</h3>
       <Achievments />
       
@@ -23,6 +22,10 @@
           </li>
         </ul>
       </div>
+      
+      <div style="margin-top: 20px;">
+        <Button class="add-friend-btn">Lägg till en vän</Button>
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +34,7 @@
 import users from "../lib/users.json";
 import { useUserStorage } from "../stores/storage";
 import Achievments from '../components/Achievments.vue';
+import Button from '../components/Button.vue'; 
 
 export default {
   data() {
@@ -59,7 +63,8 @@ export default {
     }
   },
   components: {
-    Achievments
+    Achievments,
+    Button
   }
 };
 </script>
