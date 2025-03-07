@@ -1,10 +1,11 @@
 <template>
     <div id="game-wrapper">
         <div class="question-wrapper">
-            <h2>Välj fråga</h2>
+            <h2 v-if="!userStorage.multiPlayer || userStorage.multiPlayer && userStorage.player2">Välj fråga</h2>
+            <h2 v-else>Välj motsåndare</h2>
         </div>
 
-        <div id="game-board">
+        <div id="game-board" v-show="!userStorage.multiPlayer || userStorage.multiPlayer && userStorage.player2">
             <div
                 class="category-column"
                 v-for="(category, index) in categoryList"
@@ -23,7 +24,7 @@
         </div>
         <div id="player-container">
             <div id="player">{{ userStorage.loggedInUser.username }}</div>
-            <div id="opponent" @click="toggleInviteModal">
+            <div v-if="userStorage.multiPlayer" id="opponent" @click="toggleInviteModal">
                 {{ displayOpponent }}
             </div>
             <router-link v-if="outOfQuestions" to="/game/result"

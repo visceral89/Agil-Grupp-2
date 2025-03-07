@@ -4,10 +4,10 @@
 
         <div id="start-game-wrapper">
             <div id="start-btn-wrapper">
-                <RouterLink to="/game"> <Button>Spela (1p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="userStorage.setSinglePlayer">Spela (1p)</Button> </RouterLink>
             </div>
             <div>
-                <RouterLink to="/game"> <Button>Spela (2p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="userStorage.setMultiPlayer">Spela (2p)</Button> </RouterLink>
             </div>
         </div>
     </div>
@@ -16,12 +16,18 @@
 <script>
 import UserInfo from "../components/UserInfo.vue";
 import Button from "../components/Button.vue"
+import { useUserStorage } from "../stores/storage"
 
 export default {
 	components: {
 		UserInfo,
 		Button
 	},
+    data() {
+        return {
+            userStorage: useUserStorage()
+        }
+    }
 };
 </script>
 

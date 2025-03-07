@@ -21,6 +21,7 @@ export const useUserStorage = defineStore("userStorage", {
         player1: null,
         // Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.
         player2: null,
+        multiPlayer: false,
         loggedInUser: null,
         isTimeOut: false,
         stopTimer: false,
@@ -146,6 +147,13 @@ export const useUserStorage = defineStore("userStorage", {
             this.activeUser = null
             //Nollställ guestUser
             this.loggedInGuestUser = false
+        },
+        setMultiPlayer() {
+            this.multiPlayer = true
+        },
+        setSinglePlayer() {
+            // Kallas från 1-p Button
+            this.multiPlayer = false
         }
     }
 })
