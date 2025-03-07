@@ -7,7 +7,7 @@
                 <RouterLink to="/game"> <Button @click="userStorage.setSinglePlayer(), questionStore.resetQuestions()">Spela (1p)</Button> </RouterLink>
             </div>
             <div>
-                <RouterLink to="/game"> <Button @click="userStorage.setMultiPlayer(), questionStore.resetQuestions()">Spela (2p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="userStorage.setMultiPlayer(),userStorage.clearPlayers(), questionStore.resetQuestions()">Spela (2p)</Button> </RouterLink>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
     <div id="game-wrapper">
         <div class="question-wrapper">
             <h2 v-if="!userStorage.multiPlayer || userStorage.multiPlayer && userStorage.player2">Välj fråga</h2>
-            <h2 v-else>Välj motsåndare</h2>
+            <h2 v-else>Välj motståndare</h2>
         </div>
 
         <div id="game-board" v-show="!userStorage.multiPlayer || userStorage.multiPlayer && userStorage.player2">

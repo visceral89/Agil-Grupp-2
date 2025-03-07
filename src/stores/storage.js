@@ -89,6 +89,7 @@ export const useUserStorage = defineStore("userStorage", {
         setActiveUser(user) {
             // Short helper function that can be run From multiple places.This makes it moore dynamic if we for some reason want to change the active user via a parameter.
             this.activeUser = user
+            console.log("Aktiv user:", this.activeUser)
         },
         setOpponent(user) {
             // This function is called from Invite modal and sets player 2 to be the opponent "manually"
