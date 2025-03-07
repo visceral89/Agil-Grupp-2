@@ -44,6 +44,7 @@
                 })
                 this.highscoreList = tempHighscoreList
             }
+            console.log(users)
         },
         data() {
             return {

@@ -22,7 +22,7 @@
                 </router-link>
             </div>
         </div>
-        <div id="player-container">
+        <div v-if="!userStorage.player2" id="player-container">
             <div id="player">{{ userStorage.loggedInUser.username }}</div>
             <div v-if="userStorage.multiPlayer" id="opponent" @click="toggleInviteModal">
                 {{ displayOpponent }}
@@ -31,6 +31,7 @@
                 ><div>Resultat</div></router-link
             >
         </div>
+        <ActivePlayers v-if="userStorage.player2" />
         <InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
     </div>
 </template>
@@ -41,6 +42,8 @@
     import InviteModal from "./InviteModal.vue"
     import { useUserStorage } from "../stores/storage"
     import { useQuestionStore } from "../stores/questionStore"
+    import ActivePlayers from "./ActivePlayers.vue"
+
     export default {
         data() {
             return {
@@ -53,7 +56,7 @@
                 outOfQuestions: false
             }
         },
-        components: { QuestionCard, InviteModal },
+        components: { ActivePlayers, QuestionCard, InviteModal },
         methods: {
             createBoard() {
                 //Hantera Kategorier

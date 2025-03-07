@@ -23,12 +23,12 @@
                 <span id="selected-answer">{{ answer }}</span>
             </button>
         </div>
-        <TimerCountdown />
+        <TimerCountdown class="timer-position" />
         <ActivePlayers
             v-if="selectedAnswer === null && !userStorage.isTimeOut"
         />
 
-        <div class="next-btn-wrapper" v-show="selectedAnswer !== null">
+        <div class="next-btn-wrapper" v-show="selectedAnswer !== null && !isGameEnded">
             <div class="result-msg">
                 <p v-if="isCorrect">Grattis, du valde rätt!</p>
                 <p v-else>Tyvärr, du valde fel</p>
@@ -133,6 +133,11 @@
 </script>
 
 <style scoped>
+    .timer-position {
+        position: absolute;
+        transform: translateY(-4em);
+    }
+
     .question-wrapper {
         width: fit-content;
         max-width: 90vw;
@@ -158,6 +163,7 @@
         margin-top: 28px;
         margin-left: auto;
         margin-right: auto;
+        padding-bottom: 1.5em;
     }
     .answer-choice {
         display: flex;
@@ -274,6 +280,10 @@
     }
 
     @media (min-width: 890px) {
+        .timer-position {
+            position: relative;
+            transform: translateY(0);
+        }
         h2 {
             font-size: 1.7rem;
         }
