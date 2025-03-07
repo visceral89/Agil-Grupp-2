@@ -114,6 +114,8 @@
                     this.selectedAnswer = index
                     this.isCorrect = false
 
+                    this.userStorage.stopTimer = true
+
                     this.userStorage.flipActiveUser()
                 }
 
