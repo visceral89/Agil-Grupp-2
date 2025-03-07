@@ -15,18 +15,28 @@
       <h3 class="friends-title">Vänner</h3>
       <div class="friends-list-container">
         <ul class="friends-list">
-          <li v-for="friend in filteredFriends" :key="friend.id" class="friend-item">
+          <li v-for="friend in userFriends" :key="friend.id" class="friend-item">
             <img :src="base_url + friend.avatar" alt="Avatar" class="friend-avatar"/>
             <span class="friend-name">{{ friend.username }}</span>
             <span class="friend-points">{{ friend.points }} p</span>
+            <span class="remove-friend material-symbols-outlined" @click="removeFriend(friend.id)">close</span>
           </li>
         </ul>
       </div>
       
       <div style="margin-top: 20px;">
-        <Button class="add-friend-btn">Lägg till en vän</Button>
+        <Button class="add-friend-btn" @click="isModalOpen = true">Lägg till en vän</Button>
       </div>
     </div>
+
+    <AddFriendModal 
+      :isOpen="isModalOpen"
+      :friends="filteredFriends"
+      :base_url="base_url"
+      @friend-added="addFriend"
+      @friend-removed="removeFriend"
+      @close="isModalOpen = false"
+    />
   </div>
 </template>
 
@@ -34,13 +44,16 @@
 import users from "../lib/users.json";
 import { useUserStorage } from "../stores/storage";
 import Achievments from '../components/Achievments.vue';
-import Button from '../components/Button.vue'; 
+import Button from '../components/Button.vue';
+import AddFriendModal from '../components/AddFriendModal.vue';
 
 export default {
   data() {
     return {
       base_url: "src/",
-      userStorage: useUserStorage()
+      userStorage: useUserStorage(),
+      isModalOpen: false,
+      userFriends: [],
     };
   },
   computed: {
@@ -48,7 +61,7 @@ export default {
       return this.userStorage.loggedInUser;
     },
     filteredFriends() {
-      return users.filter(friend => friend.id !== this.user.id);
+      return users.filter(friend => friend.id !== this.user.id && !this.userFriends.some(f => f.id === friend.id));
     },
     maxPoints() {
       return Math.max(...users.map(user => user.points));
@@ -60,11 +73,21 @@ export default {
   methods: {
     useDefaultAvatar(event) {
       event.target.src = "src/assets/images/user-avatars/avatar-image.jpg";
+    },
+    addFriend(friend) {
+      if (!this.userFriends.some(f => f.id === friend.id)) {
+        this.userFriends.push(friend);
+      }
+      this.isModalOpen = false;
+    },
+    removeFriend(friendId) {
+      this.userFriends = this.userFriends.filter(friend => friend.id !== friendId);
     }
   },
   components: {
     Achievments,
-    Button
+    Button,
+    AddFriendModal
   }
 };
 </script>
@@ -116,16 +139,7 @@ export default {
   font-weight: bold;
 }
 
-.achievements-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  color: var(--color-neutral-light);
-}
-
-.friends-title {
+.achievements-title, .friends-title {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
@@ -136,7 +150,7 @@ export default {
 
 .friends-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px 30px;
   padding: 0;
   list-style: none;
@@ -147,7 +161,7 @@ export default {
 .friend-item {
   display: flex;
   align-items: center;
-  background: var(--color-card-background); 
+  background: var(--color-card-background);
   border-radius: var(--border-radius);
   padding: 3px 8px;
   box-shadow: var(--box-shadow);
@@ -173,5 +187,18 @@ export default {
   font-size: 0.9rem;
   color: var(--color-secondary);
 }
+
+.remove-friend {
+  cursor: pointer;
+  color: var(--color-neutral-dark); 
+  font-size: 1.2rem;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.remove-friend:hover {
+  color: var(--color-neutral-grey); 
+}
+
 </style>
 
