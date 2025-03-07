@@ -150,6 +150,9 @@
             background-color: var(--color-secondary);
         }
     }
+    #player {
+        cursor: default;
+    }
     #opponent {
         cursor: pointer;
         &:hover {
