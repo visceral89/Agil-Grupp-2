@@ -4,10 +4,10 @@
 
         <div id="start-game-wrapper">
             <div id="start-btn-wrapper">
-                <RouterLink to="/game"> <Button @click="userStorage.setSinglePlayer">Spela (1p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="userStorage.setSinglePlayer(), questionStore.resetQuestions()">Spela (1p)</Button> </RouterLink>
             </div>
             <div>
-                <RouterLink to="/game"> <Button @click="userStorage.setMultiPlayer">Spela (2p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="userStorage.setMultiPlayer(), questionStore.resetQuestions()">Spela (2p)</Button> </RouterLink>
             </div>
         </div>
     </div>
@@ -17,6 +17,7 @@
 import UserInfo from "../components/UserInfo.vue";
 import Button from "../components/Button.vue"
 import { useUserStorage } from "../stores/storage"
+import { useQuestionStore } from "../stores/questionStore"
 
 export default {
 	components: {
@@ -25,7 +26,8 @@ export default {
 	},
     data() {
         return {
-            userStorage: useUserStorage()
+            userStorage: useUserStorage(),
+            questionStore: useQuestionStore()
         }
     }
 };

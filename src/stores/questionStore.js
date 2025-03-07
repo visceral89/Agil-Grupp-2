@@ -14,7 +14,8 @@ Det är alternativ 1, vet inte hur snyggt det är ännu.
 export const useQuestionStore = defineStore("questionStore", {
     state: () => ({
         answeredQuestions: [],
-        questionsList: questions
+        questionsList: questions,
+        questions: null
     }),
     actions: {
         checkDisabeled(id) {
@@ -50,7 +51,8 @@ export const useQuestionStore = defineStore("questionStore", {
         resetQuestions() {
             // Simple function that clears the array. Can be triggered when we want to reset the game?
             this.answeredQuestions = []
+            console.log("resetQuestions körs")
         }
     },
-    questions: null
+    
 })

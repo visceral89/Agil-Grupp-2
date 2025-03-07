@@ -150,10 +150,12 @@ export const useUserStorage = defineStore("userStorage", {
         },
         setMultiPlayer() {
             this.multiPlayer = true
+            console.log("setMultiPlayer körs")
         },
         setSinglePlayer() {
             // Kallas från 1-p Button
             this.multiPlayer = false
+            console.log("setSinglePlayer körs")
         }
     }
 })
