@@ -80,7 +80,7 @@ export const useUserStorage = defineStore("userStorage", {
             }
 
             if (!this.player1) {
-                this.player1 = { ...this.loggedInUser }
+                this.player1 = this.loggedInUser
                 console.log("Player 1 set to:", this.player1)
             } else {
                 console.log("Player 1 already exists in Pinia.")
