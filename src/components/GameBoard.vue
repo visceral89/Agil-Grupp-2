@@ -143,7 +143,6 @@
         display: flex;
         gap: 2rem;
         margin-top: 2rem;
-        cursor: pointer;
         div {
             display: flex;
             padding: 1rem 2rem;
@@ -152,6 +151,7 @@
         }
     }
     #opponent {
+        cursor: pointer;
         &:hover {
             background-color: var(--color-secondary-hover);
         }
