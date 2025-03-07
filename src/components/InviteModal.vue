@@ -5,7 +5,11 @@
                 <div id="user-list-wrapper">
                     <h2>Lägg till motståndare</h2>
                     <div>
-                        <div class="friend" v-for="user in users">
+                        <div
+                            class="friend"
+                            v-for="user in filteredUsers"
+                            :key="user.id"
+                        >
                             <img :src="'src/' + user.avatar" alt="avatar" />
                             <p>{{ user.username }}</p>
                             <p id="points">Points: {{ user.points }}</p>
@@ -27,8 +31,16 @@
     import users from "../lib/users.json"
     import { useUserStorage } from "../stores/storage"
     export default {
+        computed: {
+            filteredUsers() {
+                return users.filter(user => user.id !== this.userStorage.loggedInUser.id)
+            }
+        },
         data() {
-            return { users: users, userStorage: useUserStorage() }
+            return {
+                users: users,
+                userStorage: useUserStorage()
+            }
         },
         methods: {
             inviteFriend(id) {
