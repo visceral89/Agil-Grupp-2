@@ -52,13 +52,15 @@ export default {
     return {
       base_url: "src/",
       userStorage: useUserStorage(),
-      isModalOpen: false,
-      userFriends: [],
+      isModalOpen: false
     };
   },
   computed: {
     user() {
       return this.userStorage.loggedInUser;
+    },
+    userFriends() {
+      return this.user?.friends || []; 
     },
     filteredFriends() {
       return users.filter(friend => friend.id !== this.user.id && !this.userFriends.some(f => f.id === friend.id));
@@ -76,12 +78,12 @@ export default {
     },
     addFriend(friend) {
       if (!this.userFriends.some(f => f.id === friend.id)) {
-        this.userFriends.push(friend);
+        this.userStorage.loggedInUser.friends.push(friend); 
       }
       this.isModalOpen = false;
     },
     removeFriend(friendId) {
-      this.userFriends = this.userFriends.filter(friend => friend.id !== friendId);
+      this.userStorage.loggedInUser.friends = this.userStorage.loggedInUser.friends.filter(friend => friend.id !== friendId);
     }
   },
   components: {
@@ -91,6 +93,7 @@ export default {
   }
 };
 </script>
+
 
 <style scoped>
 .profile-wrapper {
