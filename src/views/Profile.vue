@@ -197,6 +197,7 @@ export default {
   font-size: 1.2rem;
   margin-left: 10px;
   transition: color 0.3s ease;
+  margin-left: auto; 
 }
 
 .remove-friend:hover {
