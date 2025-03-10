@@ -132,6 +132,7 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+        transition: var(--transition);
         span {
             font-size: 20px;
         }
@@ -142,6 +143,11 @@
 
     .help-modal {
         cursor: pointer;
+        padding-bottom: 6.5px;
+        transition: var(--transition);
+        &:hover {
+            color: var(--color-accent);
+        }
     }
 
     /* Modal transition */
