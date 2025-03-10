@@ -23,7 +23,7 @@
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
          }
-      }
+      },
    }
 </script>
 

@@ -36,6 +36,8 @@ export const useUserStorage = defineStore("userStorage", {
         loginUser(user) {
             this.setActiveUser(user)
             this.loggedInUser = user
+
+            this.unlockAchievments()
         },
         addPoints(points) {
             if (!this.activeUser) {
