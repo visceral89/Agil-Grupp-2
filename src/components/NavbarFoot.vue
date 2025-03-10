@@ -59,7 +59,6 @@
         justify-content: center;
         align-items: center;
     }
-
     .navbar {
         width: 100%;
         position: fixed;
@@ -77,18 +76,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        position: relative;
-        &::after {
-            content: "";
-            position: absolute;
-            z-index: 2;
-            bottom: 0;
-            left: 0;
-            pointer-events: none;
-            background-image: red;
-            width: 100%;
-            height: 4em;
-        }
     }
     #crown {
         font-size: 50px;
