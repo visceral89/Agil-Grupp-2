@@ -70,7 +70,7 @@
                 ]
 
                 // Quick and dirty shuffle
-                this.categoryList.sort(() => Math.random() - 0.5)
+              //  this.categoryList.sort(() => Math.random() - 0.5)
 
                 // Limits categories to 3
 
