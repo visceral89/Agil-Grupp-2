@@ -4,10 +4,10 @@
 
         <div id="start-game-wrapper">
             <div id="start-btn-wrapper">
-                <RouterLink to="/game"> <Button @click="userStorage.setSinglePlayer(), userStorage.clearPlayers(), questionStore.resetQuestions(), userStorage.setActiveUser(userStorage.loggedInUser)">Spela (1p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="initialiseSingleGame">Spela (1p)</Button> </RouterLink>
             </div>
             <div>
-                <RouterLink to="/game"> <Button @click="userStorage.setMultiPlayer(), userStorage.clearPlayers(), questionStore.resetQuestions(), userStorage.setActiveUser(userStorage.loggedInUser)">Spela (2p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="initialiseMultiGame">Spela (2p)</Button> </RouterLink>
             </div>
         </div>
     </div>
@@ -28,6 +28,20 @@ export default {
         return {
             userStorage: useUserStorage(),
             questionStore: useQuestionStore()
+        }
+    },
+    methods: {
+        initialiseSingleGame() {
+            this.userStorage.setSinglePlayer(), 
+            this.userStorage.clearPlayers(), 
+            this.questionStore.resetQuestions(), 
+            this.userStorage.setActiveUser(this.userStorage.loggedInUser)
+        },
+        initialiseMultiGame() {
+            this.userStorage.setMultiPlayer(), 
+            this.userStorage.clearPlayers(), 
+            this.questionStore.resetQuestions(), 
+            this.userStorage.setActiveUser(this.userStorage.loggedInUser)
         }
     }
 };
