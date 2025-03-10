@@ -40,7 +40,7 @@
 		"email": "hej@iths.se"
 	},
 	{
-		"id": 6,
+		"id": 5,
 		"username": "Magnus",
 		"password": "abc",
 		"avatar": "assets/images/user-avatars/magnus.svg",
@@ -50,10 +50,30 @@
 		"email": "hej@iths.se"
 	},
 	{
-		"id": 7,
+		"id": 6,
 		"username": "Vanja",
 		"password": "abc",
 		"avatar": "assets/images/user-avatars/vanja.svg",
+		"achievements": [],
+		"friends": [],
+		"points": 0,
+		"email": "hej@iths.se"
+	},
+	{
+		"id": 7,
+		"username": "Jon",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/jon.svg",
+		"achievements": [],
+		"friends": [],
+		"points": 0,
+		"email": "hej@iths.se"
+	},
+	{
+		"id": 8,
+		"username": "Jerry",
+		"password": "abc",
+		"avatar": "assets/images/user-avatars/jerry.svg",
 		"achievements": [],
 		"friends": [],
 		"points": 0,
