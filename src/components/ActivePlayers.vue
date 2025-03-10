@@ -83,10 +83,10 @@
         font-weight: 500;
         margin: 0;
     }
-    @media (min-width: 700px) {
+    /* @media (min-width: 700px) {
         #players-wrapper {
             flex-direction: column;
             gap: 0;
         }
-    }
+    } */
 </style>

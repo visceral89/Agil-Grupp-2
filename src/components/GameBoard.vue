@@ -32,7 +32,9 @@
             >
         </div>
         <ActivePlayers v-if="userStorage.player2" />
-        <InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
+        <Transition name="fade">
+            <InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
+        </Transition>
     </div>
 </template>
 

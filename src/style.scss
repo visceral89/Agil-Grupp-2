@@ -69,3 +69,14 @@ button {
 	font-size: 1rem;
 	height: 100svh;
 }
+
+/* Modal transition */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 250ms ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
