@@ -22,7 +22,7 @@
                     />
                 </div>
                 <span>{{ index + 1 }}. {{ player.username }}</span>
-                <span class="highscore-cell-points">{{ player.points }} p</span>
+                <span class="highscore-cell-points">{{ player.totalPoints }} p</span>
             </div>
         </section>
     </div>
@@ -40,7 +40,7 @@
                 }
                 console.log(users)
                 let tempHighscoreList = users.sort((a, b) => {
-                    return b.points - a.points
+                    return b.totalPoints - a.totalPoints
                 })
                 this.highscoreList = tempHighscoreList
             }
@@ -50,7 +50,7 @@
             return {
                 base_url: "src/",
                 highscoreList: users.sort((a, b) => {
-                    return b.points - a.points
+                    return b.totalPoints - a.totalPoints
                 }),
                 userStorage: useUserStorage() //Guest HSL
             }

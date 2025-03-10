@@ -12,7 +12,7 @@
                         >
                             <img :src="'src/' + user.avatar" alt="avatar" />
                             <p>{{ user.username }}</p>
-                            <p id="points">Points: {{ user.points }}</p>
+                            <p id="points">Points: {{ user.totalPoints }}</p>
                             <span
                                 id="adduser"
                                 class="material-symbols-outlined"

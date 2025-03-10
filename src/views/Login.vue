@@ -99,7 +99,7 @@
                     loggedInGuest.username = this.loginGuestname
 
                     //Nollställ ev. tidigare guestUser-data
-                    this.userStorage.guestUser.points = 0
+                    this.userStorage.guestUser.totalPoints = 0
                     this.userStorage.guestUser.achievements = []
 
                     //Logga in ny guestUser

@@ -6,7 +6,8 @@
 		"avatar": "assets/images/user-avatars/felicia.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 700,
+		"totalPoints": 700,
+        "sessionPoints": 0,
 		"email": "hej@iths.se"
 	},
 	{
@@ -16,7 +17,8 @@
 		"avatar": "assets/images/user-avatars/Ilirjana.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 900,
+		"totalPoints": 900,
+        "sessionPoints": 0,
 		"email": "hej@iths.se"
 	},
 	{
@@ -26,7 +28,8 @@
 		"avatar": "assets/images/user-avatars/patrik.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 100,
+		"totalPoints": 100,
+        "sessionPoints": 0,
 		"email": "hej@iths.se"
 	},
 	{
@@ -36,7 +39,8 @@
 		"avatar": "assets/images/user-avatars/rasmus.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 200,
+		"totalPoints": 200,
+        "sessionPoints": 0,
 		"email": "hej@iths.se"
 	},
 	{
@@ -46,7 +50,8 @@
 		"avatar": "assets/images/user-avatars/magnus.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 0,
+		"totalPoints": 0,
+        "sessionPoints": 0,
 		"email": "hej@iths.se"
 	},
 	{
@@ -56,7 +61,8 @@
 		"avatar": "assets/images/user-avatars/vanja.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 0,
+		"totalPoints": 0,
+        "sessionPoints": 0,
 		"email": "hej@iths.se"
 	},
 	{
@@ -66,7 +72,8 @@
 		"avatar": "assets/images/user-avatars/jon.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 0,
+		"totalPoints": 0,
+        "sessionPoints": 0,
 		"email": "hej@iths.se"
 	},
 	{
@@ -76,7 +83,8 @@
 		"avatar": "assets/images/user-avatars/jerry.svg",
 		"achievements": [],
 		"friends": [],
-		"points": 0,
+		"totalPoints": 0,
+        "sessionPoints": 0,
 		"email": "hej@iths.se"
 	}
 ]

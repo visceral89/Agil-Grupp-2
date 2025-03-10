@@ -8,7 +8,7 @@
             <div class="friend" v-for="friend in friends" :key="friend.id">
               <img :src="base_url + friend.avatar" alt="avatar" />
               <p>{{ friend.username }}</p>
-              <p id="points">Points: {{ friend.points }}</p>
+              <p id="points">Points: {{ friend.totalPoints }}</p>
               <span
                 id="adduser"
                 class="material-symbols-outlined"
@@ -27,13 +27,13 @@
 <script>
 export default {
   props: {
-    isOpen: Boolean, 
-    friends: Array, 
-    base_url: String, 
+    isOpen: Boolean,
+    friends: Array,
+    base_url: String,
   },
   methods: {
     addFriend(friend) {
-      this.$emit("friend-added", friend); 
+      this.$emit("friend-added", friend);
     },
   },
 };
@@ -108,4 +108,3 @@ h2 {
 }
 
 </style>
-

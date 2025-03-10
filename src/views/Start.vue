@@ -32,15 +32,17 @@ export default {
     },
     methods: {
         initialiseSingleGame() {
-            this.userStorage.setSinglePlayer(), 
-            this.userStorage.clearPlayers(), 
-            this.questionStore.resetQuestions(), 
+            this.userStorage.setSinglePlayer(),
+            this.userStorage.clearPlayers(),
+            this.userStorage.clearSessionPoints(),
+            this.questionStore.resetQuestions(),
             this.userStorage.setActiveUser(this.userStorage.loggedInUser)
         },
         initialiseMultiGame() {
-            this.userStorage.setMultiPlayer(), 
-            this.userStorage.clearPlayers(), 
-            this.questionStore.resetQuestions(), 
+            this.userStorage.setMultiPlayer(),
+            this.userStorage.clearPlayers(),
+            this.userStorage.clearSessionPoints(),
+            this.questionStore.resetQuestions(),
             this.userStorage.setActiveUser(this.userStorage.loggedInUser)
         }
     }

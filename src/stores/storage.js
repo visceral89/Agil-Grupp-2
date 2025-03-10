@@ -13,7 +13,8 @@ export const useUserStorage = defineStore("userStorage", {
             avatar: "assets/images/user-avatars/guest.svg",
             achievements: [],
             friends: [],
-            points: 0,
+            totalPoints: 0,
+            sessionPoints: 0,
             email: "hej@iths.se"
         },
         loggedInGuestUser: false,
@@ -43,7 +44,8 @@ export const useUserStorage = defineStore("userStorage", {
             if (!this.activeUser) {
                 this.flipActiveUser() //flips to new active user after points have been given
             } else {
-                this.activeUser.points += points
+                this.activeUser.sessionPoints += points
+                this.activeUser.totalPoints += points
                 //call this function every time a user gets points to check if an achievment can be collected
                 this.unlockAchievments()
                 this.flipActiveUser() //flips to new active user after points have been given
@@ -55,11 +57,11 @@ export const useUserStorage = defineStore("userStorage", {
             //loop through the json-file
             this.availableAchievments.forEach((achievment) => {
                 //checks if the active users points are equal to or more to unlock a achievment in the array
-                if (this.loggedInUser.points >= achievment.pointsToUnlock) {
+                if (this.loggedInUser.totalPoints >= achievment.pointsToUnlock) {
                     //checks if the achievment is already in the activeusers achievments
                     if (this.loggedInUser.achievements.includes(achievment)) {
                         console.log('achievment already exists')
-                    } 
+                    }
                     else {
                         //push the achievment to the active users achievments
                         this.loggedInUser.achievements.push(achievment)
@@ -70,7 +72,7 @@ export const useUserStorage = defineStore("userStorage", {
         },
         setHighscore(username) {
             this.users.sort((a, b) => {
-                return b.points - a.points
+                return b.toaltPoints - a.totalPoints
             })
             const highscoreIndex = this.users.findIndex(
                 (user) => user.username === username
@@ -121,11 +123,11 @@ export const useUserStorage = defineStore("userStorage", {
         },
         checkWinner() {
             if (this.player1 && this.player2) {
-                if (this.player1.points > this.player2.points) {
+                if (this.player1.sessionPoints > this.player2.sessionPoints) {
                     this.isWinner = this.player1
                     console.log(this.isWinner.username, "player 1 vinner")
                     this.isLoser = this.player2
-                } else if (this.player1.points < this.player2.points) {
+                } else if (this.player1.sessionPoints < this.player2.sessionPoints) {
                     this.isWinner = this.player2
                     console.log(this.isWinner.username, "player 2 vinner")
                     this.isLoser = this.player1
@@ -162,6 +164,9 @@ export const useUserStorage = defineStore("userStorage", {
             // Kallas från 1-p Button
             this.multiPlayer = false
             console.log("setSinglePlayer körs")
+        },
+        clearSessionPoints() {
+            users.forEach(user => user.sessionPoints = 0)
         }
     }
 })
