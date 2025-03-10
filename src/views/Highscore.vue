@@ -22,7 +22,9 @@
                     />
                 </div>
                 <span>{{ index + 1 }}. {{ player.username }}</span>
-                <span class="highscore-cell-points">{{ player.totalPoints }} p</span>
+                <span class="highscore-cell-points"
+                    >{{ player.totalPoints }} p</span
+                >
             </div>
         </section>
     </div>
@@ -33,7 +35,8 @@
     import { useUserStorage } from "../stores/storage" //Guest HSL
 
     export default {
-        created() { //Guest HSL
+        created() {
+            //Guest HSL
             if (this.userStorage.loggedInGuestUser) {
                 if (!users.includes(this.userStorage.loggedInUser)) {
                     users.push(this.userStorage.loggedInUser)
@@ -83,10 +86,25 @@
         display: flex;
         flex-direction: column;
         gap: 0.8em;
-        height: 550px;
+        height: 480px;
         overflow-y: scroll;
         padding-top: 2.1em;
         scrollbar-width: none;
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: 88px;
+            left: 0;
+            pointer-events: none;
+            background-image: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0),
+                rgba(132,61,173,1) 90%
+            );
+            width: 100%;
+            height: 4em;
+        }
     }
     .highscore-cell {
         align-items: center;
@@ -125,6 +143,9 @@
             .highscore-top-title {
                 font-size: 3em;
             }
+        }
+        .highscore-table {
+            height: 550px;
         }
         .highscore-cell {
             gap: 6em;

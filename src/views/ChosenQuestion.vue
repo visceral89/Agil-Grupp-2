@@ -135,7 +135,7 @@
 <style scoped>
     .timer-position {
         position: absolute;
-        transform: translateY(-4em);
+        transform: translateY(-2.7em);
     }
 
     .question-wrapper {
@@ -282,7 +282,6 @@
     @media (min-width: 890px) {
         .timer-position {
             position: relative;
-            transform: translateY(0);
         }
         h2 {
             font-size: 1.7rem;

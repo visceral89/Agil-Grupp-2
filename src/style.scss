@@ -1,4 +1,3 @@
-@use "./styles/variables";
 
 :root {
     --color-neutral-light: #f0f0f0;
@@ -16,7 +15,7 @@
     --color-accent: #e6ac30;
     --color-disabled: #9398AA;
 
-    --color-navbar-foot-background: rgba(246, 246, 246, .3);
+    --color-navbar-foot-background: rgb(164, 115, 193);
     --gradient-primary-background: linear-gradient(0deg, rgba(132,61,173,1) 0%, rgba(77,27,138,1) 100%);
 
     --border-radius: 0.625em;

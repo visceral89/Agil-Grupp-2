@@ -70,15 +70,25 @@
         padding-right: 6px;
     }
     .navbar-content-mobile {
-        background: var(--color-primary-menu-background);
+        background: var(--color-navbar-foot-background);
         padding: 16px 70px;
         border-radius: 6px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background: rgba(246, 246, 246, 0.3);
         position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: red;
+            width: 100%;
+            height: 4em;
+        }
     }
     #crown {
         font-size: 50px;
