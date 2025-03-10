@@ -4,10 +4,10 @@
 
         <div id="start-game-wrapper">
             <div id="start-btn-wrapper">
-                <RouterLink to="/game"> <Button @click="userStorage.setSinglePlayer(), userStorage.clearPlayers(), questionStore.resetQuestions()">Spela (1p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="userStorage.setSinglePlayer(), userStorage.clearPlayers(), questionStore.resetQuestions(), userStorage.setActiveUser(userStorage.loggedInUser)">Spela (1p)</Button> </RouterLink>
             </div>
             <div>
-                <RouterLink to="/game"> <Button @click="userStorage.setMultiPlayer(), userStorage.clearPlayers(), questionStore.resetQuestions()">Spela (2p)</Button> </RouterLink>
+                <RouterLink to="/game"> <Button @click="userStorage.setMultiPlayer(), userStorage.clearPlayers(), questionStore.resetQuestions(), userStorage.setActiveUser(userStorage.loggedInUser)">Spela (2p)</Button> </RouterLink>
             </div>
         </div>
     </div>

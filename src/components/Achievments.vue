@@ -1,6 +1,6 @@
 <template>
    <div id="achievments-wrapper">
-      <div v-for="(achievment, index) in userStorage.activeUser.achievements" 
+      <div v-for="(achievment, index) in userStorage.loggedInUser.achievements" 
       :key="index"
       class="achievment tooltip">
          <span 
@@ -23,9 +23,6 @@
          return {
             userStorage: useUserStorage(), //gets userstorage data from storage.js
          }
-      },
-      created() {
-         this.userStorage.unlockAchievments()
       }
    }
 </script>
