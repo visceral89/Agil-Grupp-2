@@ -112,7 +112,7 @@ export default {
 
 .crown {
     position: absolute;
-    top: -55px;
+    top: -49px;
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
