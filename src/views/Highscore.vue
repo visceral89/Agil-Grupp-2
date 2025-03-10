@@ -69,6 +69,7 @@
         justify-content: center;
         margin-bottom: 4em;
         padding-top: 2em;
+        position: relative;
     }
     .highscore-top-section {
         align-items: center;
@@ -86,25 +87,16 @@
         display: flex;
         flex-direction: column;
         gap: 0.8em;
-        height: 480px;
+        height: 445px;
         overflow-y: scroll;
-        padding-top: 2.1em;
+        padding: 2.1em 0;
+        position: relative;
         scrollbar-width: none;
-        &::after {
-            content: "";
-            position: absolute;
-            z-index: 1;
-            bottom: 88px;
-            left: 0;
-            pointer-events: none;
-            background-image: linear-gradient(
-                to bottom,
-                rgba(255, 255, 255, 0),
-                rgba(132,61,173,1) 90%
-            );
-            width: 100%;
-            height: 4em;
-        }
+        mask-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 10%, rgba(0,0,0,1) 100%);
+        /* mask-mode: alpha;
+        mask-size: 100%;
+        mask-position: bottom;
+        mask-repeat: no-repeat; */
     }
     .highscore-cell {
         align-items: center;
@@ -146,6 +138,7 @@
         }
         .highscore-table {
             height: 550px;
+            mask-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 10%, rgba(0,0,0,1) 100%);
         }
         .highscore-cell {
             gap: 6em;
