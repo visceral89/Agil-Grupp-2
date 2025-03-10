@@ -282,6 +282,7 @@
     @media (min-width: 890px) {
         .timer-position {
             position: relative;
+            transform: translateY(0);
         }
         h2 {
             font-size: 1.7rem;
