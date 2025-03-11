@@ -7,7 +7,7 @@
                     <div class="user-img-wrapper">
                         <img
                             v-if="userStorage.isWinner"
-                            :src="base_url + userStorage.isWinner.avatar"
+                            :src="userStorage.isWinner.avatar"
                             alt="Profilavtar"
                         />
                     </div>
@@ -36,7 +36,7 @@
                 <div class="result-list-wrapper">
                     <div class="user-img-wrapper">
                         <img
-                            :src="base_url + userStorage.activeUser.avatar"
+                            :src="userStorage.activeUser.avatar"
                             alt="Profilavtar"
                         />
                     </div>
@@ -71,7 +71,6 @@
         data() {
             return {
                 userStorage: useUserStorage(), //gets userstorage data from storage.js
-                base_url: "../src/",
                 highscoreRank: null
             }
         },

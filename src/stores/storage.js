@@ -10,7 +10,7 @@ export const useUserStorage = defineStore("userStorage", {
             id: 5,
             username: "Gäst",
             password: "abc",
-            avatar: "assets/images/user-avatars/guest.svg",
+            avatar: "/user-avatars/guest.svg",
             achievements: [],
             friends: [],
             totalPoints: 0,

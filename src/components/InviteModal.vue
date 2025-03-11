@@ -10,7 +10,7 @@
                             v-for="user in filteredUsers"
                             :key="user.id"
                         >
-                            <img :src="'src/' + user.avatar" alt="avatar" />
+                            <img :src="user.avatar" alt="avatar" />
                             <p>{{ user.username }}</p>
                             <p id="points">Points: {{ user.totalPoints }}</p>
                             <span

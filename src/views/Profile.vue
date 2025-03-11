@@ -3,7 +3,7 @@
         <div class="profile-header">
             <div class="avatar-container">
                 <img v-if="isTopScorer" class="crown" src="../assets/images/highscore-crown.webp" alt="Krona" />
-                <img class="profile-avatar" :src="base_url + user.avatar" alt="Profilbild" @error="useDefaultAvatar" />
+                <img class="profile-avatar" :src="user.avatar" alt="Profilbild" @error="useDefaultAvatar" />
             </div>
             <h2 class="profile-name">{{ user.username }}</h2>
 
@@ -16,7 +16,7 @@
             <div class="friends-list-container">
                 <ul class="friends-list">
                     <li v-for="friend in userFriends" :key="friend.id" class="friend-item">
-                        <img :src="base_url + friend.avatar" alt="Avatar" class="friend-avatar" />
+                        <img :src="friend.avatar" alt="Avatar" class="friend-avatar" />
                         <span class="friend-name">{{ friend.username }}</span>
                         <span class="friend-points">{{ friend.totalPoints }} p</span>
                         <span class="remove-friend material-symbols-outlined"
@@ -31,7 +31,7 @@
         </div>
 
         <Transition name="fade">
-            <AddFriendModal :is-open="isModalOpen" :friends="filteredFriends" :base_url="base_url"
+            <AddFriendModal :is-open="isModalOpen" :friends="filteredFriends"
                 @friend-added="addFriend" @friend-removed="removeFriend" @close="isModalOpen = false" />
         </Transition>
     </div>
@@ -47,7 +47,6 @@ import AddFriendModal from '../components/AddFriendModal.vue';
 export default {
     data() {
         return {
-            base_url: "src/",
             userStorage: useUserStorage(),
             isModalOpen: false
         };

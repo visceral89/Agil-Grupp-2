@@ -16,7 +16,7 @@
             >
                 <div class="highscore-avatar-container">
                     <img
-                        :src="base_url + player.avatar"
+                        :src="player.avatar"
                         class="highscore-avatar"
                         alt="avatar"
                     />
@@ -53,7 +53,6 @@
         },
         data() {
             return {
-                base_url: "src/",
                 highscoreList: users.sort((a, b) => {
                     return b.totalPoints - a.totalPoints
                 }),

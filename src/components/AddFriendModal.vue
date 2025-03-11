@@ -6,7 +6,7 @@
           <h2>Lägg till en vän</h2>
           <div>
             <div class="friend" v-for="friend in friends" :key="friend.id">
-              <img :src="base_url + friend.avatar" alt="avatar" />
+              <img :src="friend.avatar" alt="avatar" />
               <p>{{ friend.username }}</p>
               <p id="points">Points: {{ friend.totalPoints }}</p>
               <span
@@ -28,8 +28,7 @@
 export default {
   props: {
     isOpen: Boolean,
-    friends: Array,
-    base_url: String,
+    friends: Array
   },
   methods: {
     addFriend(friend) {
