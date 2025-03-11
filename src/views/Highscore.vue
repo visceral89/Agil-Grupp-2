@@ -40,6 +40,7 @@
             if (this.userStorage.loggedInGuestUser) {
                 if (!users.includes(this.userStorage.loggedInUser)) {
                     users.push(this.userStorage.loggedInUser)
+                    console.log("Gäst har lagt till i highscore")
                 }
                 console.log(users)
                 let tempHighscoreList = users.sort((a, b) => {

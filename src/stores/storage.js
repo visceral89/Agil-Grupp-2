@@ -72,12 +72,12 @@ export const useUserStorage = defineStore("userStorage", {
         },
         setHighscore(username) {
             this.users.sort((a, b) => {
-                return b.toaltPoints - a.totalPoints
+                return b.totalPoints - a.totalPoints
             })
             const highscoreIndex = this.users.findIndex(
                 (user) => user.username === username
             )
-            console.log(highscoreIndex)
+            console.log("highscore Index:", highscoreIndex)
             return highscoreIndex !== -1 ? highscoreIndex + 1 : null
         },
         setPlayers() {
