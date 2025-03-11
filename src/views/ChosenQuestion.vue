@@ -6,14 +6,16 @@
 
         <div id="question-card">
             <!-- chosen question from game board -->
-            <button v-for="(answer, index) in selectedQuestion.answers" :key="index"
+            <button
+                v-for="(answer, index) in selectedQuestion.answers" 
+                :key="index"
                 @click="onSelectAnswer(answer, index)" :class="{
                     correct: selectedAnswer === index && isCorrect,
                     wrong: selectedAnswer === index && !isCorrect,
                     disabled:
                         (selectedAnswer !== index && isDisabled) ||
                         userStorage.isTimeOut
-                }" class="answer-choice" :disabled="isDisabled">
+                }" class="answer-choice" :disabled="isDisabled || userStorage.isTimeOut">
                 <span id="selected-answer">{{ answer }}</span>
             </button>
         </div>
