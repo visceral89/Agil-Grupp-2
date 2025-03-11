@@ -38,8 +38,9 @@
         created() {
             //Guest HSL
             if (this.userStorage.loggedInGuestUser) {
-                if (!users.includes(this.userStorage.loggedInUser)) {
+                if (!this.userStorage.guestUserInHighscore) {
                     users.push(this.userStorage.loggedInUser)
+                    this.userStorage.guestUserInHighscore = true
                     console.log("Gäst har lagt till i highscore")
                 }
                 console.log(users)
