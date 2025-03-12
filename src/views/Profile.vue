@@ -1,40 +1,40 @@
 <template>
-    <div class="profile-wrapper">
-        <div class="profile-header">
-            <div class="avatar-container">
-                <img v-if="isTopScorer" class="crown" src="../assets/images/highscore-crown.webp" alt="Krona" />
-                <img class="profile-avatar" :src="user.avatar" alt="Profilbild" @error="useDefaultAvatar" />
-            </div>
-            <h2 class="profile-name">{{ user.username }}</h2>
+  <div class="profile-wrapper">
+      <div class="profile-header">
+          <div class="avatar-container">
+              <img v-if="isTopScorer" class="crown" src="../assets/images/highscore-crown.webp" alt="Krona" />
+              <img class="profile-avatar" :src="user.avatar" alt="Profilbild" />
+          </div>
+          <h2 class="profile-name">{{ user.username }}</h2>
 
-            <h3 class="achievements-title">Utmärkelser</h3>
-            <Achievments />
+          <h3 class="achievements-title">Utmärkelser</h3>
+          <Achievments />
 
-            <p class="points">{{ user.totalPoints }} p</p>
+          <p class="points">{{ user.totalPoints }} p</p>
 
-            <h3 class="friends-title">Vänner</h3>
-            <div class="friends-list-container">
-                <ul class="friends-list">
-                    <li v-for="friend in userFriends" :key="friend.id" class="friend-item">
-                        <img :src="friend.avatar" alt="Avatar" class="friend-avatar" />
-                        <span class="friend-name">{{ friend.username }}</span>
-                        <span class="friend-points">{{ friend.totalPoints }} p</span>
-                        <span class="remove-friend material-symbols-outlined"
-                            @click="removeFriend(friend.id)">close</span>
-                    </li>
-                </ul>
-            </div>
+          <h3 class="friends-title">Vänner</h3>
+          <div class="friends-list-container">
+              <ul class="friends-list">
+                  <li v-for="friend in userFriends" :key="friend.id" class="friend-item">
+                      <img :src="friend.avatar" alt="Avatar" class="friend-avatar" />
+                      <span class="friend-name">{{ friend.username }}</span>
+                      <span class="friend-points">{{ friend.totalPoints }} p</span>
+                      <span class="remove-friend material-symbols-outlined"
+                          @click="removeFriend(friend.id)">close</span>
+                  </li>
+              </ul>
+          </div>
 
-            <div style="margin-top: 20px;">
-                <Button class="add-friend-btn" @click="isModalOpen = true">Lägg till en vän</Button>
-            </div>
-        </div>
+          <div style="margin-top: 20px;">
+              <Button class="add-friend-btn" @click="isModalOpen = true">Lägg till en vän</Button>
+          </div>
+      </div>
 
-        <Transition name="fade">
-            <AddFriendModal :is-open="isModalOpen" :friends="filteredFriends"
-                @friend-added="addFriend" @friend-removed="removeFriend" @close="isModalOpen = false" />
-        </Transition>
-    </div>
+      <Transition name="fade">
+          <AddFriendModal :is-open="isModalOpen" :friends="filteredFriends"
+              @friend-added="addFriend" @friend-removed="removeFriend" @close="isModalOpen = false" />
+      </Transition>
+  </div>
 </template>
 
 <script>
@@ -45,50 +45,48 @@ import Button from '../components/Button.vue';
 import AddFriendModal from '../components/AddFriendModal.vue';
 
 export default {
-    data() {
-        return {
-            userStorage: useUserStorage(),
-            isModalOpen: false
-        };
-    },
-    computed: {
-        user() {
-            return this.userStorage.loggedInUser;
-        },
-        userFriends() {
-            return this.user?.friends || [];
-        },
-        filteredFriends() {
-            return users.filter(friend => friend.id !== this.user.id && !this.userFriends.some(f => f.id === friend.id));
-        },
-        maxPoints() {
-            return Math.max(...users.map(user => user.totalPoints));
-        },
-        isTopScorer() {
-            return this.user.totalPoints === this.maxPoints;
-        }
-    },
-    methods: {
-        useDefaultAvatar(event) {
-            event.target.src = "src/assets/images/user-avatars/avatar-image.jpg";
-        },
-        addFriend(friend) {
-            if (!this.userFriends.some(f => f.id === friend.id)) {
-                this.userStorage.loggedInUser.friends.push(friend);
-            }
-            this.isModalOpen = false;
-        },
-        removeFriend(friendId) {
-            this.userStorage.loggedInUser.friends = this.userStorage.loggedInUser.friends.filter(friend => friend.id !== friendId);
-        }
-    },
-    components: {
-        Achievments,
-        Button,
-        AddFriendModal
-    }
+  data() {
+      return {
+          userStorage: useUserStorage(),
+          isModalOpen: false
+      };
+  },
+  computed: {
+      user() {
+          return this.userStorage.loggedInUser;
+      },
+      userFriends() {
+          return this.user?.friends || [];
+      },
+      filteredFriends() {
+          return users.filter(friend => friend.id !== this.user.id && !this.userFriends.some(f => f.id === friend.id));
+      },
+      maxPoints() {
+          return Math.max(...users.map(user => user.totalPoints));
+      },
+      isTopScorer() {
+          return this.user.totalPoints === this.maxPoints;
+      }
+  },
+  methods: {
+      addFriend(friend) {
+          if (!this.userFriends.some(f => f.id === friend.id)) {
+              this.userStorage.loggedInUser.friends.push(friend);
+          }
+          this.isModalOpen = false;
+      },
+      removeFriend(friendId) {
+          this.userStorage.loggedInUser.friends = this.userStorage.loggedInUser.friends.filter(friend => friend.id !== friendId);
+      }
+  },
+  components: {
+      Achievments,
+      Button,
+      AddFriendModal
+  }
 };
 </script>
+
 
 
 <style scoped>
@@ -148,14 +146,25 @@ export default {
     color: var(--color-neutral-light);
 }
 
+.friends-list-container {
+    width: 100%;
+    max-width: 420px; 
+    height: 70px; 
+    overflow-y: auto; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+    scroll-behavior: smooth;
+}
+
 .friends-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    gap: 10px;
     padding: 0;
     list-style: none;
     width: 100%;
-    max-width: 420px;
 }
 
 .friend-item {
@@ -166,33 +175,34 @@ export default {
     padding: 3px 8px;
     box-shadow: var(--box-shadow);
     width: 100%;
-    max-width: 190px;
+    max-width: 185px;
     justify-content: space-between;
+    gap: 5px;
 }
 
 .friend-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 10px;
 }
 
 .friend-name {
     font-size: 1rem;
-    flex-grow: 1;
     color: var(--color-neutral-dark);
+    flex-grow: 0; 
+    margin-left: 0; 
 }
 
 .friend-points {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: var(--color-secondary);
+    margin-left: auto; 
 }
 
 .remove-friend {
     cursor: pointer;
     color: var(--color-neutral-dark);
     font-size: 1.2rem;
-    margin-left: 10px;
     transition: color 0.3s ease;
     margin-left: auto;
 }
