@@ -237,6 +237,7 @@
         align-items: center;
     }
 
+    /*     https://alvaromontoro.com/blog/68002/creating-a-firework-effect-with-css */
     .firework,
     .firework::before,
     .firework::after {
