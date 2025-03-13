@@ -37,35 +37,33 @@ export const useUserStorage = defineStore("userStorage", {
         loginUser(user) {
             this.setActiveUser(user)
             this.loggedInUser = user
-
             this.unlockAchievments()
         },
         addPoints(points) {
             if (!this.activeUser) {
-                this.flipActiveUser() //flips to new active user after points have been given
+                this.flipActiveUser()
             } else {
                 this.activeUser.sessionPoints += points
                 this.activeUser.totalPoints += points
-                //call this function every time a user gets points to check if an achievment can be collected
                 this.unlockAchievments()
-                this.flipActiveUser() //flips to new active user after points have been given
+                this.flipActiveUser()
                 this.stopTimer = true
                 console.log(this.stopTimer, "stanna timer vid svar")
             }
         },
         unlockAchievments() {
-            //loop through the json-file
             this.availableAchievments.forEach((achievment) => {
                 //checks if the active users points are equal to or more to unlock a achievment in the array
-                if (this.loggedInUser.totalPoints >= achievment.pointsToUnlock) {
+                if (
+                    this.loggedInUser.totalPoints >= achievment.pointsToUnlock
+                ) {
                     //checks if the achievment is already in the activeusers achievments
                     if (this.loggedInUser.achievements.includes(achievment)) {
-                        console.log('achievment already exists')
-                    }
-                    else {
+                        console.log("achievment already exists")
+                    } else {
                         //push the achievment to the active users achievments
                         this.loggedInUser.achievements.push(achievment)
-                        console.log('achievment unlocked', achievment)
+                        console.log("achievment unlocked", achievment)
                     }
                 }
             })
@@ -94,12 +92,10 @@ export const useUserStorage = defineStore("userStorage", {
             }
         },
         setActiveUser(user) {
-            // Short helper function that can be run From multiple places.This makes it moore dynamic if we for some reason want to change the active user via a parameter.
             this.activeUser = user
             console.log("Aktiv user:", this.activeUser)
         },
         setOpponent(user) {
-            // This function is called from Invite modal and sets player 2 to be the opponent "manually"
             this.player2 = user
             console.log(this.player2)
         },
@@ -108,7 +104,6 @@ export const useUserStorage = defineStore("userStorage", {
             console.log("tiden är ute")
         },
         flipActiveUser() {
-            // Here we change active user from user 1 or User 2
             if (this.player1 && this.player2) {
                 if (this.activeUser.id === this.player1.id) {
                     this.setActiveUser(this.player2)
@@ -127,7 +122,9 @@ export const useUserStorage = defineStore("userStorage", {
                     this.isWinner = this.player1
                     console.log(this.isWinner.username, "player 1 vinner")
                     this.isLoser = this.player2
-                } else if (this.player1.sessionPoints < this.player2.sessionPoints) {
+                } else if (
+                    this.player1.sessionPoints < this.player2.sessionPoints
+                ) {
                     this.isWinner = this.player2
                     console.log(this.isWinner.username, "player 2 vinner")
                     this.isLoser = this.player1
@@ -140,20 +137,14 @@ export const useUserStorage = defineStore("userStorage", {
             }
         },
         clearPlayers() {
-            // Maybe we wont need this function but ill implement it just in case.
-            // This function just clears the player 1 and 2. Incase we are resetting the game or something.
-
             this.player1 = null
             this.player2 = null
             console.log("Both Players reset to " + this.player1)
         },
         logoutUser() {
-            // Logout function, resets loggedInUser to null.
             this.loggedInUser = null
             console.log("Logged out")
-            // Nollställ activeUser
             this.activeUser = null
-            //Nollställ guestUser
             this.loggedInGuestUser = false
         },
         setMultiPlayer() {
@@ -161,12 +152,11 @@ export const useUserStorage = defineStore("userStorage", {
             console.log("setMultiPlayer körs")
         },
         setSinglePlayer() {
-            // Kallas från 1-p Button
             this.multiPlayer = false
             console.log("setSinglePlayer körs")
         },
         clearSessionPoints() {
-            users.forEach(user => user.sessionPoints = 0)
+            users.forEach((user) => (user.sessionPoints = 0))
         }
     }
 })
