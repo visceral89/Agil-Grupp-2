@@ -48,8 +48,8 @@
             </div>
 
             <div style="margin-top: 20px">
-                <Button class="add-friend-btn" @click="isModalOpen = true"
-                    >Lägg till en vän</Button
+                <CustomButton class="add-friend-btn" @click="isModalOpen = true"
+                    >Lägg till en vän</CustomButton
                 >
             </div>
         </div>
@@ -70,7 +70,7 @@
     import users from "../lib/users.json"
     import { useUserStorage } from "../stores/storage"
     import Achievments from "../components/Achievments.vue"
-    import Button from "../components/Button.vue"
+    import CustomButton from "../components/CustomButton.vue"
     import AddFriendModal from "../components/AddFriendModal.vue"
 
     export default {
@@ -117,7 +117,7 @@
         },
         components: {
             Achievments,
-            Button,
+            CustomButton,
             AddFriendModal
         }
     }
