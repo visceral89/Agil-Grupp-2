@@ -188,6 +188,13 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
         scroll-behavior: smooth;
+
+        mask-image: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 30%,
+            rgba(0, 0, 0, 1) 100%
+        );
     }
 
     .friends-list {
