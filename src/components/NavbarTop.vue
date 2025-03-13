@@ -146,17 +146,6 @@
         }
     }
 
-    /* Modal transition */
-    /* .fade-enter-active,
-    .fade-leave-active {
-        transition: opacity 250ms ease-in-out;
-    }
-
-    .fade-enter-from,
-    .fade-leave-to {
-        opacity: 0;
-    } */
-
     @media (min-width: 890px) {
         .navbar-content-mobile {
             display: none;
