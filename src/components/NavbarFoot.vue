@@ -15,10 +15,7 @@
                         >crown</span
                     ></router-link
                 >
-                <router-link
-                    to="/"
-                    style="display: contents"
-                    @click="handleLogout"
+                <router-link to="/" style="display: contents"
                     ><span class="material-symbols-outlined md-36"
                         >logout</span
                     ></router-link

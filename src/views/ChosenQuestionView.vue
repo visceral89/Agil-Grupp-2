@@ -44,7 +44,9 @@
 
         <div
             class="next-btn-wrapper"
-            v-show="userStorage.isTimeOut && !userStorage.stopTimer"
+            v-show="
+                userStorage.isTimeOut && !userStorage.stopTimer && !isGameEnded
+            "
         >
             <div class="result-msg">
                 <p>Tyvärr, tiden gick ut</p>
@@ -112,6 +114,10 @@
                         this.isGameEnded = true
                     }
                 } else {
+                    this.questionStore.checkGameOver()
+                    if (this.questionStore.checkGameOver()) {
+                        this.isGameEnded = true
+                    }
                     this.selectedAnswer = index
                     this.isCorrect = false
 
@@ -144,9 +150,8 @@
     h2 {
         margin-top: 65px;
         margin-bottom: 20px;
-        color: #fff;
+        color: var(--color-neutral-light);
         text-align: center;
-        font-family: Poppins;
         font-size: 1.5rem;
         font-style: normal;
         font-weight: 700;
@@ -216,8 +221,7 @@
     }
 
     .result-msg {
-        color: #fff;
-        font-family: Poppins;
+        color: var(--color-neutral-light);
         font-size: 0.9rem;
         font-weight: 500;
         margin: 0;

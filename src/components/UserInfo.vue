@@ -40,9 +40,8 @@
         width: 270px;
     }
     p {
-        color: #fff;
+        color: var(--color-neutral-light);
         text-align: center;
-        font-family: Poppins;
         font-size: 1.9rem;
         font-style: normal;
         font-weight: 700;

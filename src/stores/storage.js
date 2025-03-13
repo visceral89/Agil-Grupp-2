@@ -27,6 +27,7 @@ export const useUserStorage = defineStore("userStorage", {
         isWinner: null,
         isLoser: null,
         isTie: null,
+        users: users,
         availableAchievments: availableAchievments,
         twoplayer: false
     }),

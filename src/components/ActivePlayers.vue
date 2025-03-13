@@ -70,15 +70,13 @@
     }
 
     .player-header {
-        color: #fff;
-        font-family: Poppins;
+        color: var(--color-neutral-light);
         font-size: 17px;
         font-weight: 500;
     }
 
     .player {
-        color: #ececec;
-        font-family: Poppins;
+        color: var(--color-neutral-light);
         font-size: 20px;
         font-weight: 500;
         margin: 0;

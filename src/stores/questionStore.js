@@ -15,7 +15,15 @@ export const useQuestionStore = defineStore("questionStore", {
             this.answeredQuestions.push(id)
         },
         checkGameOver() {
+            if (this.answeredQuestions.length >= this.questionsList.length) {
+                return true
+            } else {
+                return false
+            }
+            /*
             return this.answeredQuestions.length >= this.questionsList.length
+                ? true
+                : false */
         },
         resetQuestions() {
             this.answeredQuestions = []

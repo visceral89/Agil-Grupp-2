@@ -32,7 +32,7 @@
                 <router-link to="/start">spela</router-link>
                 <router-link to="/highscore">highscore</router-link>
                 <router-link to="/profile">profil</router-link>
-                <router-link to="/" id="logout-link" @click="handleLogout"
+                <router-link to="/" id="logout-link"
                     ><div id="logout">
                         logga ut
                         <span class="material-symbols-outlined"> logout </span>
