@@ -154,7 +154,6 @@
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         object-fit: cover;
     }
 
@@ -182,7 +181,7 @@
 
     .friends-list-container {
         width: 100%;
-        max-width: 420px;
+        max-width: 445px;
         height: 70px;
         overflow-y: auto;
         scrollbar-width: none;
@@ -209,6 +208,7 @@
     }
 
     .friend-item {
+        
         display: flex;
         align-items: center;
         background: var(--color-card-background);

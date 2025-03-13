@@ -28,6 +28,9 @@
 
     --animate-duration: 500ms;
 }
+* {
+    box-sizing: border-box;
+}
 
 body {
     background: var(--gradient-primary-background);
