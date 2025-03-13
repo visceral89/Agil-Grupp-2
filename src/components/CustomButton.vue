@@ -18,7 +18,7 @@
 <style scoped>
     button {
         background: var(--color-secondary);
-        padding: 9px 26px 9px 25px;
+        padding: 0.8rem 1.8rem;
         color: var(--color-neutral-light);
         font-size: 20px;
         font-weight: 500;
