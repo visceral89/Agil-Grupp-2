@@ -17,7 +17,7 @@
             <h2 class="profile-name">{{ user.username }}</h2>
 
             <h3 class="achievements-title">Utmärkelser</h3>
-            <Achievments />
+            <ProfileAchievments />
 
             <p class="points">{{ user.totalPoints }} p</p>
 
@@ -69,7 +69,7 @@
 <script>
     import users from "../lib/users.json"
     import { useUserStorage } from "../stores/storage"
-    import Achievments from "../components/Achievments.vue"
+    import ProfileAchievments from "../components/ProfileAchivements.vue"
     import CustomButton from "../components/CustomButton.vue"
     import AddFriendModal from "../components/AddFriendModal.vue"
 
@@ -116,7 +116,7 @@
             }
         },
         components: {
-            Achievments,
+            ProfileAchievments,
             CustomButton,
             AddFriendModal
         }

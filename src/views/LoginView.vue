@@ -26,7 +26,7 @@
                 <p v-if="loginError" class="login-error-msg">
                     {{ errorMessage }}
                 </p>
-                <Button>Logga in</Button>
+                <CustomButton>Logga in</CustomButton>
                 <p @click="toggleLogin" class="login-option">
                     Logga in som gäst
                 </p>
@@ -44,7 +44,7 @@
                 <p v-if="loginError" class="login-error-msg">
                     {{ errorMessage }}
                 </p>
-                <Button>Logga in</Button>
+                <CustomButton>Logga in</CustomButton>
                 <p @click="toggleLogin" class="login-option">
                     Logga in som användare
                 </p>
@@ -54,13 +54,13 @@
 </template>
 
 <script>
-    import Button from "../components/Button.vue"
+    import CustomButton from "../components/CustomButton.vue"
     import users from "../lib/users.json"
     import { useUserStorage } from "../stores/storage"
 
     export default {
         components: {
-            Button
+            CustomButton
         },
         data() {
             return {

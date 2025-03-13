@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router"
 
-import Start from "../views/Start.vue"
-import Game from "../views/Game.vue"
-import Highscore from "../views/Highscore.vue"
-import Login from "../views/Login.vue"
+import Start from "../views/StartView.vue"
+import Game from "../views/GameView.vue"
+import Highscore from "../views/HighscoreView.vue"
+import Login from "../views/LoginView.vue"
 import Profile from "../views/ProfileView.vue"
-import ChosenQuestion from "../views/ChosenQuestion.vue"
-import ResultScreen from "../views/ResultScreen.vue"
+import ChosenQuestion from "../views/ChosenQuestionView.vue"
+import ResultScreen from "../views/ResultView.vue"
 
 export default createRouter({
     history: createWebHistory("/"),
