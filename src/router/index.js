@@ -4,7 +4,7 @@ import Start from "../views/Start.vue"
 import Game from "../views/Game.vue"
 import Highscore from "../views/Highscore.vue"
 import Login from "../views/Login.vue"
-import Profile from "../views/Profile.vue"
+import Profile from "../views/ProfileView.vue"
 import ChosenQuestion from "../views/ChosenQuestion.vue"
 import ResultScreen from "../views/ResultScreen.vue"
 
