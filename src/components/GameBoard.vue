@@ -1,11 +1,24 @@
 <template>
     <div id="game-wrapper">
         <div class="question-wrapper">
-            <h2 v-if="!userStorage.multiPlayer || userStorage.multiPlayer && userStorage.player2">Välj fråga</h2>
+            <h2
+                v-if="
+                    !userStorage.multiPlayer ||
+                    (userStorage.multiPlayer && userStorage.player2)
+                "
+            >
+                Välj fråga
+            </h2>
             <h2 v-else>Välj motståndare</h2>
         </div>
 
-        <div id="game-board" v-show="!userStorage.multiPlayer || userStorage.multiPlayer && userStorage.player2">
+        <div
+            id="game-board"
+            v-show="
+                !userStorage.multiPlayer ||
+                (userStorage.multiPlayer && userStorage.player2)
+            "
+        >
             <div
                 class="category-column"
                 v-for="(category, index) in categoryList"
@@ -24,7 +37,11 @@
         </div>
         <div v-if="!userStorage.player2" id="player-container">
             <div id="player">{{ userStorage.loggedInUser.username }}</div>
-            <div v-if="userStorage.multiPlayer" id="opponent" @click="toggleInviteModal">
+            <div
+                v-if="userStorage.multiPlayer"
+                id="opponent"
+                @click="toggleInviteModal"
+            >
                 {{ displayOpponent }}
             </div>
             <router-link v-if="outOfQuestions" to="/game/result"
@@ -33,7 +50,10 @@
         </div>
         <ActivePlayers v-if="userStorage.player2" />
         <Transition name="fade">
-            <InviteModal v-if="isInviteOpen" @is-invite-open="toggleInviteModal" />
+            <InviteModal
+                v-if="isInviteOpen"
+                @is-invite-open="toggleInviteModal"
+            />
         </Transition>
     </div>
 </template>
@@ -61,10 +81,6 @@
         components: { ActivePlayers, QuestionCard, InviteModal },
         methods: {
             createBoard() {
-                //Hantera Kategorier
-                // Skapa ett set av en array, alla unika.
-                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
-
                 this.categoryList = [
                     ...new Set(
                         this.questions.map((question) => question.category)
@@ -72,9 +88,8 @@
                 ]
 
                 // Quick and dirty shuffle
-              //  this.categoryList.sort(() => Math.random() - 0.5)
-
-                // Limits categories to 3
+                // Behåll denna funktionen ifall ni vill jobba vidare med projektet efter.
+                //  this.categoryList.sort(() => Math.random() - 0.5)
 
                 const selectedCategories = this.categoryList.slice(0, 3)
                 console.log(selectedCategories)
@@ -87,14 +102,9 @@
                         )
                     )
                 }
-                // console.log(this.questionsList)
-                // Så questionslist är egentligen 3 arrayer med frågor i varje array.
-                // Man bör kunna sortera dom per poäng och sen slica av listan (6) eller så.
-                // Vi måste bara vara skra på att poängen är unika.
             },
             toggleInviteModal() {
                 this.isInviteOpen = !this.isInviteOpen
-                //  console.log(this.isInviteOpen)
             },
             checkGameOver() {
                 this.outOfQuestions = this.questionStore.checkGameOver()
@@ -105,7 +115,6 @@
             this.createBoard()
             this.userStorage.setPlayers()
             this.checkGameOver()
-            console.log(this.outOfQuestions) /*! Comment this out later */
         },
         computed: {
             displayOpponent() {
