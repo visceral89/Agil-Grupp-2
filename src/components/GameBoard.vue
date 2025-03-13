@@ -92,7 +92,6 @@
                 //  this.categoryList.sort(() => Math.random() - 0.5)
 
                 const selectedCategories = this.categoryList.slice(0, 3)
-                console.log(selectedCategories)
 
                 for (let i = 0; i < selectedCategories.length; i++) {
                     this.questionsList.push(

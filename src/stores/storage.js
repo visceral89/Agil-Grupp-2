@@ -4,7 +4,6 @@ import users from "../lib/users.json"
 
 export const useUserStorage = defineStore("userStorage", {
     state: () => ({
-        // Default Active User, finns som en fallback ifall ingen data finns från Login.
         activeUser: null,
         guestUser: {
             id: 5,
@@ -18,9 +17,7 @@ export const useUserStorage = defineStore("userStorage", {
             email: "hej@iths.se"
         },
         loggedInGuestUser: false,
-        // Player 1 initializies to null nstead of empty object. This preserves reactivity and makes empty checks easier.
         player1: null,
-        // Player 2 the opponent, also initializes as null. Activeplayer flips from player 1 to player 2 and back again when flipflop function triggers.
         player2: null,
         multiPlayer: false,
         loggedInUser: null,
@@ -48,22 +45,16 @@ export const useUserStorage = defineStore("userStorage", {
                 this.unlockAchievments()
                 this.flipActiveUser()
                 this.stopTimer = true
-                console.log(this.stopTimer, "stanna timer vid svar")
             }
         },
         unlockAchievments() {
             this.availableAchievments.forEach((achievment) => {
-                //checks if the active users points are equal to or more to unlock a achievment in the array
                 if (
                     this.loggedInUser.totalPoints >= achievment.pointsToUnlock
                 ) {
-                    //checks if the achievment is already in the activeusers achievments
                     if (this.loggedInUser.achievements.includes(achievment)) {
-                        console.log("achievment already exists")
                     } else {
-                        //push the achievment to the active users achievments
                         this.loggedInUser.achievements.push(achievment)
-                        console.log("achievment unlocked", achievment)
                     }
                 }
             })
@@ -75,85 +66,63 @@ export const useUserStorage = defineStore("userStorage", {
             const highscoreIndex = this.users.findIndex(
                 (user) => user.username === username
             )
-            console.log(highscoreIndex)
             return highscoreIndex !== -1 ? highscoreIndex + 1 : null
         },
         setPlayers() {
-            if (!this.loggedInUser) {
-                console.log("No logged-in user found, cant set player1.")
-                return
-            }
-
             if (!this.player1) {
                 this.player1 = this.loggedInUser
-                console.log("Player 1 set to:", this.player1)
-            } else {
-                console.log("Player 1 already exists in Pinia.")
             }
         },
         setActiveUser(user) {
             this.activeUser = user
-            console.log("Aktiv user:", this.activeUser)
         },
         setOpponent(user) {
             this.player2 = user
-            console.log(this.player2)
         },
         checkTimeLeft() {
             this.isTimeOut = true
-            console.log("tiden är ute")
         },
         flipActiveUser() {
             if (this.player1 && this.player2) {
                 if (this.activeUser.id === this.player1.id) {
                     this.setActiveUser(this.player2)
-                    console.log(this.activeUser, "Ny aktiv spelare, player 2")
                 } else {
                     this.setActiveUser(this.player1)
-                    console.log(this.activeUser, "Ny aktiv spelare, player 1")
                 }
-            } else {
-                console.log("Player 1 or Player 2 is not set. Cant flipflop")
             }
         },
         checkWinner() {
             if (this.player1 && this.player2) {
                 if (this.player1.sessionPoints > this.player2.sessionPoints) {
                     this.isWinner = this.player1
-                    console.log(this.isWinner.username, "player 1 vinner")
+
                     this.isLoser = this.player2
                 } else if (
                     this.player1.sessionPoints < this.player2.sessionPoints
                 ) {
                     this.isWinner = this.player2
-                    console.log(this.isWinner.username, "player 2 vinner")
+
                     this.isLoser = this.player1
                 } else {
                     this.isTie = true
-                    console.log(this.isTie, "oavgjort")
                 }
-            } else {
-                console.log("finns bara 1 spelare som kan vinna")
             }
         },
         clearPlayers() {
             this.player1 = null
             this.player2 = null
-            console.log("Both Players reset to " + this.player1)
         },
         logoutUser() {
             this.loggedInUser = null
-            console.log("Logged out")
+
             this.activeUser = null
             this.loggedInGuestUser = false
         },
         setMultiPlayer() {
             this.multiPlayer = true
-            console.log("setMultiPlayer körs")
         },
         setSinglePlayer() {
             this.multiPlayer = false
-            console.log("setSinglePlayer körs")
         },
         clearSessionPoints() {
             users.forEach((user) => (user.sessionPoints = 0))
