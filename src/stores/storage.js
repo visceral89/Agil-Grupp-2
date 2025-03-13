@@ -9,7 +9,7 @@ export const useUserStorage = defineStore("userStorage", {
             id: 5,
             username: "Gäst",
             password: "abc",
-            avatar: "assets/images/user-avatars/guest.svg",
+            avatar: "/user-avatars/guest.svg",
             achievements: [],
             friends: [],
             totalPoints: 0,
@@ -17,6 +17,8 @@ export const useUserStorage = defineStore("userStorage", {
             email: "hej@iths.se"
         },
         loggedInGuestUser: false,
+        guestUserInHighscore: false,
+        // Player 1 initializies to null nstead of empty object. This preserves reactivity and makes empty checks easier.
         player1: null,
         player2: null,
         multiPlayer: false,
@@ -61,7 +63,7 @@ export const useUserStorage = defineStore("userStorage", {
         },
         setHighscore(username) {
             this.users.sort((a, b) => {
-                return b.toaltPoints - a.totalPoints
+                return b.totalPoints - a.totalPoints
             })
             const highscoreIndex = this.users.findIndex(
                 (user) => user.username === username

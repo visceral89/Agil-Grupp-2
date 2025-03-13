@@ -16,7 +16,7 @@
             >
                 <div class="highscore-avatar-container">
                     <img
-                        :src="base_url + player.avatar"
+                        :src="player.avatar"
                         class="highscore-avatar"
                         alt="avatar"
                     />
@@ -38,8 +38,10 @@
         created() {
             //Guest HSL
             if (this.userStorage.loggedInGuestUser) {
-                if (!users.includes(this.userStorage.loggedInUser)) {
+                if (!this.userStorage.guestUserInHighscore) {
                     users.push(this.userStorage.loggedInUser)
+                    this.userStorage.guestUserInHighscore = true
+                    console.log("Gäst har lagt till i highscore")
                 }
                 console.log(users)
                 let tempHighscoreList = users.sort((a, b) => {
@@ -51,7 +53,6 @@
         },
         data() {
             return {
-                base_url: "src/",
                 highscoreList: users.sort((a, b) => {
                     return b.totalPoints - a.totalPoints
                 }),
