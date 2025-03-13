@@ -31,21 +31,18 @@
     import users from "../lib/users.json"
     import { useUserStorage } from "../stores/storage"
     export default {
+        emits: ["is-invite-open"],
         computed: {
             filteredUsers() {
-                return users.filter(user => user.id !== this.userStorage.loggedInUser.id)
+                return users.filter(
+                    (user) => user.id !== this.userStorage.loggedInUser.id
+                )
             }
         },
         data() {
             return {
                 users: users,
                 userStorage: useUserStorage()
-            }
-        },
-        methods: {
-            inviteFriend(id) {
-                // Skicka detta till Pinia.
-                console.log(`Friend ${id} invited`)
             }
         }
     }

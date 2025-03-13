@@ -1,26 +1,29 @@
-
 :root {
     --color-neutral-light: #f0f0f0;
-    --color-neutral-dark: #1F1F1F;
+    --color-neutral-dark: #1f1f1f;
     --color-neutral-grey: #484848;
 
-    --color-card-background: #E4CFF1; /* Används som bakgrund för answers, poäng-kort & cards i highscore */
-    --color-card-secondary: #c99BE5;
-    --color-card-hover: #6A4C7C;
-    --color-category-background: #6D4192;
+    --color-card-background: #e4cff1; /* Används som bakgrund för answers, poäng-kort & cards i highscore */
+    --color-card-secondary: #c99be5;
+    --color-card-hover: #6a4c7c;
+    --color-category-background: #6d4192;
     --color-right-answer: rgb(77, 165, 77);
     --color-wrong-answer: rgb(153, 52, 52);
-    --color-secondary: #677DD2;
+    --color-secondary: #677dd2;
     --color-secondary-hover: #5466af;
     --color-accent: #e6ac30;
-    --color-disabled: #9398AA;
+    --color-disabled: #9398aa;
 
     --color-navbar-foot-background: rgb(164, 115, 193);
-    --gradient-primary-background: linear-gradient(0deg, rgba(132,61,173,1) 0%, rgba(77,27,138,1) 100%);
+    --gradient-primary-background: linear-gradient(
+        0deg,
+        rgba(132, 61, 173, 1) 0%,
+        rgba(77, 27, 138, 1) 100%
+    );
 
     --border-radius: 0.625em;
-    --box-shadow: -2px 4px rgba(0, 0, 0, .3);
-    --padding-card: 0.875em 1.375em ;
+    --box-shadow: -2px 4px rgba(0, 0, 0, 0.3);
+    --padding-card: 0.875em 1.375em;
     --transition: all 200ms ease-in-out;
 
     --animate-duration: 500ms;
@@ -29,11 +32,11 @@
 body {
     background: var(--gradient-primary-background);
     color: var(--color-neutral-light);
-    font-family: 'Poppins';
-	margin: 0;
-	min-width: 320px;
-	min-height: 100vh;
-    overflow: hidden; //Behövs ev. för att dölja scrollbars under router transitions
+    font-family: "Poppins";
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 a {
@@ -66,8 +69,8 @@ button {
 }
 
 #app {
-	font-size: 1rem;
-	height: 100svh;
+    font-size: 1rem;
+    height: 100svh;
 }
 
 /* Modal transition */

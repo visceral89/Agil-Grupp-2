@@ -47,7 +47,7 @@
                 </ul>
             </div>
 
-            <div style="margin-top: 20px">
+            <div id="add-friend-container">
                 <CustomButton class="add-friend-btn" @click="isModalOpen = true"
                     >Lägg till en vän</CustomButton
                 >
@@ -243,5 +243,9 @@
 
     .remove-friend:hover {
         color: var(--color-neutral-grey);
+    }
+
+    #add-friend-container {
+        margin-top: 20px;
     }
 </style>

@@ -1,7 +1,12 @@
 <template>
     <div class="modal-container">
         <div class="modal-content">
-            <span @click="$emit('is-help-modal-open')" class="material-symbols-outlined close-icon"> close </span>
+            <span
+                @click="$emit('is-help-modal-open')"
+                class="material-symbols-outlined close-icon"
+            >
+                close
+            </span>
             <h3>Välkommen till FrågeFejden</h3>
             <p>
                 FrågeFejden är det ultimata spelet för alla quizälskare – en
@@ -23,7 +28,11 @@
     </div>
 </template>
 
-<script></script>
+<script>
+    export default {
+        emits: ["is-help-modal-open"]
+    }
+</script>
 
 <style scoped>
     .modal-container {

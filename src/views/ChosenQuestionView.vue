@@ -5,7 +5,6 @@
         </div>
 
         <div id="question-card">
-            <!-- chosen question from game board -->
             <button
                 v-for="(answer, index) in selectedQuestion.answers"
                 :key="index"
@@ -67,7 +66,6 @@
 </template>
 
 <script>
-    //import the whole json-file
     import { useUserStorage } from "../stores/storage"
     import { useQuestionStore } from "../stores/questionStore"
     import questions from "../lib/questions.json"
@@ -78,10 +76,10 @@
     export default {
         data() {
             return {
-                userStorage: useUserStorage(), //gets userstorage data from storage.js
+                userStorage: useUserStorage(),
                 questionStore: useQuestionStore(),
-                id: this.$route.params.id, //gets id from route param sent from gameboard
-                questions: questions, //gets questions array from imported questions.json
+                id: this.$route.params.id,
+                questions: questions,
                 selectedQuestion: null,
                 selectedAnswer: null,
                 isCorrect: false,
@@ -93,12 +91,9 @@
             this.getQuestion()
         },
         methods: {
-            //fetches the corresponding question based on the id recieved from route-params
             getQuestion() {
-                //convert id to number
                 const questionId = parseInt(this.id)
 
-                //find the first correct element of the array questions
                 this.selectedQuestion = this.questions.find(
                     (question) => question.id === questionId
                 )
@@ -106,9 +101,8 @@
             onSelectAnswer(answer, index) {
                 this.isDisabled = true
 
-                //gets index from clicked answer
                 if (answer === this.selectedQuestion.answer) {
-                    this.selectedAnswer = index //sets the index to the chosenAnswer
+                    this.selectedAnswer = index
                     this.isCorrect = true
 
                     this.userStorage.addPoints(this.selectedQuestion.points)
@@ -242,6 +236,7 @@
     .firework,
     .firework::before,
     .firework::after {
+        pointer-events: none;
         --top: 60vh;
         content: "";
         position: absolute;

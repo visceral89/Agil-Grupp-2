@@ -32,37 +32,33 @@
 
 <script>
     import users from "../lib/users.json"
-    import { useUserStorage } from "../stores/storage" //Guest HSL
+    import { useUserStorage } from "../stores/storage"
 
     export default {
         created() {
-            //Guest HSL
             if (this.userStorage.loggedInGuestUser) {
                 if (!this.userStorage.guestUserInHighscore) {
                     users.push(this.userStorage.loggedInUser)
                     this.userStorage.guestUserInHighscore = true
-                    console.log("Gäst har lagt till i highscore")
                 }
-                console.log(users)
                 let tempHighscoreList = users.sort((a, b) => {
                     return b.totalPoints - a.totalPoints
                 })
                 this.highscoreList = tempHighscoreList
             }
-            console.log(users)
         },
         data() {
             return {
                 highscoreList: users.sort((a, b) => {
                     return b.totalPoints - a.totalPoints
                 }),
-                userStorage: useUserStorage() //Guest HSL
+                userStorage: useUserStorage()
             }
         }
     }
 </script>
 
-<style>
+<style scoped>
     .highscore-wrapper {
         align-items: center;
         display: flex;
@@ -70,7 +66,6 @@
         justify-content: center;
         margin-bottom: 4em;
         padding-top: 2em;
-        /* position: relative; */
     }
     .highscore-top-section {
         align-items: center;
@@ -93,11 +88,12 @@
         padding: 2.1em 0;
         position: relative;
         scrollbar-width: none;
-        mask-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 15%, rgba(0,0,0,1) 100%);
-        /* mask-mode: alpha;
-        mask-size: 100%;
-        mask-position: bottom;
-        mask-repeat: no-repeat; */
+        mask-image: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 1) 15%,
+            rgba(0, 0, 0, 1) 100%
+        );
     }
     .highscore-cell {
         align-items: center;
@@ -139,7 +135,12 @@
         }
         .highscore-table {
             height: 500px;
-            mask-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 10%, rgba(0,0,0,1) 100%);
+            mask-image: linear-gradient(
+                0deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 10%,
+                rgba(0, 0, 0, 1) 100%
+            );
         }
         .highscore-cell {
             gap: 6em;

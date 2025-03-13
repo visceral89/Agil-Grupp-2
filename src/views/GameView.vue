@@ -1,17 +1,13 @@
 <template>
-  <GameBoard />
+    <GameBoard />
 </template>
 
 <script>
-  import GameBoard from '../components/GameBoard.vue';
+    import GameBoard from "../components/GameBoard.vue"
 
-  export default {
-    components: {
-      GameBoard,
+    export default {
+        components: {
+            GameBoard
+        }
     }
-  }
 </script>
-
-<style scoped>
-
-</style>

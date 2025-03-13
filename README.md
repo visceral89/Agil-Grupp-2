@@ -14,8 +14,8 @@ Utmana vänner, kollegor eller till och med din chef i en prestigefylld duell d�
 
 1. Börja med att klona ner projektet här från Github.
 2. Ha Nodejs installerat på din dator och navigera till projektmappen.
-3. Med projektmappen öppen, öppna en ny terminal och ange kommandot ```npm install```
-4. Kör appen med kommandot ```npm run dev```
+3. Med projektmappen öppen, öppna en ny terminal och ange kommandot `npm install`
+4. Kör appen med kommandot `npm run dev`
 
 ## Hur spelar man?
 

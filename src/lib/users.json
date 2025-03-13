@@ -1,90 +1,82 @@
 [
-	{
-		"id": 1,
-		"username": "Felicia",
-		"password": "abc",
-		"avatar": "/user-avatars/felicia.svg",
-		"achievements": [],
-		"friends": [],
-		"totalPoints": 700,
-        "sessionPoints": 0,
-		"email": "hej@iths.se"
-	},
-	{
-		"id": 2,
-		"username": "Ilirjana",
-		"password": "abc",
-		"avatar": "/user-avatars/Ilirjana.svg",
-		"achievements": [],
-		"friends": [],
-		"totalPoints": 900,
-        "sessionPoints": 0,
-		"email": "hej@iths.se"
-	},
-	{
-		"id": 3,
-		"username": "Patrik",
-		"password": "abc",
-		"avatar": "/user-avatars/patrik.svg",
-		"achievements": [],
-		"friends": [],
-		"totalPoints": 100,
-        "sessionPoints": 0,
-		"email": "hej@iths.se"
-	},
-	{
-		"id": 4,
-		"username": "Rasmus",
-		"password": "abc",
-		"avatar": "/user-avatars/rasmus.svg",
-		"achievements": [],
-		"friends": [],
-		"totalPoints": 200,
-        "sessionPoints": 0,
-		"email": "hej@iths.se"
-	},
-	{
-		"id": 5,
-		"username": "Magnus",
-		"password": "abc",
-		"avatar": "/user-avatars/magnus.svg",
-		"achievements": [],
-		"friends": [],
-		"totalPoints": 0,
-        "sessionPoints": 0,
-		"email": "hej@iths.se"
-	},
-	{
-		"id": 6,
-		"username": "Vanja",
-		"password": "abc",
-		"avatar": "/user-avatars/vanja.svg",
-		"achievements": [],
-		"friends": [],
-		"totalPoints": 0,
-        "sessionPoints": 0,
-		"email": "hej@iths.se"
-	},
-	{
-		"id": 7,
-		"username": "Jon",
-		"password": "abc",
-		"avatar": "/user-avatars/jon.svg",
-		"achievements": [],
-		"friends": [],
-		"totalPoints": 0,
-        "sessionPoints": 0,
-		"email": "hej@iths.se"
-	},
-	{
-		"id": 8,
-		"username": "Jerry",
-		"password": "abc",
-		"avatar": "/user-avatars/jerry.svg",
-		"achievements": [],
-		"friends": [],
-		"totalPoints": 0,
-        "sessionPoints": 0,
-		"email": "hej@iths.se"
-	}
+    {
+        "id": 1,
+        "username": "Felicia",
+        "password": "abc",
+        "avatar": "/user-avatars/felicia.svg",
+        "achievements": [],
+        "friends": [],
+        "totalPoints": 700,
+        "sessionPoints": 0
+    },
+    {
+        "id": 2,
+        "username": "Ilirjana",
+        "password": "abc",
+        "avatar": "/user-avatars/Ilirjana.svg",
+        "achievements": [],
+        "friends": [],
+        "totalPoints": 900,
+        "sessionPoints": 0
+    },
+    {
+        "id": 3,
+        "username": "Patrik",
+        "password": "abc",
+        "avatar": "/user-avatars/patrik.svg",
+        "achievements": [],
+        "friends": [],
+        "totalPoints": 100,
+        "sessionPoints": 0
+    },
+    {
+        "id": 4,
+        "username": "Rasmus",
+        "password": "abc",
+        "avatar": "/user-avatars/rasmus.svg",
+        "achievements": [],
+        "friends": [],
+        "totalPoints": 200,
+        "sessionPoints": 0
+    },
+    {
+        "id": 5,
+        "username": "Magnus",
+        "password": "abc",
+        "avatar": "/user-avatars/magnus.svg",
+        "achievements": [],
+        "friends": [],
+        "totalPoints": 0,
+        "sessionPoints": 0
+    },
+    {
+        "id": 6,
+        "username": "Vanja",
+        "password": "abc",
+        "avatar": "/user-avatars/vanja.svg",
+        "achievements": [],
+        "friends": [],
+        "totalPoints": 0,
+        "sessionPoints": 0
+    },
+    {
+        "id": 7,
+        "username": "Jon",
+        "password": "abc",
+        "avatar": "/user-avatars/jon.svg",
+        "achievements": [],
+        "friends": [],
+        "totalPoints": 0,
+        "sessionPoints": 0
+    },
+    {
+        "id": 8,
+        "username": "Jerry",
+        "password": "abc",
+        "avatar": "/user-avatars/jerry.svg",
+        "achievements": [],
+        "friends": [],
+        "totalPoints": 0,
+        "sessionPoints": 0
+    }
 ]

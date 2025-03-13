@@ -27,7 +27,7 @@
     export default {
         data() {
             return {
-                userStorage: useUserStorage() //gets userstorage data from storage.js
+                userStorage: useUserStorage()
             }
         }
     }
@@ -83,10 +83,4 @@
         font-weight: 500;
         margin: 0;
     }
-    /* @media (min-width: 700px) {
-        #players-wrapper {
-            flex-direction: column;
-            gap: 0;
-        }
-    } */
 </style>

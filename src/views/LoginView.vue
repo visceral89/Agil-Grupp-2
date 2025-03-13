@@ -70,20 +70,17 @@
                 loginGuestname: "",
                 loginPassword: "",
                 loginUsername: "",
-                //users: users, //Överflödigt??
                 userStorage: useUserStorage()
             }
         },
         methods: {
             handleLogin() {
-                //Se ifall värdet i input-fälten stämmer överens med någon användare i users.json
                 const loggedInUser = users.find(
                     (user) =>
                         user.username === this.loginUsername &&
                         user.password === this.loginPassword
                 )
 
-                //Om värdet stämmer omdirigera till startskärmen, annars generera ett felmeddelande
                 if (loggedInUser) {
                     this.userStorage.loginUser(loggedInUser)
                     this.$router.push("/start")
@@ -93,16 +90,13 @@
                 }
             },
             handleGuestLogin() {
-                //Se ifall input-fältet för Gästnamn inte är tomt
                 if (this.loginGuestname.length > 0) {
                     const loggedInGuest = this.userStorage.guestUser
                     loggedInGuest.username = this.loginGuestname
 
-                    //Nollställ ev. tidigare guestUser-data
                     this.userStorage.guestUser.totalPoints = 0
                     this.userStorage.guestUser.achievements = []
 
-                    //Logga in ny guestUser
                     this.userStorage.loggedInGuestUser = true
                     this.userStorage.loginUser(loggedInGuest)
                     this.$router.push("/start")
@@ -117,7 +111,6 @@
             }
         },
         created() {
-            // Clears the players from previous values. Setting to null.
             this.userStorage.logoutUser()
             this.userStorage.clearPlayers()
         }

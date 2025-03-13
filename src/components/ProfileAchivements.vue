@@ -24,7 +24,7 @@
     export default {
         data() {
             return {
-                userStorage: useUserStorage() //gets userstorage data from storage.js
+                userStorage: useUserStorage()
             }
         }
     }

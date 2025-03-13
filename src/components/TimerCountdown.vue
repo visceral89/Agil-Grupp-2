@@ -35,14 +35,12 @@
         </div>
     </div>
 </template>
-
 <script>
     import { useUserStorage } from "../stores/storage"
-
     export default {
         data() {
             return {
-                userStorage: useUserStorage(), //gets userstorage data from storage.js
+                userStorage: useUserStorage(),
                 timeLimit: 20,
                 timePassed: 0,
                 timeLeft: 20,
@@ -59,14 +57,12 @@
         },
         methods: {
             formatTimeLeft(time) {
-                const minutes = Math.floor(time / 60) //gets minutes and seconds for timer
+                const minutes = Math.floor(time / 60)
                 let seconds = time % 60
 
                 if (seconds < 10) {
-                    //if seconds is less than 10, it displays a 0 before the number
                     seconds = `0${seconds}`
                 }
-
                 return `${minutes}:${seconds}`
             },
             startTimer() {
@@ -75,19 +71,18 @@
                         clearInterval(this.timerInterval)
                         return
                     }
-
                     if (this.timeLeft > 0) {
                         this.timePassed++
                         this.timeLeft = this.timeLimit - this.timePassed
 
-                        this.setColor() //update color based on time left
+                        this.setColor()
                         this.setCircleDasharray()
 
                         if (this.timeLeft === 0) {
                             this.userStorage.checkTimeLeft()
                         }
                     } else {
-                        clearInterval(this.timerInterval) //stops timer at 0
+                        clearInterval(this.timerInterval)
                     }
                 }, 1000)
             },

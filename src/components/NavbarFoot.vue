@@ -24,13 +24,6 @@
                     ></router-link
                 >
             </div>
-            <!--
-					<div class="navbar-submenu" v-if="isSubMenuOpen">
-						<router-link to="/" style="display: contents"></router-link>
-						<router-link to="/" style="display: contents"></router-link>
-						<router-link to="/" style="display: contents"></router-link>
-					</div>
-					-->
         </div>
     </nav>
 </template>
@@ -43,10 +36,6 @@
         methods: {
             toggleSubMenu() {
                 this.isSubMenuOpen = !this.isSubMenuOpen
-            },
-            handleLogout() {
-                // We clear the loggedInUser and also Player 1 & 2. Theese gets re-added on login.
-                console.log("Logout logik flyttad till /")
             }
         }
     }
